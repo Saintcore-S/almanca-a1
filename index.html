@@ -73,4 +73,165 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
 #cf{
   background:linear-gradient(155deg,var(--cbg) 0%,#080810 100%);
   border:1.5px solid var(--acc50);
-  box-shadow:0 10px 40px
+  box-shadow:0 10px 40px var(--acc18),inset 0 1px 0 rgba(255,255,255,0.15);
+  gap:12px;
+}
+#cb{
+  transform:rotateY(180deg);
+  background:linear-gradient(155deg,#121820 0%,#06060c 100%);
+  border:1.5px solid var(--acc50);
+  box-shadow:0 10px 45px var(--acc25),inset 0 1px 0 rgba(255,255,255,0.1);
+  justify-content:space-between;padding:22px 22px 18px;
+}
+.sdot{position:absolute;top:16px;right:16px;width:10px;height:10px;border-radius:50%;display:none}
+.sdot.k{background:#22C55E;box-shadow:0 0 10px #22C55E;display:block}
+.sdot.u{background:#EF4444;box-shadow:0 0 10px #EF4444;display:block}
+
+/* Front */
+#fbadge{border-radius:30px;padding:6px 18px;font-size:13px;font-weight:800;letter-spacing:1.5px;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+#femoji{font-size:72px;filter:blur(10px);opacity:.4;line-height:1;user-select:none;pointer-events:none}
+#fword{color:#fff;font-size:36px;font-weight:800;letter-spacing:-1px;text-align:center;line-height:1.15;text-shadow:0 2px 10px rgba(0,0,0,0.3);padding:0 10px;word-break:break-word}
+#ftip{position:absolute;bottom:16px;color:#ffffff55;font-size:12px;display:flex;align-items:center;gap:4px;font-weight:500}
+
+/* Back top */
+#btop{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;justify-content:center;width:100%}
+#bemoji{font-size:72px;line-height:1;filter:drop-shadow(0 4px 15px rgba(255,255,255,.15))}
+#btr{font-size:26px;font-weight:800;text-align:center;line-height:1.2;letter-spacing:-.3px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.4);padding:0 10px}
+#bde{color:var(--txt);font-size:15px;font-weight:600;background:rgba(255,255,255,0.06);padding:3px 10px;border-radius:8px}
+  
+#bleg{display:flex;gap:14px;align-items:center;margin-top:4px}
+.li{font-size:12px;display:flex;align-items:center;gap:5px}
+.ld{width:6px;height:6px;border-radius:50%;display:inline-block}
+
+/* Sentence Area */
+#sblk{width:100%;border-top:1px solid #ffffff1a;padding-top:14px;display:flex;flex-direction:column;gap:6px}
+#sde{color:#ffffffdd;font-size:14.5px;line-height:1.5;text-align:center;font-weight:500}
+#sde b{color:var(--acc);font-weight:800}
+#str{color:#ffffff4d;font-size:12.5px;font-weight:400;text-align:center;line-height:1.4;padding:0 5px}
+
+/* Actions */
+#acts{padding:12px 18px;display:flex;gap:10px;width:100%;max-width:430px}
+.bnav{width:46px;height:48px;border-radius:14px;background:#ffffff14;border:1px solid #ffffff22;color:#ffffffcc;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:inherit;transition:background .1s;-webkit-user-select:none}
+.bnav:active{background:#ffffff25}
+.bact{flex:1;height:48px;border-radius:14px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;-webkit-user-select:none;transition:transform 0.1s, opacity .1s}
+.bact:active{transform:scale(0.97);opacity:0.9}
+#bunk{background:#EF4444;border:1px solid #EF4444;color:#fff;box-shadow:0 4px 12px rgba(239,68,68,0.25)}
+#bkno{background:#22C55E;border:1px solid #22C55E;color:#fff;box-shadow:0 4px 12px rgba(34,197,94,0.25)}
+
+/* Legend */
+#leg{padding:6px 0 12px;display:flex;gap:16px;justify-content:center;z-index:1;position:relative}
+.ll{display:flex;align-items:center;gap:6px;font-size:12px;color:#ffffff66;font-weight:500}
+.lld{width:8px;height:8px;border-radius:50%}
+
+/* Install modal */
+#imod{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:#000000bb;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+#imod.h{display:none}
+.mc{background:#161624;border-radius:24px 24px 0 0;padding:24px 20px;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));width:100%;max-width:430px;border:1px solid #ffffff1a;border-bottom:none}
+.mt{color:#fff;font-size:19px;font-weight:700;margin-bottom:4px}
+.ms{color:#ffffff77;font-size:14px;margin-bottom:18px}
+.ist{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.isn{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px var(--acc18)}
+.ist p{color:#ffffffdd;font-size:14px;line-height:1.5;padding-top:2px}
+.ist p b{color:#fff;font-weight:700}
+#imod hr{border:none;border-top:1px solid #ffffff1a;margin:16px 0}
+.wt{color:#ffffffaa;font-size:13px;font-weight:600;text-align:center;margin-bottom:12px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.wcard{background:#ffffff0d;border:1px solid #ffffff1a;border-radius:14px;padding:12px;text-align:center}
+.wcard .we{font-size:24px;margin-bottom:6px}
+.wcard .wl{color:#ffffffaa;font-size:11.5px;line-height:1.4}
+.mcl{width:100%;padding:14px;background:var(--acc);border:none;border-radius:14px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 12px var(--acc20)}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="glow"></div>
+
+  <div id="ibar" class="w">
+    <span>📲 Çevrimdışı kullan — Ana ekrana ekle</span>
+    <button class="ib" onclick="showI()">Nasıl?</button>
+    <button class="ix" onclick="hideBar()">✕</button>
+  </div>
+
+  <div id="hdr" class="w">
+    <div class="tblock">
+      <div class="sub">Goethe Institut · A1</div>
+      <div class="ttl">Wortliste (A-Z)</div>
+    </div>
+    <div class="spill">
+      <span class="sk" id="sk">✓ 0</span>
+      <span class="ss">|</span>
+      <span class="su" id="su">✗ 0</span>
+    </div>
+  </div>
+
+  <div id="cscroll" class="w"></div>
+
+  <div id="prog" class="w">
+    <div id="prow"><span id="plbl">0 / 0</span><span id="ppct">0%</span></div>
+    <div id="ptrack"><div id="pfill" style="width:0%"></div></div>
+  </div>
+
+  <div id="carea" class="w">
+    <div id="cwrap">
+      <div id="cinner">
+        <div class="face" id="cf">
+          <div class="sdot" id="sd1"></div>
+          <div id="fbadge"></div>
+          <div id="femoji"></div>
+          <div id="fword">Yükleniyor...</div>
+          <div id="ftip">👆 Çevirmek için dokun</div>
+        </div>
+        <div class="face" id="cb">
+          <div class="sdot" id="sd2"></div>
+          <div id="btop">
+            <div id="bemoji"></div>
+            <div id="btr"></div>
+            <div id="bde"></div>
+            <div id="bleg"></div>
+          </div>
+          <div id="sblk">
+            <div id="sde"></div>
+            <div id="str"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="acts">
+    <button class="bnav" id="bprev">‹</button>
+    <button class="bact" id="bunk">✗ Bilmiyorum</button>
+    <button class="bact" id="bkno">✓ Biliyorum</button>
+    <button class="bnav" id="bnxt">›</button>
+  </div>
+
+  <div id="leg" class="w">
+    <div class="ll"><div class="lld" style="background:#3B82F6"></div>der</div>
+    <div class="ll"><div class="lld" style="background:#EF4444"></div>die</div>
+    <div class="ll"><div class="lld" style="background:#22C55E"></div>das</div>
+    <div class="ll"><div class="lld" style="background:#A78BFA"></div>diğer</div>
+  </div>
+</div>
+
+<div id="imod" class="h" onclick="if(event.target===this)hideI()">
+  <div class="mc">
+    <div class="mt">📲 Ana Ekrana Ekle</div>
+    <div class="ms">İnternet olmadan, uygulama gibi kullan</div>
+    <div class="ist"><div class="isn">1</div><p>Bu sayfayı <b>Safari</b>'de aç<br><span style="color:#ffffff44;font-size:11px">Chrome'daysan: safaride açmayı unutma</span></p></div>
+    <div class="ist"><div class="isn">2</div><p>Alttaki <b>Paylaş</b> ↑ ikonuna dokun</p></div>
+    <div class="ist"><div class="isn">3</div><p><b>"Ana Ekrana Ekle"</b> → <b>Ekle</b> — Bitti!</p></div>
+    <hr>
+    <div class="wt">🔒 Kilit Ekranı Widget</div>
+    <div class="wgrid">
+      <div class="wcard"><div class="we">⚙️</div><div class="wl"><b>Ayarlar</b> → Duvar Kağıdı → Özelleştir → + Widget</div></div>
+      <div class="wcard"><div class="we">🔗</div><div class="wl"><b>Kısayollar</b> uygulamasından kısayol oluştur → Kilit ekranına ekle</div></div>
+    </div>
+    <button class="mcl" onclick="hideI()">Tamam, Anladım</button>
+  </div>
+</div>
+
+<script>
+// Güvenli renk tanımlamaları
+const AC={
+  der: {bg:"#11253c",acc:"#3B82F6",badge:"#2563EB",txt:"#93C5FD",a20:"rgba(59,130,246,.35)",a33:"rgba(59,130,246,.55)",a44:"rgba(59,130,246,.70)",a50:"rgba(59,130,246,.85)",a18:"rgba(59,130,246,.25)",a22:"rgba(59,130,246,.40)",a25:"rgba(59,130,246,.45)"},
+  die: {bg:"#361414",acc:"#EF4444",badge:"#DC2626",txt:"#FCA5A5",a20:"rgba(239,68,68,.35)",  a33:"rgba(239,68,68,.55)",  a44:"rgba(239,68,68,.70)",  a50:"rgba(239,68
