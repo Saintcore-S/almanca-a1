@@ -1,478 +1,52 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Almanca A1">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#0a0a14">
-<title>Almanca A1 — Kelime Kartları</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-:root{--acc:#3B82F6;--acc20:rgba(59,130,246,.2);--acc33:rgba(59,130,246,.33);--acc44:rgba(59,130,246,.44);--acc50:rgba(59,130,246,.5);--acc18:rgba(59,130,246,.18);--acc22:rgba(59,130,246,.22);--acc25:rgba(59,130,246,.25);--badge:#2563EB;--txt:#93C5FD;--cbg:#1a3a5c}
-html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
-#app{width:100%;height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
-#glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 0%,var(--acc18) 0%,transparent 65%);transition:background .25s}
-.w{position:relative;z-index:1;width:100%;max-width:430px}
-
-/* Install bar */
-#ibar{background:#ffffff0a;border-bottom:1px solid #ffffff0d;padding:9px 14px;display:flex;align-items:center;gap:8px}
-#ibar span{color:#ffffff66;font-size:11.5px;flex:1}
-#ibar .ib{background:var(--acc20);border:1px solid var(--acc44);color:var(--txt);font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px;cursor:pointer;font-family:inherit}
-#ibar .ix{background:none;border:none;color:#ffffff33;font-size:15px;cursor:pointer;padding:0 2px;line-height:1}
-
-/* Header */
-#hdr{padding:10px 18px 6px;display:flex;align-items:center;justify-content:space-between}
-.tblock .sub{color:#ffffff44;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:1px}
-.tblock .ttl{color:#fff;font-size:19px;font-weight:800;letter-spacing:-.5px}
-.spill{background:#ffffff0d;border:1px solid #ffffff10;border-radius:20px;padding:5px 11px;display:flex;gap:7px;align-items:center}
-.sk{color:#22C55E;font-size:12px;font-weight:700}
-.su{color:#EF4444;font-size:12px;font-weight:700}
-.ss{color:#ffffff22;font-size:11px}
-
-/* Categories */
-#cscroll{overflow-x:auto;white-space:nowrap;padding:0 16px 7px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-#cscroll::-webkit-scrollbar{display:none}
-.cb{display:inline-block;padding:5px 13px;margin-right:5px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid #ffffff12;background:#ffffff07;color:#ffffff77;font-family:inherit}
-.cb.on{background:var(--acc20);border-color:var(--acc50);color:#fff}
-
-/* Progress */
-#prog{padding:0 18px 7px}
-#prow{display:flex;justify-content:space-between;margin-bottom:4px}
-#plbl{color:#ffffff33;font-size:11px}
-#ppct{font-size:11px;font-weight:700;color:var(--txt)}
-#ptrack{height:2.5px;background:#ffffff0e;border-radius:3px;overflow:hidden}
-#pfill{height:100%;border-radius:3px;transition:width .18s ease}
-
-/* Card */
-#carea{flex:1;padding:0 18px;display:flex;flex-direction:column;justify-content:flex-start;min-height:0}
-#cwrap{width:100%;aspect-ratio:4/5.2;perspective:1200px;cursor:pointer;max-height:calc(100svh - 300px)}
-#cinner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .18s ease;will-change:transform}
-#cinner.flip{transform:rotateY(180deg)}
-.face{
-  position:absolute;width:100%;height:100%;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  border-radius:24px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:22px 20px;overflow:hidden;
-}
-#cf{
-  background:linear-gradient(155deg,var(--cbg) 0%,#0d0d1a 100%);
-  border:1px solid var(--acc33);
-  box-shadow:0 0 50px var(--acc18),inset 0 1px 0 var(--acc22);
-  gap:10px;
-}
-#cb{
-  transform:rotateY(180deg);
-  background:linear-gradient(155deg,#0e1318 0%,#0a0a14 100%);
-  border:1px solid var(--acc44);
-  box-shadow:0 0 60px var(--acc25),inset 0 1px 0 var(--acc33);
-  justify-content:space-between;padding:20px 20px 16px;
-}
-.sdot{position:absolute;top:15px;right:15px;width:8px;height:8px;border-radius:50%;display:none}
-.sdot.k{background:#22C55E;box-shadow:0 0 8px #22C55E;display:block}
-.sdot.u{background:#EF4444;box-shadow:0 0 8px #EF4444;display:block}
-
-/* Front */
-#fbadge{border-radius:30px;padding:5px 17px;font-size:15px;font-weight:700;letter-spacing:1px}
-#femoji{font-size:68px;filter:blur(14px);opacity:.3;line-height:1;user-select:none;pointer-events:none}
-#fword{color:#fff;font-size:38px;font-weight:800;letter-spacing:-1px;text-align:center;line-height:1.1}
-#ftip{position:absolute;bottom:14px;color:#ffffff2a;font-size:11px;display:flex;align-items:center;gap:4px}
-
-/* Back top */
-#btop{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;justify-content:center;width:100%}
-#bemoji{font-size:72px;line-height:1;filter:drop-shadow(0 0 20px rgba(255,255,255,.12))}
-#btr{font-size:26px;font-weight:800;text-align:center;line-height:1.2;letter-spacing:-.3px;color:var(--txt)}
-#bde{color:#ffffff44;font-size:13px;font-weight:500}
-#bleg{display:flex;gap:12px;align-items:center}
-.li{font-size:11px;display:flex;align-items:center;gap:4px}
-.ld{width:5px;height:5px;border-radius:50%;display:inline-block}
-
-/* Sentence */
-#sblk{width:100%;border-top:1px solid #ffffff0d;padding-top:11px;display:flex;flex-direction:column;gap:3px}
-#sde{color:#ffffffbb;font-size:13px;line-height:1.5;text-align:center}
-#sde b{color:#fff;font-weight:700}
-#str{color:#ffffff3a;font-size:12px;font-style:italic;text-align:center;line-height:1.4}
-
-/* Actions */
-#acts{padding:8px 18px 0;display:flex;gap:7px;width:100%;max-width:430px}
-.bnav{width:42px;height:46px;border-radius:13px;background:#ffffff09;border:1px solid #ffffff12;color:#ffffff66;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:inherit;transition:background .1s;-webkit-user-select:none}
-.bnav:active{background:#ffffff18}
-.bact{flex:1;height:46px;border-radius:13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:4px;-webkit-user-select:none;transition:opacity .1s}
-.bact:active{opacity:.7}
-.bno{background:#EF444410;border:1px solid #EF444425;color:#FCA5A5}
-.byes{background:#22C55E10;border:1px solid #22C55E25;color:#86EFAC}
-
-/* Legend */
-#leg{padding:8px 0 6px;display:flex;gap:14px;justify-content:center;z-index:1;position:relative}
-.ll{display:flex;align-items:center;gap:5px;font-size:11px;color:#ffffff3a}
-.lld{width:6px;height:6px;border-radius:50%}
-
-/* Install modal */
-#imod{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:#00000099;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-#imod.h{display:none}
-.mc{background:#161624;border-radius:24px 24px 0 0;padding:22px 20px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));width:100%;max-width:430px;border:1px solid #ffffff13;border-bottom:none}
-.mt{color:#fff;font-size:17px;font-weight:700;margin-bottom:3px}
-.ms{color:#ffffff55;font-size:13px;margin-bottom:16px}
-.ist{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
-.isn{width:27px;height:27px;border-radius:50%;background:var(--acc20);border:1.5px solid var(--acc44);color:var(--txt);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ist p{color:#ffffffbb;font-size:13px;line-height:1.5;padding-top:3px}
-.ist p b{color:#fff}
-#imod hr{border:none;border-top:1px solid #ffffff0d;margin:14px 0}
-.wt{color:#ffffff88;font-size:12px;text-align:center;margin-bottom:10px}
-.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.wcard{background:#ffffff08;border:1px solid #ffffff12;border-radius:14px;padding:10px 12px;text-align:center}
-.wcard .we{font-size:22px;margin-bottom:4px}
-.wcard .wl{color:#ffffff88;font-size:11px;line-height:1.4}
-.mcl{width:100%;padding:12px;background:#ffffff0d;border:1px solid #ffffff12;border-radius:13px;color:#ffffffbb;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
-</style>
+    <meta charset="UTF-8">
+    <title>Almanca Kelimeler</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .kelime-kart { border: 1px solid #ccc; padding: 10px; margin: 5px; border-radius: 8px; }
+        .almanca { font-weight: bold; color: blue; }
+    </style>
 </head>
 <body>
-<div id="app">
-  <div id="glow"></div>
 
-  <div id="ibar" class="w">
-    <span>📲 Çevrimdışı kullan — Ana ekrana ekle</span>
-    <button class="ib" onclick="showI()">Nasıl?</button>
-    <button class="ix" onclick="hideBar()">✕</button>
-  </div>
+    <h1>Kelime Listem</h1>
+    <div id="liste-alani"></div>
 
-  <div id="hdr" class="w">
-    <div class="tblock">
-      <div class="sub">Almanca · A1 · Goethe</div>
-      <div class="ttl">Kelime Kartları</div>
-    </div>
-    <div class="spill">
-      <span class="sk" id="sk">✓ 0</span>
-      <span class="ss">|</span>
-      <span class="su" id="su">✗ 0</span>
-    </div>
-  </div>
-
-  <div id="cscroll" class="w"></div>
-
-  <div id="prog" class="w">
-    <div id="prow"><span id="plbl">1 / 100</span><span id="ppct">1%</span></div>
-    <div id="ptrack"><div id="pfill" style="width:1%"></div></div>
-  </div>
-
-  <div id="carea" class="w">
-    <div id="cwrap">
-      <div id="cinner">
-        <div class="face" id="cf">
-          <div class="sdot" id="sd1"></div>
-          <div id="fbadge"></div>
-          <div id="femoji"></div>
-          <div id="fword"></div>
-          <div id="ftip">👆 Çevirmek için dokun</div>
-        </div>
-        <div class="face" id="cb">
-          <div class="sdot" id="sd2"></div>
-          <div id="btop">
-            <div id="bemoji"></div>
-            <div id="btr"></div>
-            <div id="bde"></div>
-            <div id="bleg"></div>
-          </div>
-          <div id="sblk">
-            <div id="sde"></div>
-            <div id="str"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="acts">
-    <button class="bnav" id="bprev">‹</button>
-    <button class="bact bno" id="bunk">✗ Bilmiyorum</button>
-    <button class="bact byes" id="bkno">✓ Biliyorum</button>
-    <button class="bnav" id="bnxt">›</button>
-  </div>
-
-  <div id="leg" class="w">
-    <div class="ll"><div class="lld" style="background:#3B82F6"></div>der</div>
-    <div class="ll"><div class="lld" style="background:#EF4444"></div>die</div>
-    <div class="ll"><div class="lld" style="background:#22C55E"></div>das</div>
-    <div class="ll"><div class="lld" style="background:#A78BFA"></div>fiil/sıfat</div>
-  </div>
-</div>
-
-<div id="imod" class="h" onclick="if(event.target===this)hideI()">
-  <div class="mc">
-    <div class="mt">📲 Ana Ekrana Ekle</div>
-    <div class="ms">İnternet olmadan, uygulama gibi kullan</div>
-    <div class="ist"><div class="isn">1</div><p>Bu sayfayı <b>Safari</b>'de aç<br><span style="color:#ffffff44;font-size:11px">Chrome'daysan: safari.com yazıp git</span></p></div>
-    <div class="ist"><div class="isn">2</div><p>Alttaki <b>Paylaş</b> ↑ ikonuna dokun</p></div>
-    <div class="ist"><div class="isn">3</div><p><b>"Ana Ekrana Ekle"</b> → <b>Ekle</b> — Bitti!</p></div>
-    <hr>
-    <div class="wt">🔒 Kilit Ekranı Widget</div>
-    <div class="wgrid">
-      <div class="wcard"><div class="we">⚙️</div><div class="wl"><b>Ayarlar</b> → Duvar Kağıdı → Özelleştir → + Widget</div></div>
-      <div class="wcard"><div class="we">🔗</div><div class="wl"><b>Kısayollar</b> uygulamasından kısayol oluştur → Kilit ekranına ekle</div></div>
-    </div>
-    <button class="mcl" onclick="hideI()">Tamam, Anladım</button>
-  </div>
-</div>
-
-<script>
-const AC={
- der: {bg:"#0a1929",acc:"#3B82F6",badge:"#2563EB",txt:"#93C5FD",a20:"rgba(59,130,246,.25)",a33:"rgba(59,130,246,.4)",a44:"rgba(59,130,246,.5)",a50:"rgba(59,130,246,.6)",a18:"rgba(59,130,246,.15)",a22:"rgba(59,130,246,.2)",a25:"rgba(59,130,246,.25)"},
-  die: {bg:"#290a0a",acc:"#EF4444",badge:"#DC2626",txt:"#FCA5A5",a20:"rgba(239,68,68,.25)", a33:"rgba(239,68,68,.4)", a44:"rgba(239,68,68,.5)", a50:"rgba(239,68,68,.6)", a18:"rgba(239,68,68,.15)", a22:"rgba(239,68,68,.2)", a25:"rgba(239,68,68,.25)"},
-  das: {bg:"#0a2919",acc:"#22C55E",badge:"#16A34A",txt:"#86EFAC",a20:"rgba(34,197,94,.25)", a33:"rgba(34,197,94,.4)", a44:"rgba(34,197,94,.5)", a50:"rgba(34,197,94,.6)", a18:"rgba(34,197,94,.15)", a22:"rgba(34,197,94,.2)", a25:"rgba(34,197,94,.25)"},
-  null:{bg:"#151520",acc:"#A78BFA",badge:"#7C3AED",txt:"#C4B5FD",a20:"rgba(167,139,250,.25)",a33:"rgba(167,139,250,.4)",a44:"rgba(167,139,250,.5)",a50:"rgba(167,139,250,.6)",a18:"rgba(167,139,250,.15)",a22:"rgba(167,139,250,.2)",a25:"rgba(167,139,250,.25)"}
-};
-
-// [article|null, german, turkish, emoji, category, de_sentence, tr_sentence]
-const D = [
-  ["-", "ab", "itibaren", "📅", "zaman", "Ab morgen muss ich arbeiten.", "Yarından itibaren çalışmak zorundayım."],
-  ["-", "aber", "ama", "⚖️", "bağlaç", "Ich bin oft im Büro, aber nur für wenige Stunden.", "Sık sık ofisteyim ama sadece birkaç saat."],
-  ["-", "abfahren", "hareket etmek", "🚌", "ulaşım", "Wir fahren um zwölf Uhr ab.", "Saat on ikide hareket ediyoruz."],
-  ["die", "Abfahrt", "kalkış", "🚉", "ulaşım", "Vor der Abfahrt rufe ich an.", "Hareketten önce ararım."],
-  ["-", "abgeben", "teslim etmek", "📦", "fiil", "Ich muss meine Schlüssel abgeben.", "Anahtarlarımı teslim etmeliyim."],
-  ["-", "abholen", "gidip almak", "🚗", "fiil", "Wann kann ich den Schrank bei dir abholen?", "Dolabı senden ne zaman alabilirim?"],
-  ["der", "Absender", "gönderen", "✉️", "posta", "Da ist ein Brief für dich ohne Absender.", "Gönderensiz bir mektup var."],
-  ["-", "Achtung", "dikkat", "⚠️", "uyarı", "Achtung! Das dürfen Sie nicht tun.", "Dikkat! Bunu yapamazsınız."],
-  ["die", "Adresse", "adres", "🏠", "iletişim", "Können Sie mir seine Adresse sagen?", "Bana onun adresini söyleyebilir misiniz?"],
-  ["-", "allein", "yalnız", "🚶", "sıfat", "Er kommt allein.", "O yalnız geliyor."],
-  ["-", "also", "yani", "➡️", "bağlaç", "Er hat Zeit, also muss er uns helfen.", "Vakti var, yani bize yardım etmeli."],
-  ["-", "alt", "yaşlı/eski", "👴", "sıfat", "Wie alt sind Sie?", "Kaç yaşındasınız?"],
-  ["das", "Alter", "yaş", "🎂", "kişisel", "Alter: 26 Jahre.", "Yaş: 26."],
-  ["-", "an", "yanında/-de", "📍", "edat", "Wir treffen uns am Bahnhof.", "Tren istasyonunda buluşuyoruz."],
-  ["-", "anbieten", "teklif etmek", "🤝", "fiil", "Was darf ich dir anbieten?", "Sana ne ikram edebilirim?"],
-  ["das", "Angebot", "teklif/indirim", "🏷️", "alışveriş", "Heute sind Sportschuhe im Angebot.", "Bugün spor ayakkabılar indirimde."],
-  ["-", "anfangen", "başlamak", "▶️", "fiil", "Der Unterricht fängt gleich an.", "Ders hemen başlıyor."],
-  ["der", "Anfang", "başlangıç", "🚩", "zaman", "Sie wohnt am Anfang der Straße.", "O sokağın başında oturuyor."],
-  ["-", "anklicken", "tıklamak", "🖱️", "teknoloji", "Da musst du dieses Wort anklicken.", "Bu kelimeye tıklamalısın."],
-  ["-", "ankommen", "varmak", "🚆", "ulaşım", "Wann kommt dieser Zug in Hamburg an?", "Bu tren Hamburg’a ne zaman varıyor?"],
-  ["die", "Ankunft", "varış", "🛬", "ulaşım", "Auf diesem Plan steht nur die Ankunftszeit der Züge.", "Bu planda sadece trenlerin varış saati yazıyor."],
-  ["-", "arbeiten", "çalışmak", "💼", "iş", "Wo arbeiten Sie?", "Nerede çalışıyorsunuz?"],
-  ["die", "Arbeit", "iş", "🛠️", "iş", "Mein Bruder sucht Arbeit.", "Kardeşim iş arıyor."],
-  ["der", "Arzt", "doktor", "👨‍⚕️", "sağlık", "Morgen habe ich einen Termin bei meiner Ärztin.", "Yarın doktor randevum var."],
-  ["das", "Auto", "araba", "🚗", "ulaşım", "Er kommt mit dem Auto.", "O arabayla geliyor."],
-  ["die", "Bäckerei", "fırın", "🥖", "alışveriş", "Ich geh mal schnell zur Bäckerei.", "Hızlıca fırına gidiyorum."],
-  ["der", "Bahnhof", "tren istasyonu", "🚉", "ulaşım", "Komme ich hier zum Bahnhof?", "Buradan istasyona gidilir mi?"],
-  ["die", "Banane", "muz", "🍌", "yiyecek", "Drei Bananen, bitte.", "Üç muz lütfen."],
-  ["die", "Bank", "banka/bank", "🏦", "mekan", "Die Bank schließt schon um vier Uhr.", "Banka saat dörtte kapanıyor."],
-  ["das", "Bett", "yatak", "🛏️", "ev", "Wir brauchen noch ein Kinderbett.", "Hâlâ bir çocuk yatağına ihtiyacımız var."],
-  ["das", "Bier", "bira", "🍺", "içecek", "Noch ein Bier bitte.", "Bir bira daha lütfen."],
-  ["der", "Brief", "mektup", "✉️", "posta", "Haben Sie einen Brief für mich?", "Benim için bir mektup var mı?"],
-  ["das", "Buch", "kitap", "📚", "eğitim", "Gute Bücher sind oft sehr teuer.", "İyi kitaplar genelde çok pahalıdır."],
-  ["der", "Bus", "otobüs", "🚌", "ulaşım", "Wann kommt der nächste Bus?", "Bir sonraki otobüs ne zaman geliyor?"],
-  ["das", "Café", "kafe", "☕", "mekan", "Sollen wir uns im Café treffen?", "Kafede buluşalım mı?"],
-  ["der", "Computer", "bilgisayar", "💻", "teknoloji", "Wann bekommst du deinen neuen Computer?", "Yeni bilgisayarını ne zaman alıyorsun?"],
-  ["das", "Datum", "tarih", "📅", "zaman", "Bitte schreiben Sie noch das Datum auf das Formular.", "Lütfen tarihi forma yazın."],
-  ["-", "danken", "teşekkür etmek", "🙏", "iletişim", "Ich danke Ihnen für die Einladung.", "Davetiniz için teşekkür ederim."],
-  ["die", "Disco", "disko", "🪩", "eğlence", "Heute Abend gehen wir in die Disco tanzen.", "Bu akşam diskoya dans etmeye gidiyoruz."],
-  ["-", "duschen", "duş almak", "🚿", "günlük hayat", "Ich dusche lieber.", "Duş almayı tercih ederim."],
-  ["die", "E-Mail", "e-posta", "📧", "iletişim", "Ich habe Ihre E-Mail nicht bekommen.", "E-postanızı almadım."],
-  ["das", "Essen", "yemek", "🍽️", "yiyecek", "Das Essen ist heute sehr gut.", "Bugünkü yemek çok güzel."],
-  ["die", "Familie", "aile", "👨‍👩‍👧", "aile", "Meine Familie lebt in Spanien.", "Ailem İspanya’da yaşıyor."],
-  ["das", "Foto", "fotoğraf", "📸", "medya", "Darf ich ein Foto machen?", "Fotoğraf çekebilir miyim?"],
-  ["die", "Freizeit", "boş zaman", "🎮", "günlük hayat", "In meiner Freizeit spiele ich oft Fußball.", "Boş zamanımda sık sık futbol oynarım."],
-  ["das", "Frühstück", "kahvaltı", "🥐", "yiyecek", "Möchtest du ein Ei zum Frühstück?", "Kahvaltıda yumurta ister misin?"],
-  ["der", "Fußball", "futbol", "⚽", "spor", "Spielt ihr gerne Fußball?", "Futbol oynamayı sever misiniz?"],
-  ["das", "Geld", "para", "💶", "finans", "Hast du noch Geld?", "Hâlâ paran var mı?"],
-  ["das", "Geschenk", "hediye", "🎁", "günlük hayat", "Danke für das schöne Geschenk.", "Güzel hediye için teşekkürler."],
-  ["das", "Glück", "şans/mutluluk", "🍀", "duygu", "Viel Glück!", "Bol şans!"],
-  ["-", "gratulieren", "kutlamak", "🎉", "iletişim", "Ich gratuliere dir!", "Seni kutluyorum!"],
-  ["das", "Handy", "cep telefonu", "📱", "teknoloji", "In der Schule bitte die Handys ausmachen!", "Lütfen okulda telefonları kapatın."],
-  ["das", "Haus", "ev", "🏠", "ev", "In welchem Haus wohnst du?", "Hangi evde oturuyorsun?"],
-  ["-", "heißen", "adı olmak", "🪪", "kişisel", "Ich heiße Charlotte Meier.", "Benim adım Charlotte Meier."],
-  ["das", "Hotel", "otel", "🏨", "seyahat", "Im Urlaub sind wir in einem Hotel am Meer.", "Tatilde deniz kenarında bir oteldeyiz."],
-  ["der", "Hund", "köpek", "🐶", "hayvan", "Der Hund ist noch genç.", "Köpek hâlâ genç."],
-  ["-", "interessieren", "ilgilenmek", "🤔", "fiil", "Ich interessiere mich für Musik.", "Müzikle ilgileniyorum."],
-  ["die", "Jacke", "ceket", "🧥", "giyim", "Zieh dir eine Jacke an.", "Üzerine bir ceket giy."],
-  ["der", "Job", "iş", "💼", "iş", "Jenny hat einen neuen Job bei der Post.", "Jenny postanede yeni bir iş buldu."],
-  ["der", "Kaffee", "kahve", "☕", "içecek", "Zum Frühstück trinke ich immer Kaffee.", "Kahvaltıda her zaman kahve içerim."],
-  ["die", "Karte", "kart", "🪪", "alışveriş", "Kann ich auch mit Karte bezahlen?", "Kartla da ödeyebilir miyim?"],
-  ["das", "Kind", "çocuk", "🧒", "aile", "Wie viele Kinder haben Sie?", "Kaç çocuğunuz var?"],
-  ["das", "Kino", "sinema", "🎬", "eğlence", "Wir sehen heute Abend im Kino einen schönen Film.", "Bu akşam sinemada güzel bir film izleyeceğiz."],
-  ["die", "Küche", "mutfak", "🍳", "ev", "Der neue Herd kommt in die Küche.", "Yeni ocak mutfağa geliyor."],
-  ["-", "lernen", "öğrenmek", "📖", "eğitim", "Wie lange lernen Sie schon Deutsch?", "Ne zamandır Almanca öğreniyorsunuz?"],
-  ["das", "Licht", "ışık", "💡", "ev", "Wo macht man hier das Licht an?", "Burada ışık nasıl açılıyor?"],
-  ["-", "machen", "yapmak", "🛠️", "fiil", "Was machst du heute Abend?", "Bu akşam ne yapıyorsun?"],
-  ["die", "Miete", "kira", "🏠", "ev", "Die Miete für diese Wohnung ist 600 Euro.", "Bu evin kirası 600 Euro."],
-  ["die", "Milch", "süt", "🥛", "içecek", "Die Milch steht im Kühlschrank.", "Süt buzdolabında."],
-  ["-", "müssen", "zorunda olmak", "❗", "modal fiil", "Ich muss jeden Tag arbeiten.", "Her gün çalışmak zorundayım."],
-  ["der", "Name", "isim", "🪪", "kişisel", "Mein Name ist Thomas Schmidt.", "Benim adım Thomas Schmidt."],
-  ["-", "nehmen", "almak", "🤲", "fiil", "Heute gibt es Hähnchen. Das nehme ich.", "Bugün tavuk var. Onu alıyorum."],
-  ["-", "öffnen", "açmak", "🚪", "fiil", "Ich öffne die Tür.", "Kapıyı açıyorum."],
-  ["die", "Party", "parti", "🎉", "eğlence", "Heute Abend machen wir eine Party.", "Bu akşam parti yapıyoruz."],
-  ["die", "Polizei", "polis", "👮", "meslek", "Holen Sie die Polizei!", "Polisi çağırın!"],
-  ["die", "Post", "posta", "📮", "iletişim", "Wo ist die Post?", "Postane nerede?"],
-  ["die", "Rechnung", "hesap/fatura", "🧾", "alışveriş", "Die Rechnung, bitte.", "Hesap lütfen."],
-  ["das", "Restaurant", "restoran", "🍽️", "mekan", "Wir essen heute in einem Restaurant.", "Bugün restoranda yemek yiyoruz."],
-  ["die", "Schule", "okul", "🏫", "eğitim", "Meine Tochter geht schon in die Schule.", "Kızım artık okula gidiyor."],
-  ["der", "Sport", "spor", "🏃", "spor", "Ich mache viel Sport.", "Çok spor yapıyorum."],
-  ["die", "Straße", "sokak", "🛣️", "şehir", "In welcher Straße wohnen Sie?", "Hangi sokakta oturuyorsunuz?"],
-  ["das", "Taxi", "taksi", "🚕", "ulaşım", "Er fährt mit dem Taxi.", "Taksiyle gidiyor."],
-  ["der", "Termin", "randevu", "📅", "iş", "Am besten machen wir sofort einen Termin.", "En iyisi hemen bir randevu yapalım."],
-  ["die", "Toilette", "tuvalet", "🚻", "mekan", "Wo ist die Toilette?", "Tuvalet nerede?"],
-  ["-", "trinken", "içmek", "🥤", "fiil", "Möchtest du etwas trinken?", "Bir şey içmek ister misin?"],
-  ["der", "Unterricht", "ders", "📚", "eğitim", "Wir haben Unterricht von 8 bis 12 Uhr.", "8 ile 12 arasında dersimiz var."],
-  ["der", "Urlaub", "tatil", "🏖️", "seyahat", "Ich nehme im September Urlaub.", "Eylülde tatile çıkıyorum."],
-  ["der", "Vater", "baba", "👨", "aile", "Mein Vater ist Arbeiter.", "Babam işçi."],
-  ["-", "verstehen", "anlamak", "🧠", "fiil", "Können Sie mich verstehen?", "Beni anlayabiliyor musunuz?"],
-  ["das", "Wetter", "hava durumu", "🌦️", "doğa", "Wir hatten schlechtes Wetter.", "Kötü hava vardı."],
-  ["-", "wohnen", "oturmak/yaşamak", "🏡", "ev", "Ich wohne in München.", "Münih’te oturuyorum."],
-  ["die", "Wohnung", "daire", "🏠", "ev", "Seit wann haben Sie diese Wohnung?", "Bu daireye ne zamandır sahipsiniz?"],
-  ["das", "Wort", "kelime", "🔤", "dil", "Ich kenne das Wort nicht.", "Bu kelimeyi bilmiyorum."],
-  ["die", "Zeit", "zaman", "⏰", "zaman", "Ich habe heute keine Zeit.", "Bugün vaktim yok."],
-  ["die", "Zeitung", "gazete", "📰", "medya", "Ich lese gern Zeitung.", "Gazete okumayı severim."],
-  ["das", "Zimmer", "oda", "🛏️", "ev", "Das Zimmer ist groß.", "Oda büyük."],
-  ["der", "Zug", "tren", "🚆", "ulaşım", "Ich fahre gern mit dem Zug.", "Trenle gitmeyi severim."],
-  ["-", "zusammen", "birlikte", "👫", "zarf", "Sollen wir zusammen essen gehen?", "Birlikte yemek yemeye gidelim mi?"],
-  ["-", "zwischen", "arasında", "↔️", "edat", "Heidelberg liegt zwischen Frankfurt und Stuttgart.", "Heidelberg, Frankfurt ile Stuttgart arasındadır."]
-];
-
-const words=D.map((r,i)=>({id:i,article:r[0],german:r[1],turkish:r[2],emoji:r[3],category:r[4],ds:r[5],ts:r[6]}));
-const cats=["Tümü",...[...new Set(words.map(w=>w.category))]];
-
-let S={cat:"Tümü",idx:0,flipped:false,known:new Set(),unknown:new Set(),list:words,tx:null};
-
-function cur(){return S.list[S.idx]||S.list[0]}
-function fl(id){return document.getElementById(id)}
-
-function applyColors(ac){
-  const r=document.documentElement.style;
-  r.setProperty("--acc",ac.acc);r.setProperty("--acc20",ac.a20);r.setProperty("--acc33",ac.a33);
-  r.setProperty("--acc44",ac.a44);r.setProperty("--acc50",ac.a50);r.setProperty("--acc18",ac.a18);
-  r.setProperty("--acc22",ac.a22);r.setProperty("--acc25",ac.a25);r.setProperty("--badge",ac.badge);
-  r.setProperty("--txt",ac.txt);r.setProperty("--cbg",ac.bg);
- fl("glow").style.background=`radial-gradient(ellipse at 50% 0%,${ac.a18} 0%,transparent 60%)`;
-  fl("cf").style.cssText=`background:linear-gradient(180deg,${ac.bg} 0%,#05050a 100%);border:1px solid ${ac.a33};box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 1px 0 ${ac.a22};gap:10px;`;
-  fl("cb").style.cssText=`transform:rotateY(180deg);background:linear-gradient(180deg,#101015 0%,#050505 100%);border:1px solid ${ac.a44};box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 1px 0 ${ac.a33};justify-content:space-between;padding:20px 20px 16px;`;
- fl("pfill").style.background=`linear-gradient(90deg,${ac.badge},${ac.acc})`;
-  fl("ppct").style.color=ac.txt;
-}
-
-function boldify(sentence,word){
-  if(!sentence)return"";
-  const esc=word.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
-  return sentence.replace(new RegExp("("+esc+")","gi"),"<b>$1</b>");
-}
-
-function render(){
-  const c=cur();
-  const ac=AC[c.article||"null"];
-  applyColors(ac);
-
-  // Front badge
-  const bd=fl("fbadge");
-  if(c.article){bd.style.cssText=`background:${ac.a20};border:1.5px solid ${ac.badge}88;color:${ac.txt};border-radius:30px;padding:5px 17px;font-size:15px;font-weight:700;letter-spacing:1px`;bd.textContent=c.article;}
-  else{bd.style.cssText=`background:#A78BFA22;border:1.5px solid #A78BFA44;color:#C4B5FD;border-radius:30px;padding:5px 17px;font-size:11px;font-weight:700;letter-spacing:2px`;bd.textContent=c.category.toUpperCase();}
-  fl("femoji").textContent=c.emoji;
-  fl("fword").textContent=c.article?c.article+" "+c.german:c.german;
-
-  // Back
-  fl("bemoji").textContent=c.emoji;
-  fl("btr").style.color=ac.txt;fl("btr").textContent=c.turkish;
-  fl("bde").textContent=c.article?c.article+" "+c.german:c.german;
-
-  const leg=fl("bleg");
-  if(c.article){
-    leg.style.display="flex";
-    leg.innerHTML=[["der","#3B82F6"],["die","#EF4444"],["das","#22C55E"]].map(([a,col])=>
-      `<div class="li" style="color:${a===c.article?col:"#ffffff22"};font-weight:${a===c.article?700:400}"><span class="ld" style="background:${col};opacity:${a===c.article?1:0.2}"></span>${a}</div>`
-    ).join("");
-  } else leg.style.display="none";
-
-  fl("sde").innerHTML=boldify(c.ds,c.german);
-  fl("str").textContent="("+c.ts+")";
-
-  // Status dots
-  const k=S.known.has(c.id),u=S.unknown.has(c.id);
-  ["sd1","sd2"].forEach(id=>{const d=fl(id);d.className="sdot"+(k?" k":u?" u":"");});
-
-  // Progress
-  const pct=Math.round((S.idx+1)/S.list.length*100);
-  fl("plbl").textContent=(S.idx+1)+" / "+S.list.length;
-  fl("ppct").textContent=pct+"%";
-  fl("pfill").style.width=pct+"%";
-
-  // Stats
-  fl("sk").textContent="✓ "+S.known.size;
-  fl("su").textContent="✗ "+S.unknown.size;
-
-  // Cat buttons
-  document.querySelectorAll(".cb").forEach(b=>{
-    const on=b.dataset.cat===S.cat;
-    b.classList.toggle("on",on);
-  });
-}
-
-function flip(){S.flipped=!S.flipped;fl("cinner").classList.toggle("flip",S.flipped);}
-
-function go(d){
-  S.idx=(S.idx+d+S.list.length)%S.list.length;
-  S.flipped=false;fl("cinner").classList.remove("flip");
-  render();
-}
-
-function markK(){S.known.add(cur().id);S.unknown.delete(cur().id);go(1);}
-function markU(){S.unknown.add(cur().id);S.known.delete(cur().id);go(1);}
-
-function setCat(cat){
-  S.cat=cat;S.list=cat==="Tümü"?words:words.filter(w=>w.category===cat);
-  S.idx=0;S.flipped=false;fl("cinner").classList.remove("flip");
-  render();
-}
-
-function buildCats(){
-  fl("cscroll").innerHTML=cats.map(cat=>
-    `<button class="cb${cat===S.cat?" on":""}" data-cat="${cat}" onclick="setCat('${cat.replace(/'/g,"\\'")}')">` +cat+"</button>"
-  ).join("");
-}
-
-// Touch handling
-const cw=fl("cwrap");
-let tx=null,moved=false;
-cw.addEventListener("touchstart",e=>{tx=e.touches[0].clientX;moved=false;},{passive:true});
-cw.addEventListener("touchmove",()=>{moved=true;},{passive:true});
-cw.addEventListener("touchend",e=>{
-  if(tx===null)return;
-  const diff=tx-e.changedTouches[0].clientX;
-  if(Math.abs(diff)>45&&moved){diff>0?go(1):go(-1);}
-  else if(!moved){flip();}
-  e.preventDefault();tx=null;moved=false;
-});
-cw.addEventListener("click",()=>{if(!moved)flip();});
-
-// Buttons
-fl("bprev").addEventListener("click",()=>go(-1));
-fl("bnxt").addEventListener("click",()=>go(1));
-fl("bkno").addEventListener("click",markK);
-fl("bunk").addEventListener("click",markU);
-
-// Keyboard
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight")go(1);
-  else if(e.key==="ArrowLeft")go(-1);
-  else if(e.key===" "){e.preventDefault();flip();}
-  else if(e.key==="k")markK();
-  else if(e.key==="u")markU();
-});
-
-function showI(){fl("imod").classList.remove("h");}
-function hideI(){fl("imod").classList.add("h");}
-function hideBar(){fl("ibar").style.display="none";}
-
-// Hide install bar if already standalone
-if(navigator.standalone||window.matchMedia("(display-mode:standalone)").matches){hideBar();}
-
-// PWA Manifest
-try{
-  const m={name:"Almanca A1 Kelimeler",short_name:"Almanca A1",start_url:".",display:"standalone",background_color:"#0a0a14",theme_color:"#0a0a14",orientation:"portrait",icons:[{src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a14'/%3E%3Ctext y='.85em' font-size='72' x='10'%3E%F0%9F%87%A9%F0%9F%87%AA%3C/text%3E%3C/svg%3E",sizes:"any",type:"image/svg+xml"}]};
-  const bl=new Blob([JSON.stringify(m)],{type:"application/manifest+json"});
-  const lk=document.createElement("link");lk.rel="manifest";lk.href=URL.createObjectURL(bl);
-  document.head.appendChild(lk);
-}catch(e){}
-
-// Init
-buildCats();render();
-</script>
-</body>
-</html>
+    <script>
+        const D = [
+            ["-", "ab", "itibaren", "📅", "zaman", "Ab morgen muss ich arbeiten.", "Yarından itibaren çalışmak zorundayım."],
+            ["-", "aber", "ama", "⚖️", "bağlaç", "Ich bin oft im Büro, aber nur für wenige Stunden.", "Sık sık ofisteyim ama sadece birkaç saat."],
+            ["-", "abfahren", "hareket etmek", "🚌", "ulaşım", "Wir fahren um zwölf Uhr ab.", "Saat on ikide hareket ediyoruz."],
+            ["die", "Abfahrt", "kalkış", "🚉", "ulaşım", "Vor der Abfahrt rufe ich an.", "Hareketten önce ararım."],
+            ["-", "abgeben", "teslim etmek", "📦", "fiil", "Ich muss meine Schlüssel abgeben.", "Anahtarlarımı teslim etmeliyim."],
+            ["-", "abholen", "gidip almak", "🚗", "fiil", "Wann kann ich den Schrank bei dir abholen?", "Dolabı senden ne zaman alabilirim?"],
+            ["der", "Absender", "gönderen", "✉️", "posta", "Da ist ein Brief für dich ohne Absender.", "Gönderensiz bir mektup var."],
+            ["-", "Achtung", "dikkat", "⚠️", "uyarı", "Achtung! Das dürfen Sie nicht tun.", "Dikkat! Bunu yapamazsınız."],
+            ["die", "Adresse", "adres", "🏠", "iletişim", "Können Sie mir seine Adresse sagen?", "Bana onun adresini söyleyebilir misiniz?"],
+            ["-", "allein", "yalnız", "🚶", "sıfat", "Er kommt allein.", "O yalnız geliyor."],
+            ["-", "also", "yani", "➡️", "bağlaç", "Er hat Zeit, also muss er uns helfen.", "Vakti var, yani bize yardım etmeli."],
+            ["-", "alt", "yaşlı/eski", "👴", "sıfat", "Wie alt sind Sie?", "Kaç yaşındasınız?"],
+            ["das", "Alter", "yaş", "🎂", "kişisel", "Alter: 26 Jahre.", "Yaş: 26."],
+            ["-", "an", "yanında/-de", "📍", "edat", "Wir treffen uns am Bahnhof.", "Tren istasyonunda buluşuyoruz."],
+            ["-", "anbieten", "teklif etmek", "🤝", "fiil", "Was darf ich dir anbieten?", "Sana ne ikram edebilirim?"],
+            ["das", "Angebot", "teklif/indirim", "🏷️", "alışveriş", "Heute sind Sportschuhe im Angebot.", "Bugün spor ayakkabılar indirimde."],
+            ["-", "anfangen", "başlamak", "▶️", "fiil", "Der Unterricht fängt gleich an.", "Ders hemen başlıyor."],
+            ["der", "Anfang", "başlangıç", "🚩", "zaman", "Sie wohnt am Anfang der Straße.", "O sokağın başında oturuyor."],
+            ["-", "anklicken", "tıklamak", "🖱️", "teknoloji", "Da musst du dieses Wort anklicken.", "Bu kelimeye tıklamalısın."],
+            ["-", "ankommen", "varmak", "🚆", "ulaşım", "Wann kommt dieser Zug in Hamburg an?", "Bu tren Hamburg’a ne zaman varıyor?"],
+            ["die", "Ankunft", "varış", "🛬", "ulaşım", "Auf diesem Plan steht nur die Ankunftszeit der Züge.", "Bu planda sadece trenlerin varış saati yazıyor."],
+            ["-", "arbeiten", "çalışmak", "💼", "iş", "Wo arbeiten Sie?", "Nerede çalışıyorsunuz?"],
+            ["die", "Arbeit", "iş", "🛠️", "iş", "Mein Bruder sucht Arbeit.", "Kardeşim iş arıyor."],
+            ["der", "Arzt", "doktor", "👨‍⚕️", "sağlık", "Morgen habe ich einen Termin bei meiner Ärztin.", "Yarın doktor randevum var."],
+            ["das", "Auto", "araba", "🚗", "ulaşım", "Er kommt mit dem Auto.", "O arabayla geliyor."],
+            ["die", "Bäckerei", "fırın", "🥖", "alışveriş", "Ich geh mal schnell zur Bäckerei.", "Hızlıca fırına gidiyorum."],
+            ["der", "Bahnhof", "tren istasyonu", "🚉", "ulaşım", "Komme ich hier zum Bahnhof?", "Buradan istasyona gidilir mi?"],
+            ["die", "Banane", "muz", "🍌", "yiyecek", "Drei Bananen, bitte.", "Üç muz lütfen."],
+            ["die", "Bank", "banka/bank", "🏦", "mekan", "Die Bank schließt schon um vier Uhr.", "Banka saat dörtte kapanıyor."],
+            ["das", "Bett", "yatak", "🛏️", "ev", "Wir brauchen noch ein Kinderbett.", "Hâlâ bir çocuk yatağına ihtiyacımız var."],
+            ["das", "Bier", "bira", "🍺", "içecek", "Noch ein Bier bitte.", "Bir bira daha lütfen."],
+            ["der", "Brief", "mektup", "✉️", "posta", "Haben Sie einen Brief für mich?", "Benim için bir mektup var mı?"],
+            ["das", "Buch", "kitap", "📚", "eğitim", "Gute Bücher sind oft sehr teuer.", "İyi kitaplar genelde çok pahalıdır."],
+            ["der", "Bus", "otobüs", "🚌", "ula
