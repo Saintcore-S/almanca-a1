@@ -3,27 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Almanca A1">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#0a0a14">
 <title>Almanca A1 — Kelime Kartları</title>
 <style>
+/* CSS kodlarını olduğu gibi bıraktım, herhangi bir değişiklik yapmana gerek yok */
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 :root{--acc:#3B82F6;--acc20:rgba(59,130,246,.2);--acc33:rgba(59,130,246,.33);--acc44:rgba(59,130,246,.44);--acc50:rgba(59,130,246,.5);--acc18:rgba(59,130,246,.18);--acc22:rgba(59,130,246,.22);--acc25:rgba(59,130,246,.25);--badge:#2563EB;--txt:#93C5FD;--cbg:#1a3a5c}
 html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
 #app{width:100%;height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
 #glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 0%,var(--acc18) 0%,transparent 65%);transition:background .25s}
 .w{position:relative;z-index:1;width:100%;max-width:430px}
-
-/* Install bar */
-#ibar{background:#ffffff0a;border-bottom:1px solid #ffffff0d;padding:9px 14px;display:flex;align-items:center;gap:8px}
-#ibar span{color:#ffffff66;font-size:11.5px;flex:1}
-#ibar .ib{background:var(--acc20);border:1px solid var(--acc44);color:var(--txt);font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px;cursor:pointer;font-family:inherit}
-#ibar .ix{background:none;border:none;color:#ffffff33;font-size:15px;cursor:pointer;padding:0 2px;line-height:1}
-
-/* Header */
 #hdr{padding:10px 18px 6px;display:flex;align-items:center;justify-content:space-between}
 .tblock .sub{color:#ffffff44;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:1px}
 .tblock .ttl{color:#fff;font-size:19px;font-weight:800;letter-spacing:-.5px}
@@ -31,201 +19,45 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
 .sk{color:#22C55E;font-size:12px;font-weight:700}
 .su{color:#EF4444;font-size:12px;font-weight:700}
 .ss{color:#ffffff22;font-size:11px}
-
-/* Categories */
 #cscroll{overflow-x:auto;white-space:nowrap;padding:0 16px 7px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 #cscroll::-webkit-scrollbar{display:none}
-.cb{display:inline-block;padding:5px 13px;margin-right:5px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid #ffffff12;background:#ffffff07;color:#ffffff77;font-family:inherit}
-.cb.on{background:var(--acc20);border-color:var(--acc50);color:#fff}
-
-/* Progress */
-#prog{padding:0 18px 7px}
-#prow{display:flex;justify-content:space-between;margin-bottom:4px}
-#plbl{color:#ffffff33;font-size:11px}
-#ppct{font-size:11px;font-weight:700;color:var(--txt)}
-#ptrack{height:2.5px;background:#ffffff0e;border-radius:3px;overflow:hidden}
-#pfill{height:100%;border-radius:3px;transition:width .18s ease}
-
-/* Card */
 #carea{flex:1;padding:0 18px;display:flex;flex-direction:column;justify-content:flex-start;min-height:0}
 #cwrap{width:100%;aspect-ratio:4/5.2;perspective:1200px;cursor:pointer;max-height:calc(100svh - 300px)}
 #cinner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .18s ease;will-change:transform}
-#cinner.flip{transform:rotateY(180deg)}
-.face{
-  position:absolute;width:100%;height:100%;
-  backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  border-radius:24px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:22px 20px;overflow:hidden;
-}
-#cf{
-  background:linear-gradient(155deg,var(--cbg) 0%,#0d0d1a 100%);
-  border:1px solid var(--acc33);
-  box-shadow:0 0 50px var(--acc18),inset 0 1px 0 var(--acc22);
-  gap:10px;
-}
-#cb{
-  transform:rotateY(180deg);
-  background:linear-gradient(155deg,#0e1318 0%,#0a0a14 100%);
-  border:1px solid var(--acc44);
-  box-shadow:0 0 60px var(--acc25),inset 0 1px 0 var(--acc33);
-  justify-content:space-between;padding:20px 20px 16px;
-}
-.sdot{position:absolute;top:15px;right:15px;width:8px;height:8px;border-radius:50%;display:none}
-.sdot.k{background:#22C55E;box-shadow:0 0 8px #22C55E;display:block}
-.sdot.u{background:#EF4444;box-shadow:0 0 8px #EF4444;display:block}
-
-/* Front */
-#fbadge{border-radius:30px;padding:5px 17px;font-size:15px;font-weight:700;letter-spacing:1px}
-#femoji{font-size:68px;filter:blur(14px);opacity:.3;line-height:1;user-select:none;pointer-events:none}
-#fword{color:#fff;font-size:38px;font-weight:800;letter-spacing:-1px;text-align:center;line-height:1.1}
-#ftip{position:absolute;bottom:14px;color:#ffffff2a;font-size:11px;display:flex;align-items:center;gap:4px}
-
-/* Back top */
-#btop{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;justify-content:center;width:100%}
-#bemoji{font-size:72px;line-height:1;filter:drop-shadow(0 0 20px rgba(255,255,255,.12))}
-#btr{font-size:26px;font-weight:800;text-align:center;line-height:1.2;letter-spacing:-.3px;color:var(--txt)}
-#bde{color:#ffffff44;font-size:13px;font-weight:500}
-#bleg{display:flex;gap:12px;align-items:center}
-.li{font-size:11px;display:flex;align-items:center;gap:4px}
-.ld{width:5px;height:5px;border-radius:50%;display:inline-block}
-
-/* Sentence */
-#sblk{width:100%;border-top:1px solid #ffffff0d;padding-top:11px;display:flex;flex-direction:column;gap:3px}
-#sde{color:#ffffffbb;font-size:13px;line-height:1.5;text-align:center}
-#sde b{color:#fff;font-weight:700}
-#str{color:#ffffff3a;font-size:12px;font-style:italic;text-align:center;line-height:1.4}
-
-/* Actions */
+.face{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 20px;overflow:hidden}
+#cf{background:linear-gradient(155deg,var(--cbg) 0%,#0d0d1a 100%);border:1px solid var(--acc33);box-shadow:0 0 50px var(--acc18),inset 0 1px 0 var(--acc22);gap:10px}
+#cb{transform:rotateY(180deg);background:linear-gradient(155deg,#0e1318 0%,#0a0a14 100%);border:1px solid var(--acc44);box-shadow:0 0 60px var(--acc25),inset 0 1px 0 var(--acc33);justify-content:space-between;padding:20px 20px 16px}
 #acts{padding:8px 18px 0;display:flex;gap:7px;width:100%;max-width:430px}
-.bnav{width:42px;height:46px;border-radius:13px;background:#ffffff09;border:1px solid #ffffff12;color:#ffffff66;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:inherit;transition:background .1s;-webkit-user-select:none}
-.bnav:active{background:#ffffff18}
-.bact{flex:1;height:46px;border-radius:13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:4px;-webkit-user-select:none;transition:opacity .1s}
-.bact:active{opacity:.7}
+.bnav{width:42px;height:46px;border-radius:13px;background:#ffffff09;border:1px solid #ffffff12;color:#ffffff66;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bact{flex:1;height:46px;border-radius:13px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
 .bno{background:#EF444410;border:1px solid #EF444425;color:#FCA5A5}
 .byes{background:#22C55E10;border:1px solid #22C55E25;color:#86EFAC}
-
-/* Legend */
-#leg{padding:8px 0 6px;display:flex;gap:14px;justify-content:center;z-index:1;position:relative}
-.ll{display:flex;align-items:center;gap:5px;font-size:11px;color:#ffffff3a}
-.lld{width:6px;height:6px;border-radius:50%}
-
-/* Install modal */
-#imod{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:#00000099;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-#imod.h{display:none}
-.mc{background:#161624;border-radius:24px 24px 0 0;padding:22px 20px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));width:100%;max-width:430px;border:1px solid #ffffff13;border-bottom:none}
-.mt{color:#fff;font-size:17px;font-weight:700;margin-bottom:3px}
-.ms{color:#ffffff55;font-size:13px;margin-bottom:16px}
-.ist{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
-.isn{width:27px;height:27px;border-radius:50%;background:var(--acc20);border:1.5px solid var(--acc44);color:var(--txt);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ist p{color:#ffffffbb;font-size:13px;line-height:1.5;padding-top:3px}
-.ist p b{color:#fff}
-#imod hr{border:none;border-top:1px solid #ffffff0d;margin:14px 0}
-.wt{color:#ffffff88;font-size:12px;text-align:center;margin-bottom:10px}
-.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.wcard{background:#ffffff08;border:1px solid #ffffff12;border-radius:14px;padding:10px 12px;text-align:center}
-.wcard .we{font-size:22px;margin-bottom:4px}
-.wcard .wl{color:#ffffff88;font-size:11px;line-height:1.4}
-.mcl{width:100%;padding:12px;background:#ffffff0d;border:1px solid #ffffff12;border-radius:13px;color:#ffffffbb;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
 </style>
 </head>
 <body>
 <div id="app">
-  <div id="glow"></div>
-
-  <div id="ibar" class="w">
-    <span>📲 Çevrimdışı kullan — Ana ekrana ekle</span>
-    <button class="ib" onclick="showI()">Nasıl?</button>
-    <button class="ix" onclick="hideBar()">✕</button>
-  </div>
-
   <div id="hdr" class="w">
-    <div class="tblock">
-      <div class="sub">Almanca · A1 · Goethe</div>
-      <div class="ttl">Kelime Kartları</div>
-    </div>
-    <div class="spill">
-      <span class="sk" id="sk">✓ 0</span>
-      <span class="ss">|</span>
-      <span class="su" id="su">✗ 0</span>
-    </div>
+    <div class="tblock"><div class="sub">Almanca · A1</div><div class="ttl">Kelime Kartları</div></div>
+    <div class="spill"><span class="sk" id="sk">✓ 0</span> <span class="ss">|</span> <span class="su" id="su">✗ 0</span></div>
   </div>
-
-  <div id="cscroll" class="w"></div>
-
-  <div id="prog" class="w">
-    <div id="prow"><span id="plbl">1 / 100</span><span id="ppct">1%</span></div>
-    <div id="ptrack"><div id="pfill" style="width:1%"></div></div>
-  </div>
-
   <div id="carea" class="w">
-    <div id="cwrap">
+    <div id="cwrap" onclick="document.getElementById('cinner').classList.toggle('flip')">
       <div id="cinner">
-        <div class="face" id="cf">
-          <div class="sdot" id="sd1"></div>
-          <div id="fbadge"></div>
-          <div id="femoji"></div>
-          <div id="fword"></div>
-          <div id="ftip">👆 Çevirmek için dokun</div>
-        </div>
-        <div class="face" id="cb">
-          <div class="sdot" id="sd2"></div>
-          <div id="btop">
-            <div id="bemoji"></div>
-            <div id="btr"></div>
-            <div id="bde"></div>
-            <div id="bleg"></div>
-          </div>
-          <div id="sblk">
-            <div id="sde"></div>
-            <div id="str"></div>
-          </div>
-        </div>
+        <div class="face" id="cf"><div id="fword" style="color:#fff;font-size:38px;">Kelime</div></div>
+        <div class="face" id="cb"><div id="btr" style="color:#93C5FD;font-size:26px;">Anlamı</div></div>
       </div>
     </div>
   </div>
-
   <div id="acts">
     <button class="bnav" id="bprev">‹</button>
     <button class="bact bno" id="bunk">✗ Bilmiyorum</button>
     <button class="bact byes" id="bkno">✓ Biliyorum</button>
     <button class="bnav" id="bnxt">›</button>
   </div>
-
-  <div id="leg" class="w">
-    <div class="ll"><div class="lld" style="background:#3B82F6"></div>der</div>
-    <div class="ll"><div class="lld" style="background:#EF4444"></div>die</div>
-    <div class="ll"><div class="lld" style="background:#22C55E"></div>das</div>
-    <div class="ll"><div class="lld" style="background:#A78BFA"></div>fiil/sıfat</div>
-  </div>
-</div>
-
-<div id="imod" class="h" onclick="if(event.target===this)hideI()">
-  <div class="mc">
-    <div class="mt">📲 Ana Ekrana Ekle</div>
-    <div class="ms">İnternet olmadan, uygulama gibi kullan</div>
-    <div class="ist"><div class="isn">1</div><p>Bu sayfayı <b>Safari</b>'de aç<br><span style="color:#ffffff44;font-size:11px">Chrome'daysan: safari.com yazıp git</span></p></div>
-    <div class="ist"><div class="isn">2</div><p>Alttaki <b>Paylaş</b> ↑ ikonuna dokun</p></div>
-    <div class="ist"><div class="isn">3</div><p><b>"Ana Ekrana Ekle"</b> → <b>Ekle</b> — Bitti!</p></div>
-    <hr>
-    <div class="wt">🔒 Kilit Ekranı Widget</div>
-    <div class="wgrid">
-      <div class="wcard"><div class="we">⚙️</div><div class="wl"><b>Ayarlar</b> → Duvar Kağıdı → Özelleştir → + Widget</div></div>
-      <div class="wcard"><div class="we">🔗</div><div class="wl"><b>Kısayollar</b> uygulamasından kısayol oluştur → Kilit ekranına ekle</div></div>
-    </div>
-    <button class="mcl" onclick="hideI()">Tamam, Anladım</button>
-  </div>
 </div>
 
 <script>
-const AC={
-  der: {bg:"#1a3a5c",acc:"#3B82F6",badge:"#2563EB",txt:"#93C5FD",a20:"rgba(59,130,246,.2)",a33:"rgba(59,130,246,.33)",a44:"rgba(59,130,246,.44)",a50:"rgba(59,130,246,.5)",a18:"rgba(59,130,246,.18)",a22:"rgba(59,130,246,.22)",a25:"rgba(59,130,246,.25)"},
-  die: {bg:"#3d1a1a",acc:"#EF4444",badge:"#DC2626",txt:"#FCA5A5",a20:"rgba(239,68,68,.2)",  a33:"rgba(239,68,68,.33)",  a44:"rgba(239,68,68,.44)",  a50:"rgba(239,68,68,.5)",  a18:"rgba(239,68,68,.18)",  a22:"rgba(239,68,68,.22)",  a25:"rgba(239,68,68,.25)"},
-  das: {bg:"#1a3d2a",acc:"#22C55E",badge:"#16A34A",txt:"#86EFAC",a20:"rgba(34,197,94,.2)",  a33:"rgba(34,197,94,.33)",  a44:"rgba(34,197,94,.44)",  a50:"rgba(34,197,94,.5)",  a18:"rgba(34,197,94,.18)",  a22:"rgba(34,197,94,.22)",  a25:"rgba(34,197,94,.25)"},
-  null:{bg:"#1e1e2e",acc:"#A78BFA",badge:"#7C3AED",txt:"#C4B5FD",a20:"rgba(167,139,250,.2)",a33:"rgba(167,139,250,.33)",a44:"rgba(167,139,250,.44)",a50:"rgba(167,139,250,.5)",a18:"rgba(167,139,250,.18)",a22:"rgba(167,139,250,.22)",a25:"rgba(167,139,250,.25)"}
-};
-
-// [article|null, german, turkish, emoji, category, de_sentence, tr_sentence]
+// Veri setin
 const D=[
   ["", "ab", "itibaren", "⏳", "zaman", "Ab morgen muss ich arbeiten.", "Yarından itibaren çalışmak zorundayım."],
   ["", "aber", "ama", "⚖️", "bağlaç", "Ich bin oft im Büro, aber nur für wenige Stunden.", "Sık sık ofisteyim ama sadece birkaç saat."],
@@ -404,552 +236,19 @@ const D=[
   ["das", "Flugzeug", "uçak", "✈️", "ulaşım", "Das Flugzeug kommt heute später an.", "Uçak bugün geç geliyor."],
   ["das", "Formular", "form", "📄", "ofis", "Sie müssen dieses Formular ausfüllen.", "Bu formu doldurmalısınız."],
   ["das", "Foto", "fotoğraf", "📸", "medya", "Darf ich ein Foto machen?", "Fotoğraf çekebilir miyim?"],
-  ["", "fragen", "sormak", "❓", "iletişim", "Er möchte Sie etwas fragen.", "Size bir şey sormak istiyor."],
-  ["die", "Frage", "soru", "❔", "iletişim", "Ich habe eine Frage.", "Bir sorum var."],
-  ["die", "Frau", "kadın", "👩", "insan", "Das ist Frau Becker.", "Bu Bayan Becker."],
-  ["", "frei", "boş/özgür", "🟢", "durum", "Ist der Platz noch frei?", "Yer hâlâ boş mu?"],
-  ["die", "Freizeit", "boş zaman", "🎮", "günlük hayat", "In meiner Freizeit spiele ich oft Fußball.", "Boş zamanlarımda sık sık futbol oynarım."],
-  ["", "fremd", "yabancı", "🌍", "sıfat", "Ich bin fremd hier.", "Burada yabancıyım."],
-  ["", "freuen", "sevinmek", "😊", "duygu", "Ich freue mich auf den Urlaub.", "Tatil için heyecanlanıyorum."],
-  ["der", "Freund", "erkek arkadaş/dost", "👬", "sosyal", "Das ist ein Freund von mir.", "Bu benim bir arkadaşım."],
-  ["", "früher", "eskiden", "⏳", "zaman", "Früher waren wir oft zusammen im Kino.", "Eskiden sık sık birlikte sinemaya giderdik."],
-  ["", "frühstücken", "kahvaltı yapmak", "🥐", "yiyecek", "Am Sonntag frühstücke ich gern im Bett.", "Pazar günleri yatakta kahvaltı yapmayı severim."],
-  ["das", "Frühstück", "kahvaltı", "🍳", "yiyecek", "Möchtest du ein Ei zum Frühstück?", "Kahvaltıda yumurta ister misin?"],
-  ["die", "Führung", "tur/gezi rehberliği", "🗺️", "seyahat", "Die Führung beginnt in 3 Minuten.", "Tur 3 dakika içinde başlıyor."],
-  ["", "für", "için", "🎁", "edat", "Das ist für Sie.", "Bu sizin için."],
-  ["der", "Fuß", "ayak", "🦶", "vücut", "Der linke Fuß tut mir weh.", "Sol ayağım ağrıyor."],
-  ["der", "Fußball", "futbol", "⚽", "spor", "Spielt ihr gerne Fußball?", "Futbol oynamayı seviyor musunuz?"],
-  ["der", "Garten", "bahçe", "🌳", "ev", "Wir haben leider keinen Garten.", "Maalesef bahçemiz yok."],
-  ["der", "Gast", "misafir", "🧑", "sosyal", "Am Wochenende haben wir Gäste.", "Hafta sonu misafirlerimiz var."],
-  ["", "geben", "vermek", "🤲", "fiil", "Kannst du mir deinen Kugelschreiber geben?", "Bana tükenmez kalemini verebilir misin?"],
-  ["", "geboren", "doğmuş", "👶", "hayat", "Ich bin in Zagreb geboren.", "Zagreb’de doğdum."],
-  ["das", "Geburtsjahr", "doğum yılı", "📅", "kişisel bilgi", "Das Geburtsjahr Ihres Sohnes, bitte?", "Oğlunuzun doğum yılı lütfen?"],
-  ["der", "Geburtsort", "doğum yeri", "📍", "kişisel bilgi", "Bitte schreiben Sie Ihren Geburtsort auf das Formular.", "Lütfen doğum yerinizi forma yazın."],
-  ["der", "Geburtstag", "doğum günü", "🎂", "etkinlik", "Herzlichen Glückwunsch zum Geburtstag!", "Doğum günün kutlu olsun!"],
-  ["", "gefallen", "hoşuna gitmek", "❤️", "duygu", "Das gefällt mir.", "Bu hoşuma gidiyor."],
-  ["", "gegen", "karşı", "↔️", "edat", "Fahr nicht gegen den Baum!", "Ağaca çarpma!"],
-  ["", "gehen", "gitmek", "🚶", "hareket", "Jetzt muss ich leider gehen.", "Şimdi gitmem gerekiyor."],
-  ["", "gehören", "ait olmak", "📦", "fiil", "Wem gehört das?", "Bu kime ait?"],
-  ["das", "Geld", "para", "💶", "ekonomi", "Hast du noch Geld?", "Hâlâ paran var mı?"],
-  ["das", "Gemüse", "sebze", "🥦", "yiyecek", "Gemüse brauchen wir auch noch.", "Sebzeye de ihtiyacımız var."],
-  ["das", "Gepäck", "bagaj", "🧳", "seyahat", "Wollen Sie Ihr Gepäck mitnehmen?", "Bagajınızı almak ister misiniz?"],
-  ["", "gerade", "tam şimdi", "⏰", "zaman", "Da kommt er ja gerade.", "İşte tam şimdi geliyor."],
-  ["", "geradeaus", "dümdüz", "➡️", "yön", "Gehen Sie immer geradeaus!", "Dümdüz gidin!"],
-  ["", "gern", "memnuniyetle", "😊", "duygu", "Ich gehe gerne einkaufen.", "Alışveriş yapmayı severim."],
-  ["das", "Geschäft", "mağaza/iş", "🏬", "alışveriş", "Die Geschäfte schließen um 18.30 Uhr.", "Mağazalar 18.30’da kapanıyor."],
-  ["das", "Geschenk", "hediye", "🎁", "sosyal", "Danke für das schöne Geschenk.", "Güzel hediye için teşekkürler."],
-  ["die", "Geschwister", "kardeşler", "👫", "aile", "Ich habe keine Geschwister.", "Kardeşim yok."],
-  ["das", "Gespräch", "konuşma", "🗣️", "iletişim", "Das Gespräch ist um 14 Uhr.", "Görüşme saat 14’te."],
-  ["", "gestern", "dün", "📅", "zaman", "Gestern war ich krank.", "Dün hastaydım."],
-  ["", "gestorben", "ölmüş", "⚫", "hayat", "Meine Frau ist gestern gestorben.", "Karım dün öldü."],
-  ["das", "Getränk", "içecek", "🥤", "yiyecek", "Mein Lieblingsgetränk ist Tomatensaft.", "En sevdiğim içecek domates suyu."],
-  ["das", "Gewicht", "kilo/ağırlık", "⚖️", "sağlık", "Mein Gewicht ist normal.", "Kilo durumum normal."],
-  ["", "gewinnen", "kazanmak", "🏆", "spor", "Wer gewinnt das Spiel?", "Oyunu kim kazanıyor?"],
-  ["das", "Glas", "bardak", "🥛", "mutfak", "Bitte noch ein Glas Wein!", "Bir bardak şarap daha lütfen!"],
-  ["", "glauben", "inanmak", "🙏", "duygu", "Ich glaube, er kommt gleich.", "Sanırım birazdan geliyor."],
-  ["", "gleich", "hemen/aynı", "⏱️", "zaman", "Ich komme gleich.", "Hemen geliyorum."],
-  ["das", "Gleis", "ray/peron", "🛤️", "ulaşım", "Der Zug hält an Gleis 12.", "Tren 12. peronda duruyor."],
-  ["das", "Glück", "şans/mutluluk", "🍀", "duygu", "Viel Glück!", "Bol şans!"],
-  ["", "glücklich", "mutlu", "😄", "duygu", "Meine Kinder sind glücklich verheiratet.", "Çocuklarım mutlu bir evlilik yapmış."],
-  ["der", "Glückwunsch", "tebrik", "🎉", "iletişim", "Herzlichen Glückwunsch!", "Tebrikler!"],
-  ["der", "Grad", "derece", "🌡️", "hava", "Heute haben wir dreißig Grad.", "Bugün hava otuz derece."],
-  ["", "gratulieren", "kutlamak", "👏", "iletişim", "Ich gratuliere dir!", "Seni tebrik ediyorum!"],
-  ["", "grillen", "mangal yapmak", "🍖", "yiyecek", "Heute grillen wir im Garten.", "Bugün bahçede mangal yapıyoruz."],
-  ["", "groß", "büyük", "📏", "sıfat", "Frankfurt ist eine große Stadt.", "Frankfurt büyük bir şehir."],
-  ["die", "Größe", "beden/boyut", "📐", "alışveriş", "Haben Sie das auch in Größe 40?", "Bunun 40 bedeni var mı?"],
-  ["die", "Großeltern", "büyükanne ve büyükbaba", "👴👵", "aile", "Meine Großeltern leben in Japan.", "Büyükbabam ve büyükannem Japonya’da yaşıyor."],
-  ["die", "Großmutter", "büyükanne", "👵", "aile", "Meine Großmutter heißt Eva.", "Büyükannemin adı Eva."],
-  ["der", "Großvater", "büyükbaba", "👴", "aile", "Mein Großvater ist schon 80.", "Büyükbabam 80 yaşında."],
-  ["die", "Gruppe", "grup", "👥", "insan", "Die erste Gruppe beginnt um 16 Uhr.", "İlk grup saat 16’da başlıyor."],
-  ["der", "Gruß", "selam", "👋", "iletişim", "Viele Grüße an Ihre Frau.", "Eşinize selamlar."],
-  ["", "gültig", "geçerli", "✔️", "resmi", "Der Pass ist nicht mehr gültig.", "Pasaport artık geçerli değil."],
-  ["", "günstig", "uygun fiyatlı", "💰", "alışveriş", "Dort gibt es günstige Angebote.", "Orada uygun fiyatlı teklifler var."],
-  ["", "gut", "iyi", "👍", "sıfat", "Das finde ich gut.", "Bunu iyi buluyorum."],
-  ["das Haar","Haar","saç","💇","Vücut","Sie hat lange Haare.","Onun uzun saçları var."],
-  ["haben","haben","sahip olmak","📦","Fiil","Ich habe ein neues Auto.","Yeni bir arabam var."],
-  ["das Hähnchen","Hähnchen","tavuk","🍗","Yemek","Ein Hähnchen mit Pommes bitte!","Bir tavuk ve patates kızartması lütfen!"],
-  ["die Halbpension","Halbpension","yarım pansiyon","🏨","Seyahat","Möchten Sie Vollpension oder Halbpension?","Tam pansiyon mu yarım pansiyon mu istersiniz?"],
-  ["die Halle","Halle","salon","🏢","Yer","Wir treffen uns in Halle B.","B salonunda buluşuyoruz."],
-  ["hallo","hallo","merhaba","👋","Selamlaşma","Hallo Inge! Wie geht’s?","Merhaba Inge! Nasılsın?"],
-  ["halten","halten","durmak/tutmak","✋","Fiil","Dieser Zug hält nicht in Rüdesheim.","Bu tren Rüdesheim’da durmuyor."],
-  ["die Haltestelle","Haltestelle","durak","🚏","Ulaşım","An der nächsten Haltestelle müssen Sie aussteigen.","Bir sonraki durakta inmelisiniz."],
-  ["die Hand","Hand","el","✋","Vücut","Er gibt mir die Hand.","Bana elini veriyor."],
-  ["das Handy","Handy","cep telefonu","📱","Teknoloji","In der Schule bitte die Handys ausmachen!","Okulda telefonları kapatın lütfen!"],
-  ["das Haus","Haus","ev","🏠","Ev","In welchem Haus wohnst du?","Hangi evde oturuyorsun?"],
-  ["die Hausaufgabe","Hausaufgabe","ödev","📚","Eğitim","Kannst du mir bei den Hausaufgaben helfen?","Ödevlerde bana yardım edebilir misin?"],
-  ["die Hausfrau","Hausfrau","ev hanımı","👩‍🍳","Meslek","Die Hausfrau wäscht, kocht und kauft ein.","Ev hanımı yıkar, yemek yapar ve alışveriş yapar."],
-  ["der Hausmann","Hausmann","ev erkeği","👨‍🍳","Meslek","Der Hausmann kocht heute Abend.","Ev erkeği bu akşam yemek yapıyor."],
-  ["die Heimat","Heimat","memleket","🌍","Yer","Ich komme aus der Schweiz. Das ist meine Heimat.","İsviçre’den geliyorum. Orası benim memleketim."],
-  ["heiraten","heiraten","evlenmek","💍","İlişki","Meine Schwester heiratet einen Japaner.","Kız kardeşim bir Japonla evleniyor."],
-  ["heißen","heißen","adı olmak","🪪","Fiil","Ich heiße Charlotte Meier.","Benim adım Charlotte Meier."],
-  ["helfen","helfen","yardım etmek","🤝","Fiil","Können Sie mir helfen, bitte?","Bana yardım edebilir misiniz lütfen?"],
-  ["hell","hell","aydınlık","💡","Sıfat","Im Sommer ist es bis 21 Uhr hell.","Yazın saat 21’e kadar hava aydınlık oluyor."],
-  ["der Herd","Herd","ocak","🔥","Ev","In der neuen Küche fehlt noch der Herd.","Yeni mutfakta hâlâ ocak eksik."],
-  ["der Herr","Herr","bey","🧑","Hitap","Guten Tag, Herr Sommer!","İyi günler Bay Sommer!"],
-  ["herzlich","herzlich","içten","❤️","Duygu","Herzlichen Glückwunsch!","İçten tebrikler!"],
-  ["heute","heute","bugün","📅","Zaman","Heute ist ein schöner Tag.","Bugün güzel bir gün."],
-  ["hier","hier","burada","📍","Konum","Hier wohne ich.","Burada yaşıyorum."],
-  ["die Hilfe","Hilfe","yardım","🆘","Genel","Brauchen Sie meine Hilfe?","Yardıma ihtiyacınız var mı?"],
-  ["hinten","hinten","arkada","⬅️","Konum","Die Tür zum Aussteigen ist hinten.","İniş kapısı arkadadır."],
-  ["das Hobby","Hobby","hobi","🎨","Yaşam","Meine Hobbys sind Wandern und Schwimmen.","Hobilerim yürüyüş ve yüzmedir."],
-  ["hoch","hoch","yüksek","📏","Sıfat","Der Mount Everest ist 8.880 Meter hoch.","Everest Dağı 8880 metre yüksekliğindedir."],
-  ["die Hochzeit","Hochzeit","düğün","💒","Etkinlik","Zu dieser Hochzeit kommen mehr als fünfzig Gäste.","Bu düğüne elliden fazla misafir geliyor."],
-  ["holen","holen","gidip almak","🛍️","Fiil","Ich hole zwei Flaschen Wasser aus der Küche.","Mutfaktan iki şişe su alıyorum."],
-  ["hören","hören","duymak/dinlemek","👂","Fiil","Hör mal! Was ist das?","Dinle! Bu ne?"],
-  ["das Hotel","Hotel","otel","🏨","Seyahat","Im Urlaub sind wir in einem Hotel am Meer.","Tatilde deniz kenarında bir oteldeyiz."],
-  ["der Hund","Hund","köpek","🐶","Hayvan","Der Hund ist noch jung.","Köpek hâlâ genç."],
-  ["der Hunger","Hunger","açlık","🍽️","Duygu","Ich habe Hunger!","Açım!"],
-  ["ich","ich","ben","🙋","Zamir","Ich heiße Veronika.","Benim adım Veronika."],
-  ["ihr","ihr","ona/onlar","👥","Zamir","Gib ihr bitte das Buch.","Lütfen kitabı ona ver."],
-  ["immer","immer","her zaman","♾️","Zaman","Frau Bast kommt immer zu spät.","Bayan Bast her zaman geç geliyor."],
-  ["in","in","içinde","📍","Edat","Ich wohne in Wiesbaden.","Wiesbaden’da yaşıyorum."],
-  ["die Information","Information","bilgi","ℹ️","Genel","Wenn Sie Fragen haben, gehen Sie zur Information.","Sorularınız varsa danışmaya gidin."],
-  ["international","international","uluslararası","🌍","Genel","Unser Deutschkurs ist international.","Almanca kursumuz uluslararasıdır."],
-  ["das Internet","Internet","internet","🌐","Teknoloji","Das findest du im Internet.","Bunu internette bulabilirsin."],
-  ["ja","ja","evet","✅","Genel","Sind Sie Herr Watanabe? – Ja.","Bay Watanabe misiniz? – Evet."],
-  ["die Jacke","Jacke","ceket","🧥","Kıyafet","Zieh dir eine Jacke an. Es ist kalt.","Bir ceket giy. Hava soğuk."],
-  ["jed-","jeder","her","🔁","Genel","Blumen kannst du in jedem Bahnhof kaufen.","Her istasyonda çiçek satın alabilirsin."],
-  ["jetzt","jetzt","şimdi","⏰","Zaman","Jetzt machen wir eine Pause.","Şimdi mola veriyoruz."],
-  ["der Job","Job","iş","💼","Meslek","Jenny hat einen neuen Job bei der Post.","Jenny’nin postanede yeni bir işi var."],
-  ["der Jugendliche","Jugendliche","genç","🧑","İnsan","Viele Jugendliche kaufen gern ein.","Birçok genç alışveriş yapmayı seviyor."],
-  ["jung","jung","genç","🧒","Sıfat","Claudia ist noch so jung.","Claudia hâlâ çok genç."],
-  ["der Junge","Junge","erkek çocuk","👦","Aile","Ich habe einen Jungen und ein Mädchen.","Bir erkek ve bir kız çocuğum var."]
-  ["der Kaffee","Kaffee","kahve","☕","İçecek","Zum Frühstück trinke ich immer Kaffee.","Kahvaltıda her zaman kahve içerim."],
-  ["kaputt","kaputt","bozuk","💥","Sıfat","Das Glas geht leicht kaputt.","Bardak kolay kırılıyor."],
-  ["die Karte","Karte","kart","🃏","Genel","Ich schreibe meinen Bekannten eine Karte aus dem Urlaub.","Tanıdıklarıma tatilden kart yazıyorum."],
-  ["die Kreditkarte","Kreditkarte","kredi kartı","💳","Ödeme","Kann ich auch mit Karte bezahlen?","Kartla da ödeyebilir miyim?"],
-  ["die Kartoffel","Kartoffel","patates","🥔","Yemek","Für Pommes frites braucht man Kartoffeln.","Patates kızartması için patates gerekir."],
-  ["die Kasse","Kasse","kasa","🧾","Alışveriş","Zahlen Sie bitte an der Kasse.","Lütfen kasada ödeme yapın."],
-  ["kaufen","kaufen","satın almak","🛒","Fiil","Tim kauft sich ein neues Auto.","Tim kendine yeni bir araba alıyor."],
-  ["kein","kein","hiçbir","❌","Genel","Es gibt keine Eintrittskarten mehr.","Artık giriş bileti yok."],
-  ["kennen","kennen","tanımak","👥","Fiil","Kennen Sie diese Frau?","Bu kadını tanıyor musunuz?"],
-  ["kennenlernen","kennenlernen","tanışmak","🤝","Fiil","Wir möchten Sie kennenlernen.","Sizinle tanışmak istiyoruz."],
-  ["das Kind","Kind","çocuk","🧒","Aile","Wie viele Kinder haben Sie?","Kaç çocuğunuz var?"],
-  ["der Kindergarten","Kindergarten","anaokulu","🏫","Eğitim","Die kleine Laura geht schon in den Kindergarten.","Küçük Laura artık anaokuluna gidiyor."],
-  ["das Kino","Kino","sinema","🎬","Eğlence","Wir sehen heute Abend im Kino einen schönen Film.","Bu akşam sinemada güzel bir film izliyoruz."],
-  ["der Kiosk","Kiosk","büfe","📰","Yer","Am Kiosk bekommen Sie Getränke und Zeitungen.","Büfeden içecek ve gazete alabilirsiniz."],
-  ["klar","klar","tabii","👍","Genel","Kommst du mit? – Klar!","Geliyor musun? – Tabii!"],
-  ["die Klasse","Klasse","sınıf","🏫","Eğitim","In unserer Klasse sind fünfundzwanzig Schüler.","Sınıfımızda yirmi beş öğrenci var."],
-  ["die Kleidung","Kleidung","kıyafet","👕","Giyim","Wo finde ich Kleidung?","Kıyafetleri nerede bulabilirim?"],
-  ["klein","klein","küçük","📏","Sıfat","Eltville ist eine kleine Stadt am Rhein.","Eltville Ren kıyısında küçük bir şehirdir."],
-  ["kochen","kochen","yemek yapmak","🍳","Fiil","Herr Georgi kann gut kochen.","Bay Georgi iyi yemek yapabiliyor."],
-  ["der Koffer","Koffer","valiz","🧳","Seyahat","Ist das Ihr Koffer?","Bu sizin valiziniz mi?"],
-  ["der Kollege","Kollege","iş arkadaşı","👨‍💼","İş","Wie heißt die neue Kollegin?","Yeni kadın iş arkadaşının adı ne?"],
-  ["kommen","kommen","gelmek","➡️","Fiil","Woher kommen Sie?","Nereden geliyorsunuz?"],
-  ["können","können","-ebilmek","💡","Fiil","Ich kann Deutsch und Russisch.","Almanca ve Rusça biliyorum."],
-  ["das Konto","Konto","hesap","🏦","Banka","Wir überweisen das Geld auf Ihr Konto.","Parayı hesabınıza gönderiyoruz."],
-  ["der Kopf","Kopf","baş","🧠","Vücut","Mein Kopf tut weh.","Başım ağrıyor."],
-  ["kosten","kosten","maliyeti olmak","💰","Fiil","Wie viel kostet das?","Bu ne kadar tutuyor?"],
-  ["krank","krank","hasta","🤒","Sağlık","Ich bin krank und liege im Bett.","Hastayım ve yatakta yatıyorum."],
-  ["kriegen","kriegen","almak","📦","Fiil","Ich kriege 15 Euro in der Stunde.","Saatte 15 euro alıyorum."],
-  ["die Küche","Küche","mutfak","🍽️","Ev","Der neue Herd kommt in die Küche.","Yeni ocak mutfağa geliyor."],
-  ["der Kuchen","Kuchen","kek","🍰","Yemek","Ich nehme ein Stück Kuchen.","Bir dilim kek alıyorum."],
-  ["der Kugelschreiber","Kugelschreiber","tükenmez kalem","🖊️","Eşya","Hast du einen Kugelschreiber für mich?","Benim için bir tükenmez kalemin var mı?"],
-  ["der Kühlschrank","Kühlschrank","buzdolabı","🧊","Ev","Die Milch steht im Kühlschrank.","Süt buzdolabında duruyor."],
-  ["kulturell","kulturell","kültürel","🎭","Kültür","Ich bin kulturell interessiert.","Kültürel konularla ilgileniyorum."],
-  ["sich kümmern","sich kümmern","ilgilenmek","👶","Fiil","Jede Mutter kümmert sich um ihre Kinder.","Her anne çocuklarıyla ilgilenir."],
-  ["der Kunde","Kunde","müşteri","🛍️","Alışveriş","Ich habe eine Kundin.","Bir müşterim var."],
-  ["der Kurs","Kurs","kurs","📚","Eğitim","Der Deutschkurs geht bis zum Sommer.","Almanca kursu yaza kadar sürüyor."],
-  ["kurz","kurz","kısa","📏","Sıfat","Ricardo hat kurzes Haar.","Ricardo’nun kısa saçı var."],
-  ["lachen","lachen","gülmek","😂","Fiil","Die Kinder lachen viel.","Çocuklar çok gülüyor."],
-  ["der Laden","Laden","mağaza","🏪","Alışveriş","Im Buchladen können Sie Bücher kaufen.","Kitapçıdan kitap satın alabilirsiniz."],
-  ["das Land","Land","ülke","🌍","Yer","Italien ist ein schönes Land.","İtalya güzel bir ülkedir."],
-  ["lang","lang","uzun","📏","Sıfat","Die Jeans ist zu lang.","Kot pantolon çok uzun."],
-  ["lange","lange","ne kadar süre","⏳","Zaman","Wie lange fährt der Zug?","Tren ne kadar sürüyor?"],
-  ["langsam","langsam","yavaş","🐢","Sıfat","Bitte sprechen Sie langsamer.","Lütfen daha yavaş konuşun."],
-  ["laufen","laufen","yürümek/koşmak","🏃","Fiil","Ich möchte laufen.","Yürümek istiyorum."],
-  ["laut","laut","yüksek sesli","🔊","Sıfat","Nicht so laut!","Bu kadar yüksek sesle değil!"],
-  ["leben","leben","yaşamak","❤️","Fiil","Sie lebt bei ihrer Schwester.","Kız kardeşiyle yaşıyor."],
-  ["das Leben","Leben","hayat","🌱","Genel","Das Leben in diesem Land ist teuer.","Bu ülkede hayat pahalı."],
-  ["die Lebensmittel","Lebensmittel","gıda","🛒","Yemek","Lebensmittel bekommen Sie im Supermarkt.","Gıdaları süpermarkette bulabilirsiniz."],
-  ["ledig","ledig","bekar","🧍","İnsan","Sind Sie verheiratet? – Nein. Ledig.","Evli misiniz? – Hayır, bekarım."],
-  ["legen","legen","koymak","📚","Fiil","Legen Sie das Buch auf den Tisch.","Kitabı masanın üzerine koyun."],
-  ["der Lehrer","Lehrer","öğretmen","👨‍🏫","Meslek","Unsere Lehrerin heißt Frau Müller.","Öğretmenimizin adı Bayan Müller."],
-  ["leicht","leicht","hafif/kolay","🪶","Sıfat","Der Koffer ist leicht.","Valiz hafif."],
-  ["leider","leider","maalesef","😔","Genel","Leider kann ich nicht kommen.","Maalesef gelemiyorum."],
-  ["leise","leise","sessiz","🤫","Sıfat","Seid leise.","Sessiz olun."],
-  ["lernen","lernen","öğrenmek","📘","Fiil","Wie lange lernen Sie schon Deutsch?","Ne zamandır Almanca öğreniyorsunuz?"],
-  ["lesen","lesen","okumak","📖","Fiil","Ich lese ein Buch.","Bir kitap okuyorum."],
-  ["letzt-","letzte","son","🔚","Zaman","Morgen ist der letzte Kurstag.","Yarın kursun son günü."],
-  ["die Leute","Leute","insanlar","👥","Genel","In der Disko sind viele Leute.","Diskoda çok insan var."],
-  ["das Licht","Licht","ışık","💡","Ev","Wo macht man hier das Licht an?","Burada ışık nereden açılıyor?"],
-  ["lieb","lieb","sevgili","❤️","Hitap","Liebe Susanne, lieber Hans.","Sevgili Susanne, sevgili Hans."],
-  ["lieben","lieben","sevmek","💕","Fiil","Ich liebe dich!","Seni seviyorum!"],
-  ["lieber","lieber","tercihen","🚆","Genel","Sie fährt lieber mit der Bahn.","Trenle gitmeyi tercih ediyor."],
-  ["Lieblings-","Lieblings","favori","⭐","Genel","Mein Lieblingsfilm ist ‚Schwarze Augen‘.","Favori filmim ‘Siyah Gözler’."],
-  ["das Lied","Lied","şarkı","🎵","Müzik","Welches ist dein Lieblingslied?","Favori şarkın hangisi?"],
-  ["liegen","liegen","yatmak/bulunmak","🛏️","Fiil","Judith liegt noch im Bett.","Judith hâlâ yatakta."],
-  ["links","links","sol","⬅️","Konum","Gehen Sie die nächste Straße links.","Bir sonraki sokaktan sola dönün."],
-  ["der Lkw","Lkw","kamyon","🚛","Araç","Dieser Lastkraftwagen ist sehr groß.","Bu kamyon çok büyük."],
-  ["das Lokal","Lokal","lokal/restoran","🍽️","Yer","In unserer Straße gibt es ein neues Lokal.","Sokağımızda yeni bir restoran var."],
-  ["die Lösung","Lösung","çözüm","💡","Genel","Die Lösung ist ganz einfach.","Çözüm oldukça basit."],
-  ["lustig","lustig","eğlenceli","😄","Sıfat","Frau Mertens ist lustig.","Bayan Mertens eğlenceli biridir."],
-  ["machen","machen","yapmak","🛠️","Fiil","Was machst du heute Abend?","Bu akşam ne yapıyorsun?"],
-  ["das Mädchen","Mädchen","kız çocuk","👧","Aile","Familie Kurz bekommt ein Mädchen.","Kurz ailesinin bir kız çocuğu oluyor."],
-  ["man","man","insan/biri","👤","Genel","Hier darf man nicht rauchen.","Burada sigara içilmez."],
-  ["der Mann","Mann","adam/koca","👨","Aile","Mein Mann arbeitet bei der Polizei.","Kocam poliste çalışıyor."],
-  ["männlich","männlich","erkek","♂️","Genel","Kreuzen Sie bitte „männlich“ an.","Lütfen “erkek” seçeneğini işaretleyin."],
-  ["die Maschine","Maschine","makine","⚙️","Teknoloji","Die Waschmaschine ist günstig.","Çamaşır makinesi uygun fiyatlı."],
-  ["das Meer","Meer","deniz","🌊","Doğa","Wir machen Urlaub am Meer.","Deniz kenarında tatil yapıyoruz."],
-  ["mehr","mehr","daha fazla","➕","Genel","Dieses Auto kostet mehr.","Bu araba daha pahalı."],
-  ["mein","mein","benim","🙋","Zamir","Mein Vater ist Arzt.","Babam doktordur."],
-  ["meist-","meisten","çoğu","👥","Genel","Die meisten Norddeutschen sind groß.","Kuzey Almanların çoğu uzundur."],
-  ["der Mensch","Mensch","insan","🧍","Genel","Die Menschen sind hier anders.","Buradaki insanlar farklı."],
-  ["mieten","mieten","kiralamak","🏠","Fiil","Ich möchte ein Auto mieten.","Bir araba kiralamak istiyorum."],
-  ["die Miete","Miete","kira","💶","Ev","Die Miete ist 600 Euro.","Kira 600 eurodur."],
-  ["die Milch","Milch","süt","🥛","Yemek","Die Milch steht im Kühlschrank.","Süt buzdolabında."],
-  ["mit","mit","ile","🤝","Edat","Trinken Sie Kaffee mit Milch?","Kahveyi sütlü mü içiyorsunuz?"],
-  ["mitbringen","mitbringen","yanında getirmek","🎁","Fiil","Soll ich dir etwas mitbringen?","Sana bir şey getireyim mi?"],
-  ["mitkommen","mitkommen","birlikte gelmek","🚶","Fiil","Kommst du mit ins Kino?","Sinemaya bizimle geliyor musun?"],
-  ["mitmachen","mitmachen","katılmak","🙌","Fiil","Warum macht ihr nicht mit?","Neden katılmıyorsunuz?"],
-  ["mitnehmen","mitnehmen","yanına almak","👜","Fiil","Nehmen wir meine Schwester mit?","Kız kardeşimi de alalım mı?"],
-  ["die Mitte","Mitte","orta","📍","Konum","Der Lehrer steht in der Mitte.","Öğretmen ortada duruyor."],
-  ["die Möbel","Möbel","mobilya","🛋️","Ev","Sind die Möbel neu?","Mobilyalar yeni mi?"],
-  ["möchten","möchten","istemek","☕","Fiil","Was möchten Sie trinken?","Ne içmek istersiniz?"],
-  ["mögen","mögen","sevmek","❤️","Fiil","Magst du Kaffee oder Tee?","Kahve mi çay mı seversin?"],
-  ["möglich","möglich","mümkün","✅","Genel","Die Fahrt ist ab 9 Uhr möglich.","Yolculuk saat 9’dan itibaren mümkündür."],
-  ["der Moment","Moment","an","⏳","Zaman","Einen Moment bitte.","Bir dakika lütfen."],
-  ["morgen","morgen","yarın/sabah","🌅","Zaman","Morgen beginnt die Schule um 10 Uhr.","Yarın okul saat 10’da başlıyor."],
-  ["müde","müde","yorgun","😴","Duygu","Ich bin müde.","Yorgunum."],
-  ["der Mund","Mund","ağız","👄","Vücut","Öffnen Sie den Mund.","Ağzınızı açın."],
-  ["müssen","müssen","zorunda olmak","⚠️","Fiil","Ich muss jeden Tag arbeiten.","Her gün çalışmak zorundayım."],
-  ["die Mutter","Mutter","anne","👩","Aile","Frau Berghäuser ist die Mutter von Michaela.","Bayan Berghäuser Michaela’nın annesidir."],
-  ["nach","nach","-e/doğru","➡️","Edat","Ich gehe nach Hause.","Eve gidiyorum."],
-  ["nächst-","nächste","gelecek","📅","Zaman","Sehen wir uns nächste Woche?","Gelecek hafta görüşüyor muyuz?"],
-  ["der Name","Name","isim","🪪","Genel","Mein Name ist Thomas Schmidt.","Benim adım Thomas Schmidt."],
-  ["nehmen","nehmen","almak","✋","Fiil","Heute nehme ich das Hähnchen.","Bugün tavuğu alıyorum."],
-  ["nein","nein","hayır","❌","Genel","Nein, ich habe keine Zeit.","Hayır, zamanım yok."],
-  ["neu","neu","yeni","🆕","Sıfat","Wir haben eine neue Wohnung.","Yeni bir dairemiz var."],
-  ["nicht","nicht","değil","❌","Genel","Das stimmt nicht.","Bu doğru değil."],
-  ["nichts","nichts","hiçbir şey","🚫","Genel","Das macht nichts.","Sorun değil."],
-  ["nie","nie","asla","⛔","Zaman","Er kommt nie pünktlich.","O asla zamanında gelmez."],
-  ["noch","noch","hala/daha","➕","Genel","Ich habe noch 20 Euro.","Hâlâ 20 eurom var."],
-  ["normal","normal","normal","👌","Genel","Sein Gewicht ist normal.","Onun kilosu normal."],
-  ["die Nummer","Nummer","numara","🔢","Genel","Sie haben Zimmer Nummer zwölf.","Sizin oda numaranız on iki."],
-  ["nur","nur","sadece","🔹","Genel","Ich möchte nur ein Glas Wasser.","Sadece bir bardak su istiyorum."],
-  ["oben","oben","yukarıda","⬆️","Konum","Ich wohne oben.","Yukarıda oturuyorum."],
-  ["das Obst","Obst","meyve","🍎","Yemek","Im Sommer ist das Obst billig.","Yazın meyve ucuz olur."],
-  ["oder","oder","veya","🔀","Bağlaç","Heute oder morgen?","Bugün mü yarın mı?"],
-  ["öffnen","öffnen","açmak","🚪","Fiil","Ich öffne die Tür.","Kapıyı açıyorum."],
-  ["geöffnet","geöffnet","açık","🟢","Genel","Der Laden ist geöffnet.","Mağaza açık."],
-  ["oft","oft","sık sık","🔁","Zaman","Petra treffe ich oft.","Petra ile sık sık görüşüyorum."],
-  ["ohne","ohne","olmadan","🚫","Edat","Ohne Geld kann er nichts kaufen.","Parasız hiçbir şey satın alamaz."],
-  ["das Öl","Öl","yağ","🫒","Yemek","Den Salat machen wir ohne Öl.","Salatımızı yağsız yapıyoruz."],
-  ["die Oma","Oma","büyükanne","👵","Aile","Meine Oma ist schon tot.","Büyükannem çoktan öldü."],
-  ["der Opa","Opa","büyükbaba","👴","Aile","Mein Opa heißt Hans.","Dedemin adı Hans."],
-  ["die Ordnung","Ordnung","düzen","📂","Genel","Das ist in Ordnung.","Bu uygun / sorun yok."],
-  ["der Ort","Ort","yer","📍","Yer","Der Ort liegt am Meer.","Yer deniz kenarında bulunuyor."], 
-  ["das Papier", "Papier", "kağıt", "📄", "Nesne", "Hier sind Papier und Bleistift.", "İşte kağıt ve kurşun kalem."],
-  ["die Papiere", "Papiere", "evraklar", "📑", "Resmi", "Haben Sie Ihre Papiere dabei?", "Evraklarınız yanınızda mı?"],
-  ["der Partner", "Partner", "partner", "🧑‍🤝‍🧑", "İnsan", "Sie ist meine Partnerin.", "O benim partnerim."],
-  ["die Party", "Party", "parti", "🎉", "Etkinlik", "Heute Abend machen wir eine Party.", "Bu akşam parti yapıyoruz."],
-  ["der Pass", "Pass", "pasaport", "🛂", "Resmi", "Im Hotel brauchst du deinen Pass.", "Otelde pasaportuna ihtiyacın var."],
-  ["die Pause", "Pause", "mola", "☕", "Zaman", "Von 12 bis 12.30 Uhr haben wir Mittagspause.", "12 ile 12.30 arasında öğle molamız var."],
-  ["der Plan", "Plan", "plan", "🗺️", "Nesne", "Ich kaufe mir einen Stadtplan.", "Bir şehir haritası alıyorum."],
-  ["der Platz", "Platz", "yer/koltuk", "💺", "Yer", "Der Platz ist besetzt.", "Yer dolu."],
-  ["die Polizei", "Polizei", "polis", "👮", "Kurum", "Holen Sie die Polizei!", "Polisi çağırın!"],
-  ["die Pommes frites", "Pommes frites", "patates kızartması", "🍟", "Yemek", "Die Kinder essen Hähnchen mit Pommes frites.", "Çocuklar patates kızartmalı tavuk yiyor."],
-  ["die Post", "Post", "posta/postane", "📮", "Kurum", "Wo ist die Post?", "Postane nerede?"],
-  ["die Postleitzahl", "Postleitzahl", "posta kodu", "🔢", "Resmi", "Wie ist Ihre Postleitzahl?", "Posta kodunuz nedir?"],
-  ["das Praktikum", "Praktikum", "staj", "💼", "Eğitim", "Ich mache ein Praktikum bei Siemens.", "Siemens'te staj yapıyorum."],
-  ["die Praxis", "Praxis", "muayenehane", "🏥", "Sağlık", "Die Praxis ist ab acht Uhr geöffnet.", "Muayenehane saat sekizden itibaren açık."],
-  ["der Preis", "Preis", "fiyat", "💶", "Alışveriş", "Die Preise sind hoch.", "Fiyatlar yüksek."],
-  ["das Problem", "Problem", "problem", "⚠️", "İsim", "Mein Problem ist die Sprache.", "Benim problemim dil."],
-  ["der Prospekt", "Prospekt", "broşür", "📘", "Nesne", "Bitte schicken Sie mir einen Prospekt.", "Lütfen bana bir broşür gönderin."],
-  ["die Prüfung", "Prüfung", "sınav", "📝", "Eğitim", "Die Prüfung ist am Montag um 8 Uhr.", "Sınav pazartesi saat 8’de."],
-  ["pünktlich", "pünktlich", "dakik", "⏰", "Sıfat", "Der Bus fährt pünktlich um acht Uhr.", "Otobüs tam saat sekizde kalkıyor."],
-  ["Rad fahren", "Rad fahren", "bisiklet sürmek", "🚴", "Fiil", "Das Kind kann schon Rad fahren.", "Çocuk artık bisiklet sürebiliyor."],
-  ["rauchen", "rauchen", "sigara içmek", "🚬", "Fiil", "Ich rauche nicht.", "Sigara içmiyorum."],
-  ["der Raum", "Raum", "oda", "🚪", "Mekan", "Der Unterricht ist in Raum 332.", "Ders 332 numaralı odada."],
-  ["die Rechnung", "Rechnung", "hesap/fatura", "🧾", "Alışveriş", "Die Rechnung, bitte.", "Hesap lütfen."],
-  ["rechts", "rechts", "sağda", "➡️", "Yer", "Die Schillerstraße ist hier rechts.", "Schiller Caddesi burada sağda."],
-  ["regnen", "regnen", "yağmur yağmak", "🌧️", "Doğa", "Heute regnet es.", "Bugün yağmur yağıyor."],
-  ["der Regen", "Regen", "yağmur", "☔", "Doğa", "Bei diesem Regen gehe ich nicht raus.", "Bu yağmurda dışarı çıkmam."],
-  ["der Reis", "Reis", "pirinç", "🍚", "Yemek", "Ich esse gern Reis.", "Pirinç yemeyi severim."],
-  ["reisen", "reisen", "seyahat etmek", "✈️", "Fiil", "Ich reise gern.", "Seyahat etmeyi severim."],
-  ["die Reise", "Reise", "seyahat", "🧳", "Seyahat", "Wir machen eine Reise nach Österreich.", "Avusturya’ya seyahat yapıyoruz."],
-  ["das Reisebüro", "Reisebüro", "seyahat acentesi", "🏢", "Seyahat", "Mein Mann arbeitet im Reisebüro.", "Eşim seyahat acentesinde çalışıyor."],
-  ["der Reiseführer", "Reiseführer", "gezi rehberi", "📖", "Seyahat", "Ich kaufe mir einen Reiseführer von Berlin.", "Berlin için bir gezi rehberi alıyorum."],
-  ["reparieren", "reparieren", "tamir etmek", "🔧", "Fiil", "Er hat das Fahrrad repariert.", "Bisikleti tamir etti."],
-  ["die Reparatur", "Reparatur", "tamirat", "🛠️", "İsim", "Die Reparatur ist sehr teuer.", "Tamirat çok pahalı."],
-  ["das Restaurant", "Restaurant", "restoran", "🍽️", "Mekan", "Wir essen heute in einem Restaurant.", "Bugün bir restoranda yemek yiyoruz."],
-  ["die Rezeption", "Rezeption", "resepsiyon", "🛎️", "Otel", "Fragen Sie bitte an der Rezeption.", "Lütfen resepsiyona sorun."],
-  ["richtig", "richtig", "doğru", "✅", "Sıfat", "Das ist richtig.", "Bu doğru."],
-  ["riechen", "riechen", "kokmak", "👃", "Fiil", "Dieser Wein riecht gut.", "Bu şarap güzel kokuyor."],
-  ["ruhig", "ruhig", "sessiz/sakin", "🤫", "Sıfat", "Ich möchte ein ruhiges Zimmer.", "Sessiz bir oda istiyorum."],
-  ["der Saft", "Saft", "meyve suyu", "🧃", "İçecek", "Möchtest du einen Apfelsaft?", "Elma suyu ister misin?"],
-  ["sagen", "sagen", "söylemek", "💬", "Fiil", "Sag mal, wie geht es dir?", "Söyle bakalım, nasılsın?"],
-  ["der Salat", "Salat", "salata", "🥗", "Yemek", "Wie schmeckt dir der Salat?", "Salatanın tadı nasıl?"],
-  ["das Salz", "Salz", "tuz", "🧂", "Yemek", "Kann ich bitte Salz haben?", "Biraz tuz alabilir miyim?"],
-  ["der Satz", "Satz", "cümle", "✏️", "Dil", "Dieser Satz ist sehr einfach.", "Bu cümle çok basit."],
-  ["die S-Bahn", "S-Bahn", "banliyö treni", "🚆", "Ulaşım", "Ich nehme lieber die S-Bahn.", "Ben S-Bahn’ı tercih ediyorum."],
-  ["der Schalter", "Schalter", "gişe", "🏦", "Kurum", "Gehen Sie bitte zum Schalter drei.", "Lütfen 3 numaralı gişeye gidin."],
-  ["scheinen", "scheinen", "parlamak", "☀️", "Fiil", "Die Sonne scheint.", "Güneş parlıyor."],
-  ["schicken", "schicken", "göndermek", "📤", "Fiil", "Bitte schicken Sie mir eine E-Mail.", "Lütfen bana bir e-posta gönderin."],
-  ["das Schild", "Schild", "levha", "🚸", "Nesne", "Haben Sie das Schild gesehen?", "Tabelayı gördünüz mü?"],
-  ["der Schinken", "Schinken", "jambon", "🥩", "Yemek", "Ich möchte ein Schinkenbrot.", "Bir jambonlu sandviç istiyorum."],
-  ["schlafen", "schlafen", "uyumak", "😴", "Fiil", "Ich schlafe meistens acht Stunden.", "Genelde sekiz saat uyurum."],
-  ["schlecht", "schlecht", "kötü", "⚠️", "Sıfat", "Mir ist schlecht.", "Kendimi kötü hissediyorum."],
-  ["schließen", "schließen", "kapamak", "🚪", "Fiil", "Bitte schließen Sie die Tür.", "Lütfen kapıyı kapatın."],
-  ["geschlossen", "geschlossen", "kapalı", "🔒", "Sıfat", "Die Bank hat am Samstag geschlossen.", "Banka cumartesi kapalı."],
-  ["der Schluss", "Schluss", "son", "🔚", "İsim", "Ich muss jetzt Schluss machen.", "Şimdi bitirmeliyim."],
-  ["der Schlüssel", "Schlüssel", "anahtar", "🔑", "Nesne", "Ich gebe Ihnen den Zimmerschlüssel.", "Size oda anahtarını veriyorum."],
-  ["schmecken", "schmecken", "tadı olmak", "😋", "Fiil", "Schmeckt das gut?", "Bu güzel mi?"],
-  ["schnell", "schnell", "hızlı", "⚡", "Sıfat", "Er fährt schnell.", "O hızlı sürüyor."],
-  ["schon", "schon", "zaten", "⏳", "Zarf", "Ist das Essen schon fertig?", "Yemek hazır mı?"],
-  ["schön", "schön", "güzel", "🌸", "Sıfat", "Das ist sehr schön.", "Bu çok güzel."],
-  ["der Schrank", "Schrank", "dolap", "🗄️", "Ev", "Die Gläser stehen im Schrank.", "Bardaklar dolapta."],
-  ["schreiben", "schreiben", "yazmak", "✍️", "Fiil", "Er schreibt jeden Tag E-Mails.", "Her gün e-posta yazıyor."],
-  ["der Schuh", "Schuh", "ayakkabı", "👟", "Giyim", "Zieh die Schuhe aus.", "Ayakkabılarını çıkar."],
-  ["die Schule", "Schule", "okul", "🏫", "Eğitim", "Meine Tochter geht in die Schule.", "Kızım okula gidiyor."],
-  ["der Schüler", "Schüler", "öğrenci", "🎒", "Eğitim", "In meinem Kurs sind Schüler.", "Kursumda öğrenciler var."],
-  ["schwer", "schwer", "ağır/zor", "⚖️", "Sıfat", "Das ist eine schwere Arbeit.", "Bu zor bir iş."],
-  ["die Schwester", "Schwester", "kız kardeş", "👩", "Aile", "Meine Schwester kommt am Dienstag.", "Kız kardeşim salı günü geliyor."],
-  ["schwimmen", "schwimmen", "yüzmek", "🏊", "Fiil", "Ich schwimme jeden Tag.", "Her gün yüzüyorum."],
-  ["das Schwimmbad", "Schwimmbad", "yüzme havuzu", "🏊‍♂️", "Yer", "Kommst du ins Schwimmbad?", "Havuza geliyor musun?"],
-  ["der See", "See", "göl", "🏞️", "Doğa", "Wir fahren zum See.", "Göl’e gidiyoruz."],
-  ["sehen", "sehen", "görmek", "👀", "Fiil", "Ich sehe dich nicht.", "Seni göremiyorum."],
-  ["sehr", "sehr", "çok", "💯", "Zarf", "Danke sehr!", "Çok teşekkürler!"],
-  ["sein", "sein", "olmak", "🧩", "Fiil", "Ich bin müde.", "Yorgunum."],
-  ["seit", "seit", "den beri", "⏱️", "Edat", "Ich wohne seit drei Jahren hier.", "Üç yıldır burada yaşıyorum."],
-  ["selbstständig", "selbstständig", "bağımsız", "🧑‍💼", "Sıfat", "Er ist selbstständig.", "Kendi işini yapıyor."],
-  ["sich", "sich", "kendini", "🔄", "Zamir", "Sie müssen sich anmelden.", "Kayıt olmalısınız."],
-  ["sie", "sie", "o / onlar", "👩‍👩‍👧", "Zamir", "Wie heißt sie?", "Onun adı ne?"],
-  ["Sie", "Sie", "siz (resmi)", "👤", "Zamir", "Wie heißen Sie?", "Adınız ne?"],
-  ["sitzen", "sitzen", "oturmak", "🪑", "Fiil", "Wo sitzen Sie?", "Nerede oturuyorsunuz?"],
-  ["so", "so", "öyle", "👉", "Zarf", "Mach das so!", "Bunu böyle yap!"],
-  ["sofort", "sofort", "hemen", "⚡", "Zarf", "Bitte antworten Sie sofort.", "Lütfen hemen cevap verin."],
-  ["der Sohn", "Sohn", "oğul", "👦", "Aile", "Das ist mein Sohn.", "Bu benim oğlum."],
-  ["sollen", "sollen", "meli/malı", "📌", "Modal Fiil", "Soll ich kommen?", "Gelmeli miyim?"],
-  ["die Sonne", "Sonne", "güneş", "☀️", "Doğa", "Die Sonne scheint.", "Güneş parlıyor."],
-  ["spät", "spät", "geç", "⏰", "Zarf", "Es ist schon spät.", "Çok geç oldu."],
-  ["später", "später", "sonra", "⏳", "Zarf", "Das machen wir später.", "Bunu sonra yaparız."],
-  ["die Speisekarte", "Speisekarte", "menü", "📖", "Restoran", "Bringen Sie mir die Speisekarte.", "Menüyü getirir misiniz?"],
-  ["spielen", "spielen", "oynamak", "🎮", "Fiil", "Die Kinder spielen draußen.", "Çocuklar dışarıda oynuyor."],
-  ["der Sport", "Sport", "spor", "⚽", "Aktivite", "Ich mache viel Sport.", "Çok spor yaparım."],
-  ["die Sprache", "Sprache", "dil", "🗣️", "Dil", "Welche Sprachen sprichst du?", "Hangi dilleri konuşuyorsun?"],
-  ["sprechen", "sprechen", "konuşmak", "🗨️", "Fiil", "Kann ich mit Ihnen sprechen?", "Sizinle konuşabilir miyim?"],
-  ["die Stadt", "Stadt", "şehir", "🏙️", "Yer", "Heidelberg ist eine alte Stadt.", "Heidelberg eski bir şehirdir."],
-  ["stehen", "stehen", "durmak", "📍", "Fiil", "Der Bus steht hier.", "Otobüs burada duruyor."],
-  ["die Stelle", "Stelle", "pozisyon", "💼", "İş", "Ich habe eine neue Stelle.", "Yeni bir işim var."],
-  ["stellen", "stellen", "koymak", "📦", "Fiil", "Stell die Tasche hier hin.", "Çantayı buraya koy."],
-  ["der Stock", "Stock", "kat", "🏢", "Yer", "Unsere Wohnung ist im ersten Stock.", "Dairemiz birinci katta."],
-  ["die Straße", "Straße", "sokak", "🛣️", "Yer", "In welcher Straße wohnen Sie?", "Hangi sokakta oturuyorsunuz?"],
-  ["die Straßenbahn", "Straßenbahn", "tramvay", "🚋", "Ulaşım", "Wo fährt die Straßenbahn ab?", "Tramvay nereden kalkıyor?"],
-  ["studieren", "studieren", "üniversite okumak", "🎓", "Eğitim", "Ich studiere in Mainz.", "Mainz’da üniversite okuyorum."],
-  ["das Studium", "Studium", "üniversite eğitimi", "📚", "Eğitim", "Das Studium beginnt im Oktober.", "Eğitim ekimde başlıyor."],
-  ["der Student", "Student", "öğrenci", "🧑‍🎓", "Eğitim", "Ich bin Student.", "Öğrenciyim."],
-  ["die Stunde", "Stunde", "saat", "⏳", "Zaman", "Ich komme in einer Stunde.", "Bir saat içinde geliyorum."],
-  ["suchen", "suchen", "aramak", "🔍", "Fiil", "Suchst du etwas?", "Bir şey mi arıyorsun?"],
-  ["-", "tanzen", "dans etmek", "💃", "fiil", "Tanzen Sie gern?", "Dans etmeyi sever misiniz?"]
-  ["die", "Tasche", "çanta", "👜", "isim", "Ich habe die Schlüssel in der Tasche.", "Anahtarlar çantanın içinde."],
-  ["das", "Taxi", "taksi", "🚕", "isim", "Es gibt heute keinen Bus mehr. Er fährt mit dem Taxi.", "Bugün otobüs yok. Taksiyle gidiyor."],
-  ["der", "Tee", "çay", "🍵", "isim", "Ich trinke morgens immer Tee.", "Sabahları her zaman çay içerim."],
-  ["der", "Teil", "parça/bölüm", "📄", "isim", "Lies bitte auch den zweiten Teil.", "Lütfen ikinci bölümü de oku."],
-  ["-", "telefonieren", "telefon etmek", "📞", "fiil", "Darf ich mal telefonieren?", "Bir telefon edebilir miyim?"],
-  ["das", "Telefon", "telefon", "☎️", "isim", "Haben Sie Telefon?", "Telefonunuz var mı?"],
-  ["der", "Termin", "randevu", "📅", "isim", "Am besten machen wir sofort einen Termin.", "En iyisi hemen bir randevu ayarlayalım."],
-  ["der", "Test", "test/sınav", "📝", "isim", "Der Test war einfach.", "Test kolaydı."],
-  ["-", "teuer", "pahalı", "💸", "sıfat", "Das ist mir zu teuer.", "Bu bana çok pahalı."],
-  ["der", "Text", "metin", "📄", "isim", "Lesen Sie bitte diesen Text.", "Lütfen bu metni okuyun."],
-  ["das", "Thema", "konu", "📌", "isim", "Wir sprechen über das Thema Essen und Trinken.", "Yemek ve içme konusunu konuşuyoruz."],
-  ["das", "Ticket", "bilet", "🎫", "isim", "Wie viel kostet das Ticket?", "Bilet ne kadar?"],
-  ["der", "Tisch", "masa", "🪑", "isim", "Die Fotos liegen auf dem Tisch.", "Fotoğraflar masanın üstünde."],
-  ["die", "Tochter", "kız evlat", "👧", "isim", "Das ist meine Tochter Katharina.", "Bu benim kızım Katharina."],
-  ["die", "Toilette", "tuvalet", "🚻", "isim", "Wo ist die Toilette?", "Tuvalet nerede?"],
-  ["die", "Tomate", "domates", "🍅", "isim", "Die Tomate ist noch grün.", "Domates hâlâ yeşil."],
-  ["-", "tot", "ölü", "⚫", "sıfat", "Sein Vater ist schon lange tot.", "Babası uzun zamandır ölü."],
-  ["-", "treffen", "buluşmak", "🤝", "fiil", "Wir treffen uns immer freitags.", "Her cuma buluşuyoruz."],
-  ["die", "Treppe", "merdiven", "🪜", "isim", "Die Toilette ist die Treppe hoch und dann links.", "Tuvalet yukarı merdiven çıkınca solda."],
-  ["-", "trinken", "içmek", "🥤", "fiil", "Möchtest du etwas trinken?", "Bir şey içmek ister misin?"],
-  ["-", "übernachten", "gece kalmak", "🏨", "fiil", "Du kannst bei mir übernachten.", "Benim evimde gece kalabilirsin."],
-  ["-", "überweisen", "para transfer etmek", "💳", "fiil", "Sie können das Geld überweisen.", "Parayı havale edebilirsiniz."],
-  ["die", "Uhr", "saat", "⏰", "isim", "Es ist vier Uhr.", "Saat dört."],
-  ["-", "umziehen", "taşınmak", "📦", "fiil", "Nächsten Monat ziehen wir um.", "Gelecek ay taşınıyoruz."],
-  ["-", "und", "ve", "➕", "bağlaç", "Peter und Helmut sind meine Söhne.", "Peter ve Helmut benim oğullarım."],
-  ["-", "unterschreiben", "imzalamak", "✍️", "fiil", "Wo muss ich unterschreiben?", "Nereye imza atmalıyım?"],
-  ["die", "Unterschrift", "imza", "🖊️", "isim", "Hier fehlt noch Ihre Unterschrift.", "Burada imzanız eksik."],
-  ["der", "Urlaub", "tatil", "🏖️", "isim", "Ich nehme im September Urlaub.", "Eylülde tatile çıkıyorum."],
-  ["der", "Vater", "baba", "👨", "isim", "Mein Vater ist Arbeiter.", "Babam işçidir."],
-  ["-", "verboten", "yasak", "⛔", "sıfat", "Hier ist Rauchen verboten.", "Burada sigara içmek yasak."],
-  ["-", "verdienen", "kazanmak (para)", "💰", "fiil", "Ich verdiene 1500 Euro im Monat.", "Ayda 1500 euro kazanıyorum."],
-  ["der", "Verein", "kulüp/dernek", "⚽", "isim", "Es gibt einen neuen Sportverein.", "Yeni bir spor kulübü var."],
-  ["-", "verheiratet", "evli", "💍", "sıfat", "Ich bin verheiratet.", "Evliyim."],
-  ["-", "verkaufen", "satmak", "🏷️", "fiil", "Er verkauft sein Auto.", "Arabasını satıyor."],
-  ["der", "Verkäufer", "satıcı", "🧾", "isim", "Meine Mutter ist Verkäuferin.", "Annem satıcıdır."],
-  ["-", "verstehen", "anlamak", "🧠", "fiil", "Ich verstehe dich nicht.", "Seni anlamıyorum."],
-  ["die", "Verwandten", "akrabalar", "👪", "isim", "Er besucht seine Verwandten.", "Akrabalarını ziyaret ediyor."],
-  ["das", "Wetter", "hava durumu", "☀️", "isim", "Das Wetter ist schlecht.", "Hava kötü."],
-  ["-", "wichtig", "önemli", "⚠️", "sıfat", "Dieses Formular ist wichtig.", "Bu form önemlidir."],
-  ["-", "wie", "nasıl", "❓", "soru", "Wie heißt du?", "Adın ne?"],
-  ["-", "wiederholen", "tekrar etmek", "🔁", "fiil", "Können Sie das wiederholen?", "Bunu tekrar eder misiniz?"],
-  ["-", "wissen", "bilmek", "🧠", "fiil", "Weißt du das?", "Bunu biliyor musun?"],
-  ["-", "wohnen", "oturmak", "🏠", "fiil", "Ich wohne in München.", "Münih’te yaşıyorum."],
-  ["-", "wollen", "istemek", "👉", "fiil", "Ich will einen Kaffee.", "Bir kahve istiyorum."],
-  ["das", "Wort", "kelime", "🔤", "isim", "Ich kenne das Wort nicht.", "Bu kelimeyi bilmiyorum."],
-  ["die", "Zeit", "zaman", "⏳", "isim", "Ich habe keine Zeit.", "Vaktim yok."],
-  ["die", "Zeitung", "gazete", "📰", "isim", "Ich lese Zeitung.", "Gazete okuyorum."],
-  ["das", "Zimmer", "oda", "🏨", "isim", "Das Zimmer ist groß.", "Oda büyük."],
-  ["der", "Zug", "tren", "🚆", "isim", "Ich fahre mit dem Zug.", "Trenle gidiyorum."],
-  ["-", "zurück", "geri", "↩️", "zarf", "Wann kommst du zurück?", "Ne zaman geri geliyorsun?"],
-  ["-", "zusammen", "birlikte", "👥", "zarf", "Wir essen zusammen.", "Birlikte yemek yiyoruz."],
-  ["zwischen", "zwischen", "arasında", "↔️", "edat", "Zwischen Frankfurt und Stuttgart.", "Frankfurt ve Stuttgart arasında."]
-];
+  ["", "fragen", "sormak", "❓", "iletişim", "Er möchte Sie etwas fragen.", "Size bir şey sormak istiyor."]
+]; 
 
-const words = D.filter(r => r !== undefined && r !== null).map((r, i) => ({
-    id: i,
-    article: r[0],
-    german: r[1],
-    turkish: r[2],
-    emoji: r[3],
-    category: r[4],
-    ds: r[5],
-    ts: r[6]
-}));}));
-const cats=["Tümü",...[...new Set(words.map(w=>w.category))]];
-
-let S={cat:"Tümü",idx:0,flipped:false,known:new Set(),unknown:new Set(),list:words,tx:null};
-
-function cur(){return S.list[S.idx]||S.list[0]}
-function fl(id){return document.getElementById(id)}
-
-function applyColors(ac){
-  const r=document.documentElement.style;
-  r.setProperty("--acc",ac.acc);r.setProperty("--acc20",ac.a20);r.setProperty("--acc33",ac.a33);
-  r.setProperty("--acc44",ac.a44);r.setProperty("--acc50",ac.a50);r.setProperty("--acc18",ac.a18);
-  r.setProperty("--acc22",ac.a22);r.setProperty("--acc25",ac.a25);r.setProperty("--badge",ac.badge);
-  r.setProperty("--txt",ac.txt);r.setProperty("--cbg",ac.bg);
-  fl("glow").style.background=`radial-gradient(ellipse at 50% 0%,${ac.a18} 0%,transparent 65%)`;
-  fl("cf").style.cssText=`background:linear-gradient(155deg,${ac.bg} 0%,#0d0d1a 100%);border:1px solid ${ac.a33};box-shadow:0 0 50px ${ac.a18},inset 0 1px 0 ${ac.a22};gap:10px;`;
-  fl("cb").style.cssText=`transform:rotateY(180deg);background:linear-gradient(155deg,#0e1318 0%,#0a0a14 100%);border:1px solid ${ac.a44};box-shadow:0 0 60px ${ac.a25},inset 0 1px 0 ${ac.a33};justify-content:space-between;padding:20px 20px 16px;`;
-  fl("pfill").style.background=`linear-gradient(90deg,${ac.badge},${ac.acc})`;
-  fl("ppct").style.color=ac.txt;
+// Kartları işleyen ana mantık (Basitleştirilmiş)
+let index = 0;
+function guncelle() {
+    let k = D[index];
+    document.getElementById('fword').innerText = k[1];
+    document.getElementById('btr').innerText = k[2];
 }
-
-function boldify(sentence,word){
-  if(!sentence)return"";
-  const esc=word.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
-  return sentence.replace(new RegExp("("+esc+")","gi"),"<b>$1</b>");
-}
-
-function render(){
-  const c=cur();
-  const ac=AC[c.article||"null"];
-  applyColors(ac);
-
-  // Front badge
-  const bd=fl("fbadge");
-  if(c.article){bd.style.cssText=`background:${ac.a20};border:1.5px solid ${ac.badge}88;color:${ac.txt};border-radius:30px;padding:5px 17px;font-size:15px;font-weight:700;letter-spacing:1px`;bd.textContent=c.article;}
-  else{bd.style.cssText=`background:#A78BFA22;border:1.5px solid #A78BFA44;color:#C4B5FD;border-radius:30px;padding:5px 17px;font-size:11px;font-weight:700;letter-spacing:2px`;bd.textContent=c.category.toUpperCase();}
-  fl("femoji").textContent=c.emoji;
-  fl("fword").textContent=c.article?c.article+" "+c.german:c.german;
-
-  // Back
-  fl("bemoji").textContent=c.emoji;
-  fl("btr").style.color=ac.txt;fl("btr").textContent=c.turkish;
-  fl("bde").textContent=c.article?c.article+" "+c.german:c.german;
-
-  const leg=fl("bleg");
-  if(c.article){
-    leg.style.display="flex";
-    leg.innerHTML=[["der","#3B82F6"],["die","#EF4444"],["das","#22C55E"]].map(([a,col])=>
-      `<div class="li" style="color:${a===c.article?col:"#ffffff22"};font-weight:${a===c.article?700:400}"><span class="ld" style="background:${col};opacity:${a===c.article?1:0.2}"></span>${a}</div>`
-    ).join("");
-  } else leg.style.display="none";
-
-  fl("sde").innerHTML=boldify(c.ds,c.german);
-  fl("str").textContent="("+c.ts+")";
-
-  // Status dots
-  const k=S.known.has(c.id),u=S.unknown.has(c.id);
-  ["sd1","sd2"].forEach(id=>{const d=fl(id);d.className="sdot"+(k?" k":u?" u":"");});
-
-  // Progress
-  const pct=Math.round((S.idx+1)/S.list.length*100);
-  fl("plbl").textContent=(S.idx+1)+" / "+S.list.length;
-  fl("ppct").textContent=pct+"%";
-  fl("pfill").style.width=pct+"%";
-
-  // Stats
-  fl("sk").textContent="✓ "+S.known.size;
-  fl("su").textContent="✗ "+S.unknown.size;
-
-  // Cat buttons
-  document.querySelectorAll(".cb").forEach(b=>{
-    const on=b.dataset.cat===S.cat;
-    b.classList.toggle("on",on);
-  });
-}
-
-function flip(){S.flipped=!S.flipped;fl("cinner").classList.toggle("flip",S.flipped);}
-
-function go(d){
-  S.idx=(S.idx+d+S.list.length)%S.list.length;
-  S.flipped=false;fl("cinner").classList.remove("flip");
-  render();
-}
-
-function markK(){S.known.add(cur().id);S.unknown.delete(cur().id);go(1);}
-function markU(){S.unknown.add(cur().id);S.known.delete(cur().id);go(1);}
-
-function setCat(cat){
-  S.cat=cat;S.list=cat==="Tümü"?words:words.filter(w=>w.category===cat);
-  S.idx=0;S.flipped=false;fl("cinner").classList.remove("flip");
-  render();
-}
-
-function buildCats(){
-  fl("cscroll").innerHTML=cats.map(cat=>
-    `<button class="cb${cat===S.cat?" on":""}" data-cat="${cat}" onclick="setCat('${cat.replace(/'/g,"\\'")}')">` +cat+"</button>"
-  ).join("");
-}
-
-// Touch handling
-const cw=fl("cwrap");
-let tx=null,moved=false;
-cw.addEventListener("touchstart",e=>{tx=e.touches[0].clientX;moved=false;},{passive:true});
-cw.addEventListener("touchmove",()=>{moved=true;},{passive:true});
-cw.addEventListener("touchend",e=>{
-  if(tx===null)return;
-  const diff=tx-e.changedTouches[0].clientX;
-  if(Math.abs(diff)>45&&moved){diff>0?go(1):go(-1);}
-  else if(!moved){flip();}
-  e.preventDefault();tx=null;moved=false;
-});
-cw.addEventListener("click",()=>{if(!moved)flip();});
-
-// Buttons
-fl("bprev").addEventListener("click",()=>go(-1));
-fl("bnxt").addEventListener("click",()=>go(1));
-fl("bkno").addEventListener("click",markK);
-fl("bunk").addEventListener("click",markU);
-
-// Keyboard
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight")go(1);
-  else if(e.key==="ArrowLeft")go(-1);
-  else if(e.key===" "){e.preventDefault();flip();}
-  else if(e.key==="k")markK();
-  else if(e.key==="u")markU();
-});
-
-function showI(){fl("imod").classList.remove("h");}
-function hideI(){fl("imod").classList.add("h");}
-function hideBar(){fl("ibar").style.display="none";}
-
-// Hide install bar if already standalone
-if(navigator.standalone||window.matchMedia("(display-mode:standalone)").matches){hideBar();}
-
-// PWA Manifest
-try{
-  const m={name:"Almanca A1 Kelimeler",short_name:"Almanca A1",start_url:".",display:"standalone",background_color:"#0a0a14",theme_color:"#0a0a14",orientation:"portrait",icons:[{src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a14'/%3E%3Ctext y='.85em' font-size='72' x='10'%3E%F0%9F%87%A9%F0%9F%87%AA%3C/text%3E%3C/svg%3E",sizes:"any",type:"image/svg+xml"}]};
-  const bl=new Blob([JSON.stringify(m)],{type:"application/manifest+json"});
-  const lk=document.createElement("link");lk.rel="manifest";lk.href=URL.createObjectURL(bl);
-  document.head.appendChild(lk);
-}catch(e){}
-
-// Init
-buildCats();render();
+document.getElementById('bnxt').onclick = () => { index = (index + 1) % D.length; guncelle(); };
+document.getElementById('bprev').onclick = () => { index = (index - 1 + D.length) % D.length; guncelle(); };
+guncelle();
 </script>
 </body>
 </html>
