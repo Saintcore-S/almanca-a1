@@ -328,7 +328,6 @@ const D = [
   ["-", "zwischen", "arasında", "↔️", "edat", "Heidelberg liegt zwischen Frankfurt und Stuttgart.", "Heidelberg, Frankfurt ile Stuttgart arasındadır."]
 ];
 
-}
 const words=D.map((r,i)=>({id:i,article:r[0],german:r[1],turkish:r[2],emoji:r[3],category:r[4],ds:r[5],ts:r[6]}));
 const cats=["Tümü",...[...new Set(words.map(w=>w.category))]];
 
