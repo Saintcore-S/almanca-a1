@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Goethe A1">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0a14">
+<title>Goethe A1 — Alfabetik Kelime Kartları</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+:root{
+  --acc:#3B82F6;
+  --acc20:rgba(59,130,246,.35);
+  --acc33:rgba(59,130,246,.55);
+  --acc44:rgba(59,130,246,.70);
+  --acc50:rgba(59,130,246,.80);
+  --acc18:rgba(59,130,246,.25);
+  --acc22:rgba(59,130,246,.40);
+  --acc25:rgba(59,130,246,.45);
+  --badge:#2563EB;
+  --txt:#93C5FD;
+  --cbg:#142d4c;
+}
+html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
+#app{width:100%;height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+#glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 0%,var(--acc18) 0%,transparent 65%);transition:background .25s}
+.w{position:relative;z-index:1;width:100%;max-width:430px}
+
+/* Install bar */
+#ibar{background:#ffffff12;border-bottom:1px solid #ffffff1a;padding:11px 14px;display:flex;align-items:center;gap:8px}
+#ibar span{color:#ffffffaa;font-size:12px;font-weight:500;flex:1}
+#ibar .ib{background:var(--acc20);border:1px solid var(--acc50);color:#fff;font-size:12px;font-weight:700;padding:5px 13px;border-radius:20px;cursor:pointer;font-family:inherit}
+#ibar .ix{background:none;border:none;color:#ffffff66;font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
+
+/* Header */
+#hdr{padding:14px 18px 8px;display:flex;align-items:center;justify-content:space-between}
+.tblock .sub{color:#ffffff66;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px}
+.tblock .ttl{color:#fff;font-size:22px;font-weight:800;letter-spacing:-.5px}
+.spill{background:#ffffff14;border:1px solid #ffffff22;border-radius:20px;padding:6px 14px;display:flex;gap:8px;align-items:center}
+.sk{color:#4ADE80;font-size:13px;font-weight:700}
+.su{color:#F87171;font-size:13px;font-weight:700}
+.ss{color:#ffffff33;font-size:12px}
+
+/* Alphabet Filter */
+#cscroll{overflow-x:auto;white-space:nowrap;padding:4px 16px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#cscroll::-webkit-scrollbar{display:none}
+.cb{display:inline-block;padding:6px 14px;margin-right:6px;border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;border:1.5px solid #ffffff22;background:#ffffff0d;color:#ffffff99;font-family:inherit;transition:all 0.2s}
+.cb.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700;box-shadow:0 2px 8px var(--acc18)}
+
+/* Progress */
+#prog{padding:0 18px 10px}
+#prow{display:flex;justify-content:space-between;margin-bottom:5px}
+#plbl{color:#ffffff55;font-size:11.5px}
+#ppct{font-size:11.5px;font-weight:700;color:var(--txt)}
+#ptrack{height:4px;background:#ffffff14;border
