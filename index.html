@@ -228,7 +228,7 @@ const AC={
 // [article|null, german, turkish, emoji, category, de_sentence, tr_sentence]
 const D = [
     ["der", "Abend", "Akşam", "🌇", "Tümü", "Guten Abend!", "İyi akşamlar!"],
-    ["die", "Adresse", "Adres", "🏠", "Tümü", "Können Sie mir seine Adresse sagen?", "Bana adresini söyleyebilir misiniz?"],
+    ["die", "Adresse", "Adres", "🏠", "Tümü", "Können Sie mir seine Adresse sagen?", "Adresini söyleyebilir misiniz?"],
     ["das", "Angebot", "Teklif", "🏷️", "Tümü", "Heute sind Sportschuhe im Angebot.", "Bugün spor ayakkabılar indirimde."],
     ["der", "Anruf", "Arama", "📞", "Tümü", "Sie bekommt viele Anrufe.", "Çok arama alıyor."],
     ["die", "Arbeit", "İş", "💼", "Tümü", "Mein Bruder sucht Arbeit.", "Erkek kardeşim iş arıyor."],
@@ -304,8 +304,22 @@ const D = [
     ["die", "Wohnung", "Daire", "🏠", "Tümü", "Meine Wohnung ist groß.", "Dairem büyük."],
     ["die", "Zeitung", "Gazete", "📰", "Tümü", "Ich lese die Zeitung.", "Gazete okuyorum."],
     ["das", "Zimmer", "Oda", "🛏️", "Tümü", "Mein Zimmer ist hell.", "Odam aydınlık."],
-    ["der", "Zug", "Tren", "🚆", "Tümü", "Der Zug kommt pünktlich.", "Tren vaktinde geliyor."]
+    ["der", "Zug", "Tren", "🚆", "Tümü", "Der Zug kommt pünktlich.", "Tren vaktinde geliyor."],
+    ["der", "Anfang", "Başlangıç", "🏁", "Tümü", "Sie wohnt am Anfang der Straße.", "Sokağın başında oturuyor."],
+    ["die", "Aufgabe", "Görev", "📝", "Tümü", "Das ist eine schwere Aufgabe.", "Bu zor bir görev."],
+    ["der", "Ausflug", "Gezi", "🚌", "Tümü", "Morgen machen wir einen Ausflug.", "Yarın bir gezi yapacağız."],
+    ["die", "Auskunft", "Bilgi", "ℹ️", "Tümü", "Können Sie mir eine Auskunft geben?", "Bana bilgi verebilir misiniz?"],
+    ["der", "Ausweis", "Kimlik", "🆔", "Tümü", "Hier ist mein Ausweis.", "İşte kimliğim."],
+    ["der", "Vater", "Baba", "👨", "Tümü", "Mein Vater ist Arbeiter.", "Babam işçi."],
+    ["der", "Verein", "Dernek/Kulüp", "⚽", "Tümü", "Es gibt einen neuen Sportverein.", "Yeni bir spor kulübü var."],
+    ["die", "Welt", "Dünya", "🌍", "Tümü", "Es gibt viele Probleme auf der Welt.", "Dünyada çok sorun var."],
+    ["das", "Wetter", "Hava", "🌦️", "Tümü", "Wir hatten schlechtes Wetter.", "Kötü hava vardı."],
+    ["die", "Zigarette", "Sigara", "🚬", "Tümü", "Wie teuer sind die Zigaretten?", "Sigaralar ne kadar?"]
 ];
+
+function buildCats(){
+    fl("cscroll").style.display = "none";
+}
 const words=D.map((r,i)=>({id:i,article:r[0],german:r[1],turkish:r[2],emoji:r[3],category:r[4],ds:r[5],ts:r[6]}));
 const cats=["Tümü",...[...new Set(words.map(w=>w.category))]];
 
