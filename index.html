@@ -796,7 +796,16 @@ const D=[
   ["zwischen", "zwischen", "arasında", "↔️", "edat", "Zwischen Frankfurt und Stuttgart.", "Frankfurt ve Stuttgart arasında."]
 ];
 
-const words=D.map((r,i)=>({id:i,article:r[0],german:r[1],turkish:r[2],emoji:r[3],category:r[4],ds:r[5],ts:r[6]}));
+const words = D.filter(r => r !== undefined && r !== null).map((r, i) => ({
+    id: i,
+    article: r[0],
+    german: r[1],
+    turkish: r[2],
+    emoji: r[3],
+    category: r[4],
+    ds: r[5],
+    ts: r[6]
+}));}));
 const cats=["Tümü",...[...new Set(words.map(w=>w.category))]];
 
 let S={cat:"Tümü",idx:0,flipped:false,known:new Set(),unknown:new Set(),list:words,tx:null};
