@@ -226,95 +226,204 @@ const AC={
 };
 
 // [article|null, german, turkish, emoji, category, de_sentence, tr_sentence]
-const D = [
-    ["der", "Abend", "Akşam", "🌇", "Tümü", "Guten Abend!", "İyi akşamlar!"],
-    ["die", "Adresse", "Adres", "🏠", "Tümü", "Können Sie mir seine Adresse sagen?", "Adresini söyleyebilir misiniz?"],
-    ["das", "Angebot", "Teklif", "🏷️", "Tümü", "Heute sind Sportschuhe im Angebot.", "Bugün spor ayakkabılar indirimde."],
-    ["der", "Anruf", "Arama", "📞", "Tümü", "Sie bekommt viele Anrufe.", "Çok arama alıyor."],
-    ["die", "Arbeit", "İş", "💼", "Tümü", "Mein Bruder sucht Arbeit.", "Erkek kardeşim iş arıyor."],
-    ["der", "Arzt", "Doktor", "👨‍⚕️", "Tümü", "Morgen habe ich einen Termin bei meinem Arzt.", "Yarın doktorumdan randevum var."],
-    ["der", "Bahnhof", "İstasyon", "🚉", "Tümü", "Komme ich hier zum Bahnhof?", "İstasyona buradan mı giderim?"],
-    ["das", "Bad", "Banyo", "🛁", "Tümü", "Wir haben kein großes Bad.", "Büyük bir banyomuz yok."],
-    ["die", "Bank", "Banka", "🏦", "Tümü", "Die Bank schließt um 16 Uhr.", "Banka 16:00'da kapanıyor."],
-    ["das", "Bett", "Yatak", "🛏️", "Tümü", "Das Bett ist sehr bequem.", "Yatak çok rahat."],
-    ["das", "Bild", "Resim", "🖼️", "Tümü", "Hast du ein Bild von deinem Sohn?", "Oğlunun bir resmi var mı?"],
-    ["das", "Brot", "Ekmek", "🍞", "Tümü", "Das Brot ist frisch.", "Ekmek taze."],
-    ["der", "Bruder", "Erkek Kardeş", "👦", "Tümü", "Sein Bruder arbeitet hier.", "Erkek kardeşi burada çalışıyor."],
-    ["das", "Buch", "Kitap", "📚", "Tümü", "Gute Bücher sind teuer.", "İyi kitaplar pahalıdır."],
-    ["der", "Bus", "Otobüs", "🚌", "Tümü", "Wann kommt der nächste Bus?", "Bir sonraki otobüs ne zaman geliyor?"],
-    ["das", "Café", "Kafe", "☕", "Tümü", "Sollen wir uns im Café treffen?", "Kafede buluşalım mı?"],
-    ["der", "Computer", "Bilgisayar", "💻", "Tümü", "Mein Computer ist neu.", "Bilgisayarım yeni."],
-    ["die", "Ecke", "Köşe", "📐", "Tümü", "An der nächsten Ecke links.", "Bir sonraki köşeden sola."],
-    ["das", "Ei", "Yumurta", "🥚", "Tümü", "Möchtest du ein Ei?", "Yumurta ister misin?"],
-    ["die", "E-Mail", "E-posta", "📧", "Tümü", "Ich habe deine E-Mail erhalten.", "E-postanı aldım."],
-    ["die", "Familie", "Aile", "👨‍👩‍👧", "Tümü", "Meine Familie lebt in Spanien.", "Ailem İspanya'da yaşıyor."],
-    ["das", "Fahrrad", "Bisiklet", "🚲", "Tümü", "Ich fahre gern Fahrrad.", "Bisiklet sürmeyi severim."],
-    ["die", "Firma", "Şirket", "🏢", "Tümü", "Er arbeitet bei einer großen Firma.", "Büyük bir şirkette çalışıyor."],
-    ["der", "Fisch", "Balık", "🐟", "Tümü", "Ich esse gern Fisch.", "Balık yemeyi severim."],
-    ["die", "Flasche", "Şişe", "🍾", "Tümü", "Eine Flasche Wasser, bitte.", "Bir şişe su lütfen."],
-    ["das", "Fleisch", "Et", "🥩", "Tümü", "Ich esse kein Fleisch.", "Et yemiyorum."],
-    ["das", "Flugzeug", "Uçak", "✈️", "Tümü", "Das Flugzeug fliegt nach Berlin.", "Uçak Berlin'e uçuyor."],
-    ["das", "Foto", "Fotoğraf", "📸", "Tümü", "Darf ich ein Foto machen?", "Fotoğraf çekebilir miyim?"],
-    ["die", "Frau", "Kadın", "👩", "Tümü", "Das ist Frau Müller.", "Bu Bayan Müller."],
-    ["der", "Freund", "Arkadaş", "🤝", "Tümü", "Er ist ein guter Freund.", "O iyi bir arkadaş."],
-    ["das", "Frühstück", "Kahvaltı", "🍳", "Tümü", "Das Frühstück ist fertig.", "Kahvaltı hazır."],
-    ["der", "Garten", "Bahçe", "🌳", "Tümü", "Wir haben einen großen Garten.", "Büyük bir bahçemiz var."],
-    ["das", "Geld", "Para", "💰", "Tümü", "Hast du genug Geld?", "Yeterince paran var mı?"],
-    ["das", "Gemüse", "Sebze", "🥕", "Tümü", "Gemüse ist gesund.", "Sebze sağlıklıdır."],
-    ["das", "Geschenk", "Hediye", "🎁", "Tümü", "Danke für das Geschenk!", "Hediye için teşekkürler!"],
-    ["das", "Glas", "Bardak", "🍷", "Tümü", "Ein Glas Wein, bitte.", "Bir kadeh şarap lütfen."],
-    ["die", "Hand", "El", "🖐️", "Tümü", "Was hast du in der Hand?", "Elinde ne var?"],
-    ["das", "Handy", "Cep telefonu", "📱", "Tümü", "Mein Handy ist aus.", "Telefonum kapalı."],
-    ["das", "Haus", "Ev", "🏠", "Tümü", "Wir wohnen in einem kleinen Haus.", "Küçük bir evde oturuyoruz."],
-    ["das", "Hotel", "Otel", "🏨", "Tümü", "Das Hotel ist sehr schön.", "Otel çok güzel."],
-    ["der", "Hund", "Köpek", "🐕", "Tümü", "Der Hund ist lieb.", "Köpek çok sevimli."],
-    ["die", "Karte", "Kart", "💳", "Tümü", "Ich zahle mit Karte.", "Kartla ödüyorum."],
-    ["die", "Kartoffel", "Patates", "🥔", "Tümü", "Ich mag Kartoffeln.", "Patates severim."],
-    ["die", "Kasse", "Kasa", "🛒", "Tümü", "Zahlen Sie bitte an der Kasse.", "Lütfen kasada ödeyin."],
-    ["das", "Kind", "Çocuk", "🧒", "Tümü", "Das Kind spielt.", "Çocuk oynuyor."],
-    ["das", "Kino", "Sinema", "🎬", "Tümü", "Wir gehen ins Kino.", "Sinemaya gidiyoruz."],
-    ["die", "Küche", "Mutfak", "🍳", "Tümü", "Die Küche ist modern.", "Mutfak modern."],
-    ["der", "Kuchen", "Pasta", "🍰", "Tümü", "Der Kuchen schmeckt gut.", "Pasta lezzetli."],
-    ["der", "Kühlschrank", "Buzdolabı", "🧊", "Tümü", "Die Milch ist im Kühlschrank.", "Süt buzdolabında."],
-    ["der", "Lehrer", "Öğretmen", "👨‍🏫", "Tümü", "Unser Lehrer ist nett.", "Öğretmenimiz nazik."],
-    ["das", "Licht", "Işık", "💡", "Tümü", "Mach bitte das Licht an.", "Işığı aç lütfen."],
-    ["der", "Mann", "Erkek", "👨", "Tümü", "Das ist mein Mann.", "Bu benim eşim."],
-    ["die", "Milch", "Süt", "🥛", "Tümü", "Ich trinke gern Milch.", "Süt içmeyi severim."],
-    ["das", "Obst", "Meyve", "🍎", "Tümü", "Obst ist gesund.", "Meyve sağlıklıdır."],
-    ["der", "Platz", "Yer", "📍", "Tümü", "Ist der Platz frei?", "Yer boş mu?"],
-    ["die", "Post", "Postane", "📮", "Tümü", "Ich muss zur Post.", "Postaneye gitmeliyim."],
-    ["der", "Saft", "Meyve suyu", "🧃", "Tümü", "Ein Glas Saft, bitte.", "Bir bardak meyve suyu lütfen."],
-    ["der", "Salat", "Salata", "🥗", "Tümü", "Der Salat ist frisch.", "Salata taze."],
-    ["das", "Salz", "Tuz", "🧂", "Tümü", "Wo ist das Salz?", "Tuz nerede?"],
-    ["der", "Schlüssel", "Anahtar", "🔑", "Tümü", "Ich habe meinen Schlüssel verloren.", "Anahtarımı kaybettim."],
-    ["der", "Schrank", "Dolap", "🚪", "Tümü", "Das Kleid ist im Schrank.", "Elbise dolapta."],
-    ["der", "Schuh", "Ayakkabı", "👟", "Tümü", "Meine Schuhe sind neu.", "Ayakkabılarım yeni."],
-    ["die", "Schule", "Okul", "🏫", "Tümü", "Die Schule beginnt um 8 Uhr.", "Okul 8'de başlıyor."],
-    ["die", "Schwester", "Kız kardeş", "👧", "Tümü", "Meine Schwester ist nett.", "Kız kardeşim çok tatlı."],
-    ["der", "Sohn", "Oğul", "👦", "Tümü", "Mein Sohn ist 10 Jahre alt.", "Oğlum 10 yaşında."],
-    ["die", "Stadt", "Şehir", "🏙️", "Tümü", "Berlin ist eine große Stadt.", "Berlin büyük bir şehir."],
-    ["der", "Tee", "Çay", "🍵", "Tümü", "Ich trinke gern Tee.", "Çay içmeyi severim."],
-    ["das", "Telefon", "Telefon", "☎️", "Tümü", "Mein Telefon klingelt.", "Telefonum çalıyor."],
-    ["der", "Tisch", "Masa", "🪑", "Tümü", "Das Buch liegt auf dem Tisch.", "Kitap masanın üzerinde."],
-    ["die", "Toilette", "Tuvalet", "🚽", "Tümü", "Wo ist die Toilette?", "Tuvalet nerede?"],
-    ["die", "Tomate", "Domates", "🍅", "Tümü", "Ich mag Tomaten.", "Domates severim."],
-    ["die", "Tür", "Kapı", "🚪", "Tümü", "Mach bitte die Tür zu.", "Kapıyı kapat lütfen."],
-    ["das", "Wasser", "Su", "💧", "Tümü", "Ich trinke Wasser.", "Su içiyorum."],
-    ["der", "Wein", "Şarap", "🍷", "Tümü", "Ein Glas Wein.", "Bir kadeh şarap."],
-    ["die", "Wohnung", "Daire", "🏠", "Tümü", "Meine Wohnung ist groß.", "Dairem büyük."],
-    ["die", "Zeitung", "Gazete", "📰", "Tümü", "Ich lese die Zeitung.", "Gazete okuyorum."],
-    ["das", "Zimmer", "Oda", "🛏️", "Tümü", "Mein Zimmer ist hell.", "Odam aydınlık."],
-    ["der", "Zug", "Tren", "🚆", "Tümü", "Der Zug kommt pünktlich.", "Tren vaktinde geliyor."],
-    ["der", "Anfang", "Başlangıç", "🏁", "Tümü", "Sie wohnt am Anfang der Straße.", "Sokağın başında oturuyor."],
-    ["die", "Aufgabe", "Görev", "📝", "Tümü", "Das ist eine schwere Aufgabe.", "Bu zor bir görev."],
-    ["der", "Ausflug", "Gezi", "🚌", "Tümü", "Morgen machen wir einen Ausflug.", "Yarın bir gezi yapacağız."],
-    ["die", "Auskunft", "Bilgi", "ℹ️", "Tümü", "Können Sie mir eine Auskunft geben?", "Bana bilgi verebilir misiniz?"],
-    ["der", "Ausweis", "Kimlik", "🆔", "Tümü", "Hier ist mein Ausweis.", "İşte kimliğim."],
-    ["der", "Vater", "Baba", "👨", "Tümü", "Mein Vater ist Arbeiter.", "Babam işçi."],
-    ["der", "Verein", "Dernek/Kulüp", "⚽", "Tümü", "Es gibt einen neuen Sportverein.", "Yeni bir spor kulübü var."],
-    ["die", "Welt", "Dünya", "🌍", "Tümü", "Es gibt viele Probleme auf der Welt.", "Dünyada çok sorun var."],
-    ["das", "Wetter", "Hava", "🌦️", "Tümü", "Wir hatten schlechtes Wetter.", "Kötü hava vardı."],
-    ["die", "Zigarette", "Sigara", "🚬", "Tümü", "Wie teuer sind die Zigaretten?", "Sigaralar ne kadar?"]
+const almancaKelimeler = [
+  ["-", "ab", "itibaren", "📅", "zaman", "Ab morgen muss ich arbeiten.", "Yarından itibaren çalışmak zorundayım."],
+
+  ["-", "aber", "ama", "⚖️", "bağlaç", "Ich bin oft im Büro, aber nur für wenige Stunden.", "Sık sık ofisteyim ama sadece birkaç saat."],
+
+  ["-", "abfahren", "hareket etmek", "🚌", "ulaşım", "Wir fahren um zwölf Uhr ab.", "Saat on ikide hareket ediyoruz."],
+
+  ["die", "Abfahrt", "kalkış", "🚉", "ulaşım", "Vor der Abfahrt rufe ich an.", "Hareketten önce ararım."],
+
+  ["-", "abgeben", "teslim etmek", "📦", "fiil", "Ich muss meine Schlüssel abgeben.", "Anahtarlarımı teslim etmeliyim."],
+
+  ["-", "abholen", "gidip almak", "🚗", "fiil", "Wann kann ich den Schrank bei dir abholen?", "Dolabı senden ne zaman alabilirim?"],
+
+  ["der", "Absender", "gönderen", "✉️", "posta", "Da ist ein Brief für dich ohne Absender.", "Gönderensiz bir mektup var."],
+
+  ["-", "Achtung", "dikkat", "⚠️", "uyarı", "Achtung! Das dürfen Sie nicht tun.", "Dikkat! Bunu yapamazsınız."],
+
+  ["die", "Adresse", "adres", "🏠", "iletişim", "Können Sie mir seine Adresse sagen?", "Bana onun adresini söyleyebilir misiniz?"],
+
+  ["-", "allein", "yalnız", "🚶", "sıfat", "Er kommt allein.", "O yalnız geliyor."],
+
+  ["-", "also", "yani", "➡️", "bağlaç", "Er hat Zeit, also muss er uns helfen.", "Vakti var, yani bize yardım etmeli."],
+
+  ["-", "alt", "yaşlı/eski", "👴", "sıfat", "Wie alt sind Sie?", "Kaç yaşındasınız?"],
+
+  ["das", "Alter", "yaş", "🎂", "kişisel", "Alter: 26 Jahre.", "Yaş: 26."],
+
+  ["-", "an", "yanında/-de", "📍", "edat", "Wir treffen uns am Bahnhof.", "Tren istasyonunda buluşuyoruz."],
+
+  ["-", "anbieten", "teklif etmek", "🤝", "fiil", "Was darf ich dir anbieten?", "Sana ne ikram edebilirim?"],
+
+  ["das", "Angebot", "teklif/indirim", "🏷️", "alışveriş", "Heute sind Sportschuhe im Angebot.", "Bugün spor ayakkabılar indirimde."],
+
+  ["-", "anfangen", "başlamak", "▶️", "fiil", "Der Unterricht fängt gleich an.", "Ders hemen başlıyor."],
+
+  ["der", "Anfang", "başlangıç", "🚩", "zaman", "Sie wohnt am Anfang der Straße.", "O sokağın başında oturuyor."],
+
+  ["-", "anklicken", "tıklamak", "🖱️", "teknoloji", "Da musst du dieses Wort anklicken.", "Bu kelimeye tıklamalısın."],
+
+  ["-", "ankommen", "varmak", "🚆", "ulaşım", "Wann kommt dieser Zug in Hamburg an?", "Bu tren Hamburg’a ne zaman varıyor?"],
+
+  ["die", "Ankunft", "varış", "🛬", "ulaşım", "Auf diesem Plan steht nur die Ankunftszeit der Züge.", "Bu planda sadece trenlerin varış saati yazıyor."],
+
+  ["-", "arbeiten", "çalışmak", "💼", "iş", "Wo arbeiten Sie?", "Nerede çalışıyorsunuz?"],
+
+  ["die", "Arbeit", "iş", "🛠️", "iş", "Mein Bruder sucht Arbeit.", "Kardeşim iş arıyor."],
+
+  ["der", "Arzt", "doktor", "👨‍⚕️", "sağlık", "Morgen habe ich einen Termin bei meiner Ärztin.", "Yarın doktor randevum var."],
+
+  ["das", "Auto", "araba", "🚗", "ulaşım", "Er kommt mit dem Auto.", "O arabayla geliyor."],
+
+  ["die", "Bäckerei", "fırın", "🥖", "alışveriş", "Ich geh mal schnell zur Bäckerei.", "Hızlıca fırına gidiyorum."],
+
+  ["der", "Bahnhof", "tren istasyonu", "🚉", "ulaşım", "Komme ich hier zum Bahnhof?", "Buradan istasyona gidilir mi?"],
+
+  ["die", "Banane", "muz", "🍌", "yiyecek", "Drei Bananen, bitte.", "Üç muz lütfen."],
+
+  ["die", "Bank", "banka/bank", "🏦", "mekan", "Die Bank schließt schon um vier Uhr.", "Banka saat dörtte kapanıyor."],
+
+  ["das", "Bett", "yatak", "🛏️", "ev", "Wir brauchen noch ein Kinderbett.", "Hâlâ bir çocuk yatağına ihtiyacımız var."],
+
+  ["das", "Bier", "bira", "🍺", "içecek", "Noch ein Bier bitte.", "Bir bira daha lütfen."],
+
+  ["der", "Brief", "mektup", "✉️", "posta", "Haben Sie einen Brief für mich?", "Benim için bir mektup var mı?"],
+
+  ["das", "Buch", "kitap", "📚", "eğitim", "Gute Bücher sind oft sehr teuer.", "İyi kitaplar genelde çok pahalıdır."],
+
+  ["der", "Bus", "otobüs", "🚌", "ulaşım", "Wann kommt der nächste Bus?", "Bir sonraki otobüs ne zaman geliyor?"],
+
+  ["das", "Café", "kafe", "☕", "mekan", "Sollen wir uns im Café treffen?", "Kafede buluşalım mı?"],
+
+  ["der", "Computer", "bilgisayar", "💻", "teknoloji", "Wann bekommst du deinen neuen Computer?", "Yeni bilgisayarını ne zaman alıyorsun?"],
+
+  ["das", "Datum", "tarih", "📅", "zaman", "Bitte schreiben Sie noch das Datum auf das Formular.", "Lütfen tarihi forma yazın."],
+
+  ["-", "danken", "teşekkür etmek", "🙏", "iletişim", "Ich danke Ihnen für die Einladung.", "Davetiniz için teşekkür ederim."],
+
+  ["die", "Disco", "disko", "🪩", "eğlence", "Heute Abend gehen wir in die Disco tanzen.", "Bu akşam diskoya dans etmeye gidiyoruz."],
+
+  ["-", "duschen", "duş almak", "🚿", "günlük hayat", "Ich dusche lieber.", "Duş almayı tercih ederim."],
+
+  ["die", "E-Mail", "e-posta", "📧", "iletişim", "Ich habe Ihre E-Mail nicht bekommen.", "E-postanızı almadım."],
+
+  ["das", "Essen", "yemek", "🍽️", "yiyecek", "Das Essen ist heute sehr gut.", "Bugünkü yemek çok güzel."],
+
+  ["die", "Familie", "aile", "👨‍👩‍👧", "aile", "Meine Familie lebt in Spanien.", "Ailem İspanya’da yaşıyor."],
+
+  ["das", "Foto", "fotoğraf", "📸", "medya", "Darf ich ein Foto machen?", "Fotoğraf çekebilir miyim?"],
+
+  ["die", "Freizeit", "boş zaman", "🎮", "günlük hayat", "In meiner Freizeit spiele ich oft Fußball.", "Boş zamanımda sık sık futbol oynarım."],
+
+  ["das", "Frühstück", "kahvaltı", "🥐", "yiyecek", "Möchtest du ein Ei zum Frühstück?", "Kahvaltıda yumurta ister misin?"],
+
+  ["der", "Fußball", "futbol", "⚽", "spor", "Spielt ihr gerne Fußball?", "Futbol oynamayı sever misiniz?"],
+
+  ["das", "Geld", "para", "💶", "finans", "Hast du noch Geld?", "Hâlâ paran var mı?"],
+
+  ["das", "Geschenk", "hediye", "🎁", "günlük hayat", "Danke für das schöne Geschenk.", "Güzel hediye için teşekkürler."],
+
+  ["das", "Glück", "şans/mutluluk", "🍀", "duygu", "Viel Glück!", "Bol şans!"],
+
+  ["-", "gratulieren", "kutlamak", "🎉", "iletişim", "Ich gratuliere dir!", "Seni kutluyorum!"],
+
+  ["das", "Handy", "cep telefonu", "📱", "teknoloji", "In der Schule bitte die Handys ausmachen!", "Lütfen okulda telefonları kapatın."],
+
+  ["das", "Haus", "ev", "🏠", "ev", "In welchem Haus wohnst du?", "Hangi evde oturuyorsun?"],
+
+  ["-", "heißen", "adı olmak", "🪪", "kişisel", "Ich heiße Charlotte Meier.", "Benim adım Charlotte Meier."],
+
+  ["das", "Hotel", "otel", "🏨", "seyahat", "Im Urlaub sind wir in einem Hotel am Meer.", "Tatilde deniz kenarında bir oteldeyiz."],
+
+  ["der", "Hund", "köpek", "🐶", "hayvan", "Der Hund ist noch jung.", "Köpek hâlâ genç."],
+
+  ["-", "interessieren", "ilgilenmek", "🤔", "fiil", "Ich interessiere mich für Musik.", "Müzikle ilgileniyorum."],
+
+  ["die", "Jacke", "ceket", "🧥", "giyim", "Zieh dir eine Jacke an.", "Üzerine bir ceket giy."],
+
+  ["der", "Job", "iş", "💼", "iş", "Jenny hat einen neuen Job bei der Post.", "Jenny postanede yeni bir iş buldu."],
+
+  ["der", "Kaffee", "kahve", "☕", "içecek", "Zum Frühstück trinke ich immer Kaffee.", "Kahvaltıda her zaman kahve içerim."],
+
+  ["die", "Karte", "kart", "🪪", "alışveriş", "Kann ich auch mit Karte bezahlen?", "Kartla da ödeyebilir miyim?"],
+
+  ["das", "Kind", "çocuk", "🧒", "aile", "Wie viele Kinder haben Sie?", "Kaç çocuğunuz var?"],
+
+  ["das", "Kino", "sinema", "🎬", "eğlence", "Wir sehen heute Abend im Kino einen schönen Film.", "Bu akşam sinemada güzel bir film izleyeceğiz."],
+
+  ["die", "Küche", "mutfak", "🍳", "ev", "Der neue Herd kommt in die Küche.", "Yeni ocak mutfağa geliyor."],
+
+  ["-", "lernen", "öğrenmek", "📖", "eğitim", "Wie lange lernen Sie schon Deutsch?", "Ne zamandır Almanca öğreniyorsunuz?"],
+
+  ["das", "Licht", "ışık", "💡", "ev", "Wo macht man hier das Licht an?", "Burada ışık nasıl açılıyor?"],
+
+  ["-", "machen", "yapmak", "🛠️", "fiil", "Was machst du heute Abend?", "Bu akşam ne yapıyorsun?"],
+
+  ["die", "Miete", "kira", "🏠", "ev", "Die Miete für diese Wohnung ist 600 Euro.", "Bu evin kirası 600 Euro."],
+
+  ["die", "Milch", "süt", "🥛", "içecek", "Die Milch steht im Kühlschrank.", "Süt buzdolabında."],
+
+  ["-", "müssen", "zorunda olmak", "❗", "modal fiil", "Ich muss jeden Tag arbeiten.", "Her gün çalışmak zorundayım."],
+
+  ["der", "Name", "isim", "🪪", "kişisel", "Mein Name ist Thomas Schmidt.", "Benim adım Thomas Schmidt."],
+
+  ["-", "nehmen", "almak", "🤲", "fiil", "Heute gibt es Hähnchen. Das nehme ich.", "Bugün tavuk var. Onu alıyorum."],
+
+  ["-", "öffnen", "açmak", "🚪", "fiil", "Ich öffne die Tür.", "Kapıyı açıyorum."],
+
+  ["die", "Party", "parti", "🎉", "eğlence", "Heute Abend machen wir eine Party.", "Bu akşam parti yapıyoruz."],
+
+  ["die", "Polizei", "polis", "👮", "meslek", "Holen Sie die Polizei!", "Polisi çağırın!"],
+
+  ["die", "Post", "posta", "📮", "iletişim", "Wo ist die Post?", "Postane nerede?"],
+
+  ["die", "Rechnung", "hesap/fatura", "🧾", "alışveriş", "Die Rechnung, bitte.", "Hesap lütfen."],
+
+  ["das", "Restaurant", "restoran", "🍽️", "mekan", "Wir essen heute in einem Restaurant.", "Bugün restoranda yemek yiyoruz."],
+
+  ["die", "Schule", "okul", "🏫", "eğitim", "Meine Tochter geht schon in die Schule.", "Kızım artık okula gidiyor."],
+
+  ["der", "Sport", "spor", "🏃", "spor", "Ich mache viel Sport.", "Çok spor yapıyorum."],
+
+  ["die", "Straße", "sokak", "🛣️", "şehir", "In welcher Straße wohnen Sie?", "Hangi sokakta oturuyorsunuz?"],
+
+  ["das", "Taxi", "taksi", "🚕", "ulaşım", "Er fährt mit dem Taxi.", "Taksiyle gidiyor."],
+
+  ["der", "Termin", "randevu", "📅", "iş", "Am besten machen wir sofort einen Termin.", "En iyisi hemen bir randevu yapalım."],
+
+  ["die", "Toilette", "tuvalet", "🚻", "mekan", "Wo ist die Toilette?", "Tuvalet nerede?"],
+
+  ["-", "trinken", "içmek", "🥤", "fiil", "Möchtest du etwas trinken?", "Bir şey içmek ister misin?"],
+
+  ["der", "Unterricht", "ders", "📚", "eğitim", "Wir haben Unterricht von 8 bis 12 Uhr.", "8 ile 12 arasında dersimiz var."],
+
+  ["der", "Urlaub", "tatil", "🏖️", "seyahat", "Ich nehme im September Urlaub.", "Eylülde tatile çıkıyorum."],
+
+  ["der", "Vater", "baba", "👨", "aile", "Mein Vater ist Arbeiter.", "Babam işçi."],
+
+  ["-", "verstehen", "anlamak", "🧠", "fiil", "Können Sie mich verstehen?", "Beni anlayabiliyor musunuz?"],
+
+  ["das", "Wetter", "hava durumu", "🌦️", "doğa", "Wir hatten schlechtes Wetter.", "Kötü hava vardı."],
+
+  ["-", "wohnen", "oturmak/yaşamak", "🏡", "ev", "Ich wohne in München.", "Münih’te oturuyorum."],
+
+  ["die", "Wohnung", "daire", "🏠", "ev", "Seit wann haben Sie diese Wohnung?", "Bu daireye ne zamandır sahipsiniz?"],
+
+  ["das", "Wort", "kelime", "🔤", "dil", "Ich kenne das Wort nicht.", "Bu kelimeyi bilmiyorum."],
+
+  ["die", "Zeit", "zaman", "⏰", "zaman", "Ich habe heute keine Zeit.", "Bugün vaktim yok."],
+
+  ["die", "Zeitung", "gazete", "📰", "medya", "Ich lese gern Zeitung.", "Gazete okumayı severim."],
+
+  ["das", "Zimmer", "oda", "🛏️", "ev", "Das Zimmer ist groß.", "Oda büyük."],
+
+  ["der", "Zug", "tren", "🚆", "ulaşım", "Ich fahre gern mit dem Zug.", "Trenle gitmeyi severim."],
+
+  ["-", "zusammen", "birlikte", "👫", "zarf", "Sollen wir zusammen essen gehen?", "Birlikte yemek yemeye gidelim mi?"],
+
+  ["-", "zwischen", "arasında", "↔️", "edat", "Heidelberg liegt zwischen Frankfurt und Stuttgart.", "Heidelberg, Frankfurt ile Stuttgart arasındadır."]
 ];
 
 function buildCats(){
