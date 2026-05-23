@@ -5,141 +5,128 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Goethe A1">
+<meta name="apple-mobile-web-app-title" content="Almanca A1">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0a0a14">
-<title>Goethe A1 — Alfabetik Kelime Kartları</title>
+<title>Almanca A1 — Kelime Kartları</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-:root{
-  --acc:#3B82F6;
-  --acc20:rgba(59,130,246,.35);
-  --acc33:rgba(59,130,246,.55);
-  --acc44:rgba(59,130,246,.70);
-  --acc50:rgba(59,130,246,.80);
-  --acc18:rgba(59,130,246,.25);
-  --acc22:rgba(59,130,246,.40);
-  --acc25:rgba(59,130,246,.45);
-  --badge:#2563EB;
-  --txt:#93C5FD;
-  --cbg:#142d4c;
-}
+:root{--acc:#3B82F6;--acc20:rgba(59,130,246,.2);--acc33:rgba(59,130,246,.33);--acc44:rgba(59,130,246,.44);--acc50:rgba(59,130,246,.5);--acc18:rgba(59,130,246,.18);--acc22:rgba(59,130,246,.22);--acc25:rgba(59,130,246,.25);--badge:#2563EB;--txt:#93C5FD;--cbg:#1a3a5c}
 html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:-apple-system,'SF Pro Display',BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
-#app{width:100%;height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+#app{width:100%;height:100svh;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
 #glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 0%,var(--acc18) 0%,transparent 65%);transition:background .25s}
 .w{position:relative;z-index:1;width:100%;max-width:430px}
 
 /* Install bar */
-#ibar{background:#ffffff12;border-bottom:1px solid #ffffff1a;padding:11px 14px;display:flex;align-items:center;gap:8px}
-#ibar span{color:#ffffffaa;font-size:12px;font-weight:500;flex:1}
-#ibar .ib{background:var(--acc20);border:1px solid var(--acc50);color:#fff;font-size:12px;font-weight:700;padding:5px 13px;border-radius:20px;cursor:pointer;font-family:inherit}
-#ibar .ix{background:none;border:none;color:#ffffff66;font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
+#ibar{background:#ffffff0a;border-bottom:1px solid #ffffff0d;padding:9px 14px;display:flex;align-items:center;gap:8px}
+#ibar span{color:#ffffff66;font-size:11.5px;flex:1}
+#ibar .ib{background:var(--acc20);border:1px solid var(--acc44);color:var(--txt);font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:20px;cursor:pointer;font-family:inherit}
+#ibar .ix{background:none;border:none;color:#ffffff33;font-size:15px;cursor:pointer;padding:0 2px;line-height:1}
 
 /* Header */
-#hdr{padding:14px 18px 8px;display:flex;align-items:center;justify-content:space-between}
-.tblock .sub{color:#ffffff66;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px}
-.tblock .ttl{color:#fff;font-size:22px;font-weight:800;letter-spacing:-.5px}
-.spill{background:#ffffff14;border:1px solid #ffffff22;border-radius:20px;padding:6px 14px;display:flex;gap:8px;align-items:center}
-.sk{color:#4ADE80;font-size:13px;font-weight:700}
-.su{color:#F87171;font-size:13px;font-weight:700}
-.ss{color:#ffffff33;font-size:12px}
+#hdr{padding:10px 18px 6px;display:flex;align-items:center;justify-content:space-between}
+.tblock .sub{color:#ffffff44;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:1px}
+.tblock .ttl{color:#fff;font-size:19px;font-weight:800;letter-spacing:-.5px}
+.spill{background:#ffffff0d;border:1px solid #ffffff10;border-radius:20px;padding:5px 11px;display:flex;gap:7px;align-items:center}
+.sk{color:#22C55E;font-size:12px;font-weight:700}
+.su{color:#EF4444;font-size:12px;font-weight:700}
+.ss{color:#ffffff22;font-size:11px}
 
-/* Alphabet Filter */
-#cscroll{overflow-x:auto;white-space:nowrap;padding:4px 16px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+/* Categories */
+#cscroll{overflow-x:auto;white-space:nowrap;padding:0 16px 7px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 #cscroll::-webkit-scrollbar{display:none}
-.cb{display:inline-block;padding:6px 14px;margin-right:6px;border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;border:1.5px solid #ffffff22;background:#ffffff0d;color:#ffffff99;font-family:inherit;transition:all 0.15s ease}
-.cb.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700;box-shadow:0 2px 8px var(--acc18)}
+.cb{display:inline-block;padding:5px 13px;margin-right:5px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid #ffffff12;background:#ffffff07;color:#ffffff77;font-family:inherit}
+.cb.on{background:var(--acc20);border-color:var(--acc50);color:#fff}
 
 /* Progress */
-#prog{padding:0 18px 10px}
-#prow{display:flex;justify-content:space-between;margin-bottom:5px}
-#plbl{color:#ffffff55;font-size:11.5px}
-#ppct{font-size:11.5px;font-weight:700;color:var(--txt)}
-#ptrack{height:4px;background:#ffffff14;border-radius:4px;overflow:hidden}
-#pfill{height:100%;border-radius:4px;transition:width .2s ease;background:var(--acc)}
+#prog{padding:0 18px 7px}
+#prow{display:flex;justify-content:space-between;margin-bottom:4px}
+#plbl{color:#ffffff33;font-size:11px}
+#ppct{font-size:11px;font-weight:700;color:var(--txt)}
+#ptrack{height:2.5px;background:#ffffff0e;border-radius:3px;overflow:hidden}
+#pfill{height:100%;border-radius:3px;transition:width .18s ease}
 
 /* Card */
-#carea{flex:1;padding:4px 18px;display:flex;flex-direction:column;justify-content:flex-start;min-height:0}
-#cwrap{width:100%;aspect-ratio:4/5.2;perspective:1200px;cursor:pointer;max-height:calc(100svh - 290px)}
-#cinner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .22s cubic-bezier(0.4, 0, 0.2, 1);will-change:transform;transform:translateZ(0)}
-#cinner.flip{transform:rotateY(180deg) translateZ(0)}
+#carea{flex:1;padding:0 18px;display:flex;flex-direction:column;justify-content:flex-start;min-height:0}
+#cwrap{width:100%;aspect-ratio:4/5.2;perspective:1200px;cursor:pointer;max-height:calc(100svh - 300px)}
+#cinner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .18s ease;will-change:transform}
+#cinner.flip{transform:rotateY(180deg)}
 .face{
   position:absolute;width:100%;height:100%;
   backface-visibility:hidden;-webkit-backface-visibility:hidden;
   border-radius:24px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:24px 22px;overflow:hidden;
+  padding:22px 20px;overflow:hidden;
 }
 #cf{
-  background:linear-gradient(155deg,var(--cbg) 0%,#080810 100%);
-  border:1.5px solid var(--acc50);
-  box-shadow:0 10px 40px var(--acc18),inset 0 1px 0 rgba(255,255,255,0.15);
-  gap:12px;
+  background:linear-gradient(155deg,var(--cbg) 0%,#0d0d1a 100%);
+  border:1px solid var(--acc33);
+  box-shadow:0 0 50px var(--acc18),inset 0 1px 0 var(--acc22);
+  gap:10px;
 }
 #cb{
   transform:rotateY(180deg);
-  background:linear-gradient(155deg,#121820 0%,#06060c 100%);
-  border:1.5px solid var(--acc50);
-  box-shadow:0 10px 45px var(--acc25),inset 0 1px 0 rgba(255,255,255,0.1);
-  justify-content:space-between;padding:22px 22px 18px;
+  background:linear-gradient(155deg,#0e1318 0%,#0a0a14 100%);
+  border:1px solid var(--acc44);
+  box-shadow:0 0 60px var(--acc25),inset 0 1px 0 var(--acc33);
+  justify-content:space-between;padding:20px 20px 16px;
 }
-.sdot{position:absolute;top:16px;right:16px;width:10px;height:10px;border-radius:50%;display:none}
-.sdot.k{background:#22C55E;box-shadow:0 0 10px #22C55E;display:block}
-.sdot.u{background:#EF4444;box-shadow:0 0 10px #EF4444;display:block}
+.sdot{position:absolute;top:15px;right:15px;width:8px;height:8px;border-radius:50%;display:none}
+.sdot.k{background:#22C55E;box-shadow:0 0 8px #22C55E;display:block}
+.sdot.u{background:#EF4444;box-shadow:0 0 8px #EF4444;display:block}
 
 /* Front */
-#fbadge{border-radius:30px;padding:6px 18px;font-size:13px;font-weight:800;letter-spacing:1.5px;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
-#femoji{font-size:72px;filter:blur(10px);opacity:.4;line-height:1;user-select:none;pointer-events:none}
-#fword{color:#fff;font-size:36px;font-weight:800;letter-spacing:-1px;text-align:center;line-height:1.15;text-shadow:0 2px 10px rgba(0,0,0,0.3);padding:0 10px;word-break:break-word}
-#ftip{position:absolute;bottom:16px;color:#ffffff55;font-size:12px;display:flex;align-items:center;gap:4px;font-weight:500}
+#fbadge{border-radius:30px;padding:5px 17px;font-size:15px;font-weight:700;letter-spacing:1px}
+#femoji{font-size:68px;filter:blur(14px);opacity:.3;line-height:1;user-select:none;pointer-events:none}
+#fword{color:#fff;font-size:38px;font-weight:800;letter-spacing:-1px;text-align:center;line-height:1.1}
+#ftip{position:absolute;bottom:14px;color:#ffffff2a;font-size:11px;display:flex;align-items:center;gap:4px}
 
 /* Back top */
-#btop{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;justify-content:center;width:100%}
-#bemoji{font-size:72px;line-height:1;filter:drop-shadow(0 4px 15px rgba(255,255,255,.15))}
-#btr{font-size:26px;font-weight:800;text-align:center;line-height:1.2;letter-spacing:-.3px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.4);padding:0 10px}
-#bde{color:var(--txt);font-size:15px;font-weight:600;background:rgba(255,255,255,0.06);padding:3px 10px;border-radius:8px}
-  
-#bleg{display:flex;gap:14px;align-items:center;margin-top:4px}
-.li{font-size:12px;display:flex;align-items:center;gap:5px}
-.ld{width:6px;height:6px;border-radius:50%;display:inline-block}
+#btop{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;justify-content:center;width:100%}
+#bemoji{font-size:72px;line-height:1;filter:drop-shadow(0 0 20px rgba(255,255,255,.12))}
+#btr{font-size:26px;font-weight:800;text-align:center;line-height:1.2;letter-spacing:-.3px;color:var(--txt)}
+#bde{color:#ffffff44;font-size:13px;font-weight:500}
+#bleg{display:flex;gap:12px;align-items:center}
+.li{font-size:11px;display:flex;align-items:center;gap:4px}
+.ld{width:5px;height:5px;border-radius:50%;display:inline-block}
 
-/* Sentence Area */
-#sblk{width:100%;border-top:1px solid #ffffff1a;padding-top:14px;display:flex;flex-direction:column;gap:6px}
-#sde{color:#ffffffdd;font-size:14.5px;line-height:1.5;text-align:center;font-weight:500}
-#sde b{color:var(--acc);font-weight:800}
-#str{color:#ffffff4d;font-size:12.5px;font-weight:400;text-align:center;line-height:1.4;padding:0 5px}
+/* Sentence */
+#sblk{width:100%;border-top:1px solid #ffffff0d;padding-top:11px;display:flex;flex-direction:column;gap:3px}
+#sde{color:#ffffffbb;font-size:13px;line-height:1.5;text-align:center}
+#sde b{color:#fff;font-weight:700}
+#str{color:#ffffff3a;font-size:12px;font-style:italic;text-align:center;line-height:1.4}
 
 /* Actions */
-#acts{padding:12px 18px;display:flex;gap:10px;width:100%;max-width:430px}
-.bnav{width:46px;height:48px;border-radius:14px;background:#ffffff14;border:1px solid #ffffff22;color:#ffffffcc;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:inherit;transition:background .1s;-webkit-user-select:none}
-.bnav:active{background:#ffffff25}
-.bact{flex:1;height:48px;border-radius:14px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;-webkit-user-select:none;transition:transform 0.1s, opacity .1s}
-.bact:active{transform:scale(0.97);opacity:0.9}
-#bunk{background:#EF4444;border:1px solid #EF4444;color:#fff;box-shadow:0 4px 12px rgba(239,68,68,0.25)}
-#bkno{background:#22C55E;border:1px solid #22C55E;color:#fff;box-shadow:0 4px 12px rgba(34,197,94,0.25)}
+#acts{padding:8px 18px 0;display:flex;gap:7px;width:100%;max-width:430px}
+.bnav{width:42px;height:46px;border-radius:13px;background:#ffffff09;border:1px solid #ffffff12;color:#ffffff66;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:inherit;transition:background .1s;-webkit-user-select:none}
+.bnav:active{background:#ffffff18}
+.bact{flex:1;height:46px;border-radius:13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:4px;-webkit-user-select:none;transition:opacity .1s}
+.bact:active{opacity:.7}
+.bno{background:#EF444410;border:1px solid #EF444425;color:#FCA5A5}
+.byes{background:#22C55E10;border:1px solid #22C55E25;color:#86EFAC}
 
 /* Legend */
-#leg{padding:6px 0 12px;display:flex;gap:16px;justify-content:center;z-index:1;position:relative}
-.ll{display:flex;align-items:center;gap:6px;font-size:12px;color:#ffffff66;font-weight:500}
-.lld{width:8px;height:8px;border-radius:50%}
+#leg{padding:8px 0 6px;display:flex;gap:14px;justify-content:center;z-index:1;position:relative}
+.ll{display:flex;align-items:center;gap:5px;font-size:11px;color:#ffffff3a}
+.lld{width:6px;height:6px;border-radius:50%}
 
 /* Install modal */
-#imod{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:#000000bb;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+#imod{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:#00000099;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 #imod.h{display:none}
-.mc{background:#161624;border-radius:24px 24px 0 0;padding:24px 20px;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));width:100%;max-width:430px;border:1px solid #ffffff1a;border-bottom:none}
-.mt{color:#fff;font-size:19px;font-weight:700;margin-bottom:4px}
-.ms{color:#ffffff77;font-size:14px;margin-bottom:18px}
-.ist{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
-.isn{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px var(--acc18)}
-.ist p{color:#ffffffdd;font-size:14px;line-height:1.5;padding-top:2px}
-.ist p b{color:#fff;font-weight:700}
-#imod hr{border:none;border-top:1px solid #ffffff1a;margin:16px 0}
-.wt{color:#ffffffaa;font-size:13px;font-weight:600;text-align:center;margin-bottom:12px}
-.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.wcard{background:#ffffff0d;border:1px solid #ffffff1a;border-radius:14px;padding:12px;text-align:center}
-.wcard .we{font-size:24px;margin-bottom:6px}
-.wcard .wl{color:#ffffffaa;font-size:11.5px;line-height:1.4}
-.mcl{width:100%;padding:14px;background:var(--acc);border:none;border-radius:14px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 12px var(--acc20)}
+.mc{background:#161624;border-radius:24px 24px 0 0;padding:22px 20px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));width:100%;max-width:430px;border:1px solid #ffffff13;border-bottom:none}
+.mt{color:#fff;font-size:17px;font-weight:700;margin-bottom:3px}
+.ms{color:#ffffff55;font-size:13px;margin-bottom:16px}
+.ist{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px}
+.isn{width:27px;height:27px;border-radius:50%;background:var(--acc20);border:1.5px solid var(--acc44);color:var(--txt);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ist p{color:#ffffffbb;font-size:13px;line-height:1.5;padding-top:3px}
+.ist p b{color:#fff}
+#imod hr{border:none;border-top:1px solid #ffffff0d;margin:14px 0}
+.wt{color:#ffffff88;font-size:12px;text-align:center;margin-bottom:10px}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.wcard{background:#ffffff08;border:1px solid #ffffff12;border-radius:14px;padding:10px 12px;text-align:center}
+.wcard .we{font-size:22px;margin-bottom:4px}
+.wcard .wl{color:#ffffff88;font-size:11px;line-height:1.4}
+.mcl{width:100%;padding:12px;background:#ffffff0d;border:1px solid #ffffff12;border-radius:13px;color:#ffffffbb;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
 </style>
 </head>
 <body>
@@ -154,8 +141,8 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
 
   <div id="hdr" class="w">
     <div class="tblock">
-      <div class="sub">Goethe Institut · A1</div>
-      <div class="ttl">Wortliste (A-Z)</div>
+      <div class="sub">Almanca · A1 · Goethe</div>
+      <div class="ttl">Kelime Kartları</div>
     </div>
     <div class="spill">
       <span class="sk" id="sk">✓ 0</span>
@@ -167,8 +154,8 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
   <div id="cscroll" class="w"></div>
 
   <div id="prog" class="w">
-    <div id="prow"><span id="plbl">0 / 0</span><span id="ppct">0%</span></div>
-    <div id="ptrack"><div id="pfill" style="width:0%"></div></div>
+    <div id="prow"><span id="plbl">1 / 100</span><span id="ppct">1%</span></div>
+    <div id="ptrack"><div id="pfill" style="width:1%"></div></div>
   </div>
 
   <div id="carea" class="w">
@@ -178,7 +165,7 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
           <div class="sdot" id="sd1"></div>
           <div id="fbadge"></div>
           <div id="femoji"></div>
-          <div id="fword">Yükleniyor...</div>
+          <div id="fword"></div>
           <div id="ftip">👆 Çevirmek için dokun</div>
         </div>
         <div class="face" id="cb">
@@ -200,8 +187,8 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
 
   <div id="acts">
     <button class="bnav" id="bprev">‹</button>
-    <button class="bact" id="bunk">✗ Bilmiyorum</button>
-    <button class="bact" id="bkno">✓ Biliyorum</button>
+    <button class="bact bno" id="bunk">✗ Bilmiyorum</button>
+    <button class="bact byes" id="bkno">✓ Biliyorum</button>
     <button class="bnav" id="bnxt">›</button>
   </div>
 
@@ -209,7 +196,7 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
     <div class="ll"><div class="lld" style="background:#3B82F6"></div>der</div>
     <div class="ll"><div class="lld" style="background:#EF4444"></div>die</div>
     <div class="ll"><div class="lld" style="background:#22C55E"></div>das</div>
-    <div class="ll"><div class="lld" style="background:#A78BFA"></div>diğer</div>
+    <div class="ll"><div class="lld" style="background:#A78BFA"></div>fiil/sıfat</div>
   </div>
 </div>
 
@@ -217,7 +204,7 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
   <div class="mc">
     <div class="mt">📲 Ana Ekrana Ekle</div>
     <div class="ms">İnternet olmadan, uygulama gibi kullan</div>
-    <div class="ist"><div class="isn">1</div><p>Bu sayfayı <b>Safari</b>'de aç<br><span style="color:#ffffff44;font-size:11px">Chrome'daysan: safaride açmayı unutma</span></p></div>
+    <div class="ist"><div class="isn">1</div><p>Bu sayfayı <b>Safari</b>'de aç<br><span style="color:#ffffff44;font-size:11px">Chrome'daysan: safari.com yazıp git</span></p></div>
     <div class="ist"><div class="isn">2</div><p>Alttaki <b>Paylaş</b> ↑ ikonuna dokun</p></div>
     <div class="ist"><div class="isn">3</div><p><b>"Ana Ekrana Ekle"</b> → <b>Ekle</b> — Bitti!</p></div>
     <hr>
@@ -231,7 +218,262 @@ html,body{width:100%;height:100%;background:#0a0a14;overflow:hidden;font-family:
 </div>
 
 <script>
-// Güvenli renk tanımlamaları
-const DATA_URL = "https://gist.githubusercontent.com/Saintcore-S/c745ee54b31be204f307e9dd53b10f53/raw/8421baaa0b8ce2bd255018651f53faa3d6f10a4b/kelimeler.json"; DATA_URL = "https://gist.githubusercontent.com/senin-kullanici-adin/12345/raw/6789/kelimeler.json"; AC={
-  der: {bg:"#11253c",acc:"#3B82F6",badge:"#2563EB",txt:"#93C5FD",a20:"rgba(59,130,246,.35)",a33:"rgba(59,130,246,.55)",a44:"rgba(59,130,246,.70)",a50:"rgba(59,130,246,.85)",a18:"rgba(59,130,246,.25)",a22:"rgba(59,130,246,.40)",a25:"rgba(59,130,246,.45)"},
-  die: {bg:"#361414",acc:"#EF4444",badge:"#DC2626",txt:"#FCA5A5",a20:"rgba(239,68,68,.35)",  a33:"rgba(239,68,68,.55)",  a44:"rgba(239,68,68,.70)",  a50:"rgba(239,68
+const AC={
+  der: {bg:"#1a3a5c",acc:"#3B82F6",badge:"#2563EB",txt:"#93C5FD",a20:"rgba(59,130,246,.2)",a33:"rgba(59,130,246,.33)",a44:"rgba(59,130,246,.44)",a50:"rgba(59,130,246,.5)",a18:"rgba(59,130,246,.18)",a22:"rgba(59,130,246,.22)",a25:"rgba(59,130,246,.25)"},
+  die: {bg:"#3d1a1a",acc:"#EF4444",badge:"#DC2626",txt:"#FCA5A5",a20:"rgba(239,68,68,.2)",  a33:"rgba(239,68,68,.33)",  a44:"rgba(239,68,68,.44)",  a50:"rgba(239,68,68,.5)",  a18:"rgba(239,68,68,.18)",  a22:"rgba(239,68,68,.22)",  a25:"rgba(239,68,68,.25)"},
+  das: {bg:"#1a3d2a",acc:"#22C55E",badge:"#16A34A",txt:"#86EFAC",a20:"rgba(34,197,94,.2)",  a33:"rgba(34,197,94,.33)",  a44:"rgba(34,197,94,.44)",  a50:"rgba(34,197,94,.5)",  a18:"rgba(34,197,94,.18)",  a22:"rgba(34,197,94,.22)",  a25:"rgba(34,197,94,.25)"},
+  null:{bg:"#1e1e2e",acc:"#A78BFA",badge:"#7C3AED",txt:"#C4B5FD",a20:"rgba(167,139,250,.2)",a33:"rgba(167,139,250,.33)",a44:"rgba(167,139,250,.44)",a50:"rgba(167,139,250,.5)",a18:"rgba(167,139,250,.18)",a22:"rgba(167,139,250,.22)",a25:"rgba(167,139,250,.25)"}
+};
+
+// [article|null, german, turkish, emoji, category, de_sentence, tr_sentence]
+const D=[
+["der","Mann","Adam, Erkek","👨","İnsanlar","Der Mann liest eine Zeitung.","Adam gazete okuyor."],
+["die","Frau","Kadın","👩","İnsanlar","Die Frau arbeitet im Büro.","Kadın ofiste çalışıyor."],
+["das","Kind","Çocuk","🧒","İnsanlar","Das Kind spielt im Garten.","Çocuk bahçede oynuyor."],
+["der","Vater","Baba","👨‍👧","İnsanlar","Mein Vater kocht heute Abend.","Babam bu akşam yemek pişiriyor."],
+["die","Mutter","Anne","👩‍👧","İnsanlar","Meine Mutter trinkt jeden Morgen Tee.","Annem her sabah çay içiyor."],
+["der","Bruder","Erkek Kardeş","👦","İnsanlar","Mein Bruder ist zwei Jahre jünger.","Erkek kardeşim iki yaş küçük."],
+["die","Schwester","Kız Kardeş","👧","İnsanlar","Meine Schwester wohnt in Wien.","Kız kardeşim Viyana'da oturuyor."],
+["der","Freund","Erkek Arkadaş","🤝","İnsanlar","Mein Freund kommt um acht Uhr.","Erkek arkadaşım saat sekizde geliyor."],
+["die","Freundin","Kız Arkadaş","👭","İnsanlar","Meine Freundin lernt Deutsch.","Kız arkadaşım Almanca öğreniyor."],
+["der","Arzt","Doktor (Erkek)","👨‍⚕️","İnsanlar","Der Arzt ist sehr freundlich.","Doktor çok dostane."],
+["das","Brot","Ekmek","🍞","Yemek","Das Brot ist frisch und warm.","Ekmek taze ve sıcak."],
+["das","Wasser","Su","💧","Yemek","Ich trinke täglich viel Wasser.","Her gün çok su içiyorum."],
+["der","Kaffee","Kahve","☕","Yemek","Der Kaffee ist heiß und stark.","Kahve sıcak ve sert."],
+["die","Milch","Süt","🥛","Yemek","Das Kind trinkt jeden Morgen Milch.","Çocuk her sabah süt içiyor."],
+["der","Apfel","Elma","🍎","Yemek","Der Apfel ist frisch und rot.","Elma taze ve kırmızı."],
+["das","Fleisch","Et","🥩","Yemek","Ich esse heute kein Fleisch.","Bugün et yemiyorum."],
+["der","Fisch","Balık","🐟","Yemek","Der Fisch schmeckt sehr gut.","Balık çok lezzetli."],
+["die","Suppe","Çorba","🍲","Yemek","Die Suppe ist warm und lecker.","Çorba sıcak ve lezzetli."],
+["der","Tee","Çay","🍵","Yemek","Ich trinke jeden Abend Tee.","Her akşam çay içiyorum."],
+["das","Ei","Yumurta","🥚","Yemek","Ich esse morgens ein Ei.","Sabahleyin bir yumurta yiyorum."],
+["das","Haus","Ev","🏠","Ev","Das Haus hat einen großen Garten.","Evin büyük bir bahçesi var."],
+["die","Wohnung","Daire","🏢","Ev","Meine Wohnung ist im dritten Stock.","Dairem üçüncü katta."],
+["das","Zimmer","Oda","🪟","Ev","Das Zimmer ist hell und sauber.","Oda aydınlık ve temiz."],
+["die","Küche","Mutfak","🍳","Ev","Die Küche ist modern und groß.","Mutfak modern ve büyük."],
+["das","Bett","Yatak","🛏️","Ev","Das Bett ist sehr bequem.","Yatak çok rahat."],
+["der","Tisch","Masa","🪑","Ev","Der Tisch steht im Wohnzimmer.","Masa oturma odasında duruyor."],
+["der","Stuhl","Sandalye","🪑","Ev","Der Stuhl ist leider kaputt.","Sandalye ne yazık ki kırık."],
+["das","Fenster","Pencere","🔲","Ev","Das Fenster ist heute offen.","Pencere bugün açık."],
+["die","Tür","Kapı","🚪","Ev","Bitte mach die Tür zu.","Lütfen kapıyı kapat."],
+["das","Telefon","Telefon","📱","Ev","Mein Telefon klingelt nicht.","Telefonum çalmıyor."],
+["die","Stadt","Şehir","🌆","Şehir","Die Stadt ist sehr laut.","Şehir çok gürültülü."],
+["die","Straße","Sokak, Cadde","🛣️","Şehir","Die Straße ist lang und breit.","Sokak uzun ve geniş."],
+["der","Bahnhof","Tren İstasyonu","🚉","Şehir","Der Bahnhof ist weit von hier.","Tren istasyonu buradan uzak."],
+["der","Bus","Otobüs","🚌","Şehir","Der Bus kommt in zehn Minuten.","Otobüs on dakikaya geliyor."],
+["das","Auto","Araba","🚗","Şehir","Das Auto ist neu und schnell.","Araba yeni ve hızlı."],
+["das","Fahrrad","Bisiklet","🚲","Şehir","Ich fahre täglich Fahrrad.","Her gün bisiklet sürüyorum."],
+["der","Zug","Tren","🚆","Şehir","Der Zug fährt um neun Uhr ab.","Tren saat dokuzda kalkıyor."],
+["das","Flugzeug","Uçak","✈️","Şehir","Das Flugzeug landet um drei Uhr.","Uçak saat üçte iniş yapıyor."],
+["die","Schule","Okul","🏫","Şehir","Die Schule beginnt um acht Uhr.","Okul saat sekizde başlıyor."],
+["das","Krankenhaus","Hastane","🏥","Şehir","Das Krankenhaus ist links um die Ecke.","Hastane solda köşede."],
+["der","Tag","Gün","☀️","Zaman","Heute ist ein schöner Tag.","Bugün güzel bir gün."],
+["die","Nacht","Gece","🌙","Zaman","Die Nacht ist kalt und still.","Gece soğuk ve sessiz."],
+["die","Woche","Hafta","📅","Zaman","Ich lerne drei Tage in der Woche.","Haftada üç gün öğreniyorum."],
+["der","Monat","Ay","🗓️","Zaman","Ich komme nächsten Monat.","Gelecek ay geliyorum."],
+["das","Jahr","Yıl","🎆","Zaman","Das Jahr geht schnell vorbei.","Yıl çabuk geçiyor."],
+["die","Stunde","Saat (süre)","⏰","Zaman","Wir warten schon eine Stunde.","Bir saattir bekliyoruz."],
+["die","Minute","Dakika","⏱️","Zaman","Bitte warte fünf Minuten.","Lütfen beş dakika bekle."],
+["der","Morgen","Sabah / Yarın","🌅","Zaman","Am Morgen trinke ich Kaffee.","Sabahleyin kahve içiyorum."],
+["der","Abend","Akşam","🌇","Zaman","Am Abend esse ich zu Hause.","Akşamları evde yemek yiyorum."],
+["das","Wochenende","Hafta Sonu","🎉","Zaman","Am Wochenende schlafe ich lange.","Hafta sonu uzun uyuyorum."],
+[null,"haben","Sahip olmak","🤲","Fiiller","Ich habe eine kleine Wohnung.","Küçük bir dairem var."],
+[null,"sein","Olmak","✨","Fiiller","Ich bin heute sehr müde.","Bugün çok yorgunum."],
+[null,"kommen","Gelmek","🚶","Fiiller","Woher kommst du?","Sen nerelisin?"],
+[null,"gehen","Gitmek","👟","Fiiller","Ich gehe jeden Tag spazieren.","Her gün yürüyüşe çıkıyorum."],
+[null,"machen","Yapmak","🔨","Fiiller","Was machst du am Wochenende?","Hafta sonu ne yapıyorsun?"],
+[null,"sprechen","Konuşmak","🗣️","Fiiller","Ich spreche ein bisschen Deutsch.","Biraz Almanca konuşuyorum."],
+[null,"essen","Yemek yemek","🍽️","Fiiller","Wir essen heute Pizza.","Bugün pizza yiyoruz."],
+[null,"trinken","İçmek","🥤","Fiiller","Trinkst du Kaffee oder Tee?","Kahve mi içersin, çay mı?"],
+[null,"wohnen","Yaşamak, Oturmak","🏡","Fiiller","Ich wohne seit zwei Jahren in Berlin.","İki yıldır Berlin'de yaşıyorum."],
+[null,"arbeiten","Çalışmak","💼","Fiiller","Sie arbeitet von neun bis fünf.","Dokuzdan beşe kadar çalışıyor."],
+[null,"lernen","Öğrenmek","📚","Fiiller","Er lernt jeden Tag neue Wörter.","Her gün yeni kelimeler öğreniyor."],
+[null,"kaufen","Satın almak","🛒","Fiiller","Ich kaufe Brot beim Bäcker.","Fırından ekmek satın alıyorum."],
+[null,"lesen","Okumak","📖","Fiiller","Sie liest jeden Abend ein Buch.","Her akşam kitap okuyor."],
+[null,"schreiben","Yazmak","✏️","Fiiller","Ich schreibe eine E-Mail.","E-posta yazıyorum."],
+[null,"hören","Duymak, Dinlemek","👂","Fiiller","Er hört gern Musik.","Müzik dinlemeyi sever."],
+[null,"groß","Büyük","📏","Sıfatlar","Das Haus ist sehr groß.","Ev çok büyük."],
+[null,"klein","Küçük","🔬","Sıfatlar","Das Kind ist noch klein.","Çocuk henüz küçük."],
+[null,"gut","İyi","👍","Sıfatlar","Das Essen hier ist wirklich gut.","Buradaki yemek gerçekten iyi."],
+[null,"schlecht","Kötü","👎","Sıfatlar","Heute ist das Wetter schlecht.","Bugün hava kötü."],
+[null,"schön","Güzel","🌸","Sıfatlar","Der Garten ist sehr schön.","Bahçe çok güzel."],
+[null,"neu","Yeni","✨","Sıfatlar","Ich habe ein neues Telefon.","Yeni bir telefon aldım."],
+[null,"alt","Eski, Yaşlı","🏛️","Sıfatlar","Das Gebäude ist sehr alt.","Bina çok eski."],
+[null,"billig","Ucuz","💰","Sıfatlar","Das Hotel ist günstig und billig.","Otel uygun ve ucuz."],
+[null,"teuer","Pahalı","💎","Sıfatlar","Das Restaurant ist sehr teuer.","Restoran çok pahalı."],
+[null,"schnell","Hızlı","⚡","Sıfatlar","Der Zug ist sehr schnell.","Tren çok hızlı."],
+[null,"Hallo","Merhaba","👋","İfadeler","Hallo! Wie geht es dir?","Merhaba! Nasılsın?"],
+[null,"Danke","Teşekkürler","🙏","İfadeler","Danke für deine Hilfe!","Yardımın için teşekkürler!"],
+[null,"Bitte","Lütfen / Rica ederim","😊","İfadeler","Kannst du mir bitte helfen?","Bana yardım eder misin lütfen?"],
+[null,"Entschuldigung","Özür dilerim, Affedersiniz","🙇","İfadeler","Entschuldigung, wie spät ist es?","Affedersiniz, saat kaç?"],
+[null,"Ja","Evet","✅","İfadeler","Ja, ich komme gern mit.","Evet, memnuniyetle gelirim."],
+[null,"Nein","Hayır","❌","İfadeler","Nein danke, ich bin satt.","Hayır teşekkürler, doydum."],
+[null,"Tschüss","Görüşürüz","👋","İfadeler","Tschüss, bis morgen!","Görüşürüz, yarına kadar!"],
+[null,"Guten Morgen","Günaydın","🌄","İfadeler","Guten Morgen! Haben Sie gut geschlafen?","Günaydın! İyi uyudunuz mu?"],
+[null,"Guten Abend","İyi akşamlar","🌆","İfadeler","Guten Abend, schön Sie zu sehen!","İyi akşamlar, sizi görmek güzel!"],
+[null,"Gute Nacht","İyi geceler","🌙","İfadeler","Gute Nacht und süße Träume!","İyi geceler ve tatlı rüyalar!"],
+[null,"rot","Kırmızı","🔴","Renkler","Die Ampel ist rot.","Trafik ışığı kırmızı."],
+[null,"blau","Mavi","🔵","Renkler","Der Himmel ist heute blau.","Gökyüzü bugün mavi."],
+[null,"grün","Yeşil","🟢","Renkler","Die Bäume sind im Sommer grün.","Yazın ağaçlar yeşil."],
+[null,"gelb","Sarı","🟡","Renkler","Die Banane ist gelb.","Muz sarı."],
+[null,"schwarz","Siyah","⚫","Renkler","Die Katze ist schwarz.","Kedi siyah."],
+[null,"weiß","Beyaz","⚪","Renkler","Der Schnee ist weiß und kalt.","Kar beyaz ve soğuk."],
+[null,"eins","Bir (1)","1️⃣","Sayılar","Ich habe nur einen Bruder.","Yalnızca bir erkek kardeşim var."],
+[null,"zwei","İki (2)","2️⃣","Sayılar","Wir haben zwei Kinder.","İki çocuğumuz var."],
+[null,"drei","Üç (3)","3️⃣","Sayılar","Ich warte seit drei Stunden.","Üç saattir bekliyorum."],
+[null,"zehn","On (10)","🔟","Sayılar","Ich bin in zehn Minuten da.","On dakikada orada olurum."],
+[null,"hundert","Yüz (100)","💯","Sayılar","Das kostet hundert Euro.","Bu yüz Euro tutuyor."],
+["die","Sonne","Güneş","☀️","Doğa","Die Sonne scheint heute schön.","Güneş bugün güzelce parlıyor."],
+["der","Regen","Yağmur","🌧️","Doğa","Der Regen macht die Straße nass.","Yağmur sokağı ıslak yapıyor."],
+["der","Schnee","Kar","❄️","Doğa","Im Winter gibt es hier Schnee.","Kışın burada kar yağıyor."],
+["das","Meer","Deniz","🌊","Doğa","Das Meer ist heute sehr ruhig.","Deniz bugün çok sakin."],
+];
+
+const words=D.map((r,i)=>({id:i,article:r[0],german:r[1],turkish:r[2],emoji:r[3],category:r[4],ds:r[5],ts:r[6]}));
+const cats=["Tümü",...[...new Set(words.map(w=>w.category))]];
+
+let S={cat:"Tümü",idx:0,flipped:false,known:new Set(),unknown:new Set(),list:words,tx:null};
+
+function cur(){return S.list[S.idx]||S.list[0]}
+function fl(id){return document.getElementById(id)}
+
+function applyColors(ac){
+  const r=document.documentElement.style;
+  r.setProperty("--acc",ac.acc);r.setProperty("--acc20",ac.a20);r.setProperty("--acc33",ac.a33);
+  r.setProperty("--acc44",ac.a44);r.setProperty("--acc50",ac.a50);r.setProperty("--acc18",ac.a18);
+  r.setProperty("--acc22",ac.a22);r.setProperty("--acc25",ac.a25);r.setProperty("--badge",ac.badge);
+  r.setProperty("--txt",ac.txt);r.setProperty("--cbg",ac.bg);
+  fl("glow").style.background=`radial-gradient(ellipse at 50% 0%,${ac.a18} 0%,transparent 65%)`;
+  fl("cf").style.cssText=`background:linear-gradient(155deg,${ac.bg} 0%,#0d0d1a 100%);border:1px solid ${ac.a33};box-shadow:0 0 50px ${ac.a18},inset 0 1px 0 ${ac.a22};gap:10px;`;
+  fl("cb").style.cssText=`transform:rotateY(180deg);background:linear-gradient(155deg,#0e1318 0%,#0a0a14 100%);border:1px solid ${ac.a44};box-shadow:0 0 60px ${ac.a25},inset 0 1px 0 ${ac.a33};justify-content:space-between;padding:20px 20px 16px;`;
+  fl("pfill").style.background=`linear-gradient(90deg,${ac.badge},${ac.acc})`;
+  fl("ppct").style.color=ac.txt;
+}
+
+function boldify(sentence,word){
+  if(!sentence)return"";
+  const esc=word.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  return sentence.replace(new RegExp("("+esc+")","gi"),"<b>$1</b>");
+}
+
+function render(){
+  const c=cur();
+  const ac=AC[c.article||"null"];
+  applyColors(ac);
+
+  // Front badge
+  const bd=fl("fbadge");
+  if(c.article){bd.style.cssText=`background:${ac.a20};border:1.5px solid ${ac.badge}88;color:${ac.txt};border-radius:30px;padding:5px 17px;font-size:15px;font-weight:700;letter-spacing:1px`;bd.textContent=c.article;}
+  else{bd.style.cssText=`background:#A78BFA22;border:1.5px solid #A78BFA44;color:#C4B5FD;border-radius:30px;padding:5px 17px;font-size:11px;font-weight:700;letter-spacing:2px`;bd.textContent=c.category.toUpperCase();}
+  fl("femoji").textContent=c.emoji;
+  fl("fword").textContent=c.article?c.article+" "+c.german:c.german;
+
+  // Back
+  fl("bemoji").textContent=c.emoji;
+  fl("btr").style.color=ac.txt;fl("btr").textContent=c.turkish;
+  fl("bde").textContent=c.article?c.article+" "+c.german:c.german;
+
+  const leg=fl("bleg");
+  if(c.article){
+    leg.style.display="flex";
+    leg.innerHTML=[["der","#3B82F6"],["die","#EF4444"],["das","#22C55E"]].map(([a,col])=>
+      `<div class="li" style="color:${a===c.article?col:"#ffffff22"};font-weight:${a===c.article?700:400}"><span class="ld" style="background:${col};opacity:${a===c.article?1:0.2}"></span>${a}</div>`
+    ).join("");
+  } else leg.style.display="none";
+
+  fl("sde").innerHTML=boldify(c.ds,c.german);
+  fl("str").textContent="("+c.ts+")";
+
+  // Status dots
+  const k=S.known.has(c.id),u=S.unknown.has(c.id);
+  ["sd1","sd2"].forEach(id=>{const d=fl(id);d.className="sdot"+(k?" k":u?" u":"");});
+
+  // Progress
+  const pct=Math.round((S.idx+1)/S.list.length*100);
+  fl("plbl").textContent=(S.idx+1)+" / "+S.list.length;
+  fl("ppct").textContent=pct+"%";
+  fl("pfill").style.width=pct+"%";
+
+  // Stats
+  fl("sk").textContent="✓ "+S.known.size;
+  fl("su").textContent="✗ "+S.unknown.size;
+
+  // Cat buttons
+  document.querySelectorAll(".cb").forEach(b=>{
+    const on=b.dataset.cat===S.cat;
+    b.classList.toggle("on",on);
+  });
+}
+
+function flip(){S.flipped=!S.flipped;fl("cinner").classList.toggle("flip",S.flipped);}
+
+function go(d){
+  S.idx=(S.idx+d+S.list.length)%S.list.length;
+  S.flipped=false;fl("cinner").classList.remove("flip");
+  render();
+}
+
+function markK(){S.known.add(cur().id);S.unknown.delete(cur().id);go(1);}
+function markU(){S.unknown.add(cur().id);S.known.delete(cur().id);go(1);}
+
+function setCat(cat){
+  S.cat=cat;S.list=cat==="Tümü"?words:words.filter(w=>w.category===cat);
+  S.idx=0;S.flipped=false;fl("cinner").classList.remove("flip");
+  render();
+}
+
+function buildCats(){
+  fl("cscroll").innerHTML=cats.map(cat=>
+    `<button class="cb${cat===S.cat?" on":""}" data-cat="${cat}" onclick="setCat('${cat.replace(/'/g,"\\'")}')">` +cat+"</button>"
+  ).join("");
+}
+
+// Touch handling
+const cw=fl("cwrap");
+let tx=null,moved=false;
+cw.addEventListener("touchstart",e=>{tx=e.touches[0].clientX;moved=false;},{passive:true});
+cw.addEventListener("touchmove",()=>{moved=true;},{passive:true});
+cw.addEventListener("touchend",e=>{
+  if(tx===null)return;
+  const diff=tx-e.changedTouches[0].clientX;
+  if(Math.abs(diff)>45&&moved){diff>0?go(1):go(-1);}
+  else if(!moved){flip();}
+  e.preventDefault();tx=null;moved=false;
+});
+cw.addEventListener("click",()=>{if(!moved)flip();});
+
+// Buttons
+fl("bprev").addEventListener("click",()=>go(-1));
+fl("bnxt").addEventListener("click",()=>go(1));
+fl("bkno").addEventListener("click",markK);
+fl("bunk").addEventListener("click",markU);
+
+// Keyboard
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight")go(1);
+  else if(e.key==="ArrowLeft")go(-1);
+  else if(e.key===" "){e.preventDefault();flip();}
+  else if(e.key==="k")markK();
+  else if(e.key==="u")markU();
+});
+
+function showI(){fl("imod").classList.remove("h");}
+function hideI(){fl("imod").classList.add("h");}
+function hideBar(){fl("ibar").style.display="none";}
+
+// Hide install bar if already standalone
+if(navigator.standalone||window.matchMedia("(display-mode:standalone)").matches){hideBar();}
+
+// PWA Manifest
+try{
+  const m={name:"Almanca A1 Kelimeler",short_name:"Almanca A1",start_url:".",display:"standalone",background_color:"#0a0a14",theme_color:"#0a0a14",orientation:"portrait",icons:[{src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a14'/%3E%3Ctext y='.85em' font-size='72' x='10'%3E%F0%9F%87%A9%F0%9F%87%AA%3C/text%3E%3C/svg%3E",sizes:"any",type:"image/svg+xml"}]};
+  const bl=new Blob([JSON.stringify(m)],{type:"application/manifest+json"});
+  const lk=document.createElement("link");lk.rel="manifest";lk.href=URL.createObjectURL(bl);
+  document.head.appendChild(lk);
+}catch(e){}
+
+// Init
+buildCats();render();
+</script>
+</body>
+</html>
